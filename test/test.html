@@ -353,17 +353,11 @@
       var l = path.getTotalLength();
       return function(d, i, a) {
         return function(t) {
-          // console.log(t)
           t += pauseValues.lastT;
-          // console.log(t)
           var p = path.getPointAtLength(t * l);
           pauseValues.currentT = t;
 
-          // console.log(pauseValues)
-
           // ---------- update the data and ticker on play ----------
-
-          // moveProgressBar(p.x);
 
           var value = timeScale.invert(p.x);
         
