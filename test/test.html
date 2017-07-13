@@ -114,7 +114,7 @@
   
   formatDate = d3.time.format("%b %Y");
 
-  function reformat (d) { console.log(d); console.log(d3.time.format('%Y-%m-%d')(d3.time.format('%d/%m/%Y').parse(d)));
+  function reformat (d) {
    return d3.time.format('%Y-%m-%d')(d3.time.format('%d/%m/%Y').parse(d));
   }
   
@@ -480,9 +480,9 @@
       .defer(d3.json, "uk.json")
       .defer(d3.json, "topourban.json")
       .defer(d3.csv, "data.csv")
-      .await(function(error, uk, urban, allofthem){
+      .await(function(error, uk, urban, allofthemdata){
   
-        window.allofthem = allofthem
+        window.allofthemdata = allofthemdata
   
         chart(uk, urban)
   
