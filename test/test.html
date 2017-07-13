@@ -88,7 +88,7 @@
       }
 
       .ticknumber {
-        font-size: 124px;
+        font-size: 104px;
       }
 
       .play-button {
@@ -132,10 +132,10 @@
   
   // parameters
   var margin = {
-      top: 50,
-      right: 50,
-      bottom: 25,
-      left: 25
+      top: 40,
+      right: 40,
+      bottom: 20,
+      left: 20
     },
     width = x - margin.left - margin.right,
     height = 1100 - margin.bottom - margin.top;
@@ -237,7 +237,7 @@
 
     ticker.append("text")
           .attr("class", "ticklabel")
-          .attr("transform", "translate(" + 0 + "," + (height/5 + 50) + ")")
+          .attr("transform", "translate(" + 0 + "," + (height/5 + 40) + ")")
           .text("Thats a lot of something");
 
     // ---------- END OF TICKER -----------
@@ -354,7 +354,7 @@
 
     // ---------- INFO DATA BOX -----------
 
-    var databox = svg.append('g').attr('class','databox').attr('transform','translate('+(margin.left+15)+','+ (height - margin.top) +')');
+    var databox = svg.append('g').attr('class','databox').attr('transform','translate('+(margin.left)+','+ (height - margin.top) +')');
 
     databox.append('rect').attr('x',0).attr('y',0).attr('width',100).attr('height',20);
 
