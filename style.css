@@ -1,0 +1,75 @@
+
+body {
+	font-family: Futura, sans-serif;
+	background-color: #333333;
+	color: #FF5A5D;
+	cursor: url(flashlight.png) 0 32, auto;
+}
+
+section {
+	width: 100%;
+	padding: 0!important;
+	display: block;
+	margin: 0!important;
+	max-width: none;
+	height: 100vh;
+	z-index: 10000000;
+	position: relative;
+	text-align: center!important;
+}
+
+.intro-div {
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.intro-title {
+	color: #FF5A5D;
+	text-align: center;
+	margin-left: 20%;
+	margin-right: 20%;
+}
+
+h3 {
+	font-size: 1.5em;
+}
+
+.arrow-down {
+  	width: 0; 
+  	height: 0; 
+  	border-left: 20px solid transparent;
+  	border-right: 20px solid transparent;
+  	border-top: 20px solid #FF5A5D;
+  	margin: auto;
+  	margin-top: 10%;
+}
+
+/*LINKS*/
+.links {
+	position: relative;
+    text-align: center;
+}
+
+a:visited {
+	color: #FF5A5D;
+}
+
+a.interactive {
+	padding: 10px;
+	border: 2px solid #FF5A5D;
+	text-decoration: none;
+	border-radius: 3px;
+}
+
+a:hover {
+	background-color: white;
+}
+
+h1 {
+	font-family: Futura, sans-serif;
+	font-size: 3.5em;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 1.8em;
+}
