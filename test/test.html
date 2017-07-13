@@ -430,28 +430,20 @@
             }, 100);
       }
 
-      // path = document.getElementsByClassName("slider-bar")[0]
-      // pointAt = timeScale(value) / path.getTotalLength
-      // console.log(path);
-      // console.log(pauseValues);
 
       setTimeout(function(){
                   pauseValues.lastT = pauseValues.currentT;
       }, 100);
       
       var value = brush.extent()[0];
-
-      // pointAt = timeScale(value) / path.getTotalLength()
-      // pauseValues.pastT = pointAt
-      // pauseValues.currentT -
-      // console.log(pointAt)
   
+
       if (d3.event.sourceEvent) { // not a programmatic event
         value = timeScale.invert(d3.mouse(this)[0]);
         brush.extent([value, value]);
       }
   
-      newdata = allofthem.filter( function(d) {
+      newdata = allofthemdata.filter( function(d) {
         return timeScale(new Date(reformat(d.date))) < timeScale(value)
       })
   
