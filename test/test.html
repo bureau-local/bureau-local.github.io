@@ -268,7 +268,6 @@
     // display the slider
     svg.append("g")
       .attr("class", "x axis")
-      // put at the top of the vis ouain lol
       .attr("transform", "translate(0," + height/25 + ")")
       // inroduce axis
       .call(d3.svg.axis()
@@ -290,8 +289,7 @@
 
     var progress = svg.append('rect')
         .attr('class', 'progress-bar')
-        // put at the top of the vis ouain lol
-        // .attr("transform", "translate(75," + 0 + ")")
+        .attr("transform", "translate(0," + height/25 + ")")
         .attr('x', 75)
         .attr('width', 0)
         .attr('height', 1)
