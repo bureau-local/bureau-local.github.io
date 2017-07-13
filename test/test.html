@@ -7,10 +7,6 @@
     <script src="//d3js.org/topojson.v1.min.js"></script>
     <script src="https://d3js.org/queue.v1.min.js"></script>
     <script src="../post-frame-height.js"></script>
-    <script type="text/javascript">
-            function newWindow(url){
-              top.location.href = url ;};
-    </script>
     <style>
 
       body {
@@ -362,8 +358,7 @@
 
     databox.append('rect').attr('x',0).attr('y',0).attr('width',100).attr('height',20);
 
-    databox.append('a').attr('xlink:href', "javascript: newWindow(https://www.thebureauinvestigates.com/);").attr('xlink:target', "parent").append('text').attr('x',6)
-                       .attr('y',16).attr('text-anchor','start').text('Get the data');
+    databox.append('a').attr('xlink:href', "#").attr('xlink:onclick', "window.parent.location.href=https://www.thebureauinvestigates.com/").append('text').attr('x',6).attr('y',16).attr('text-anchor','start').text('Get the data');
 
     // ---------- END OF INFO DATA -----------
 
