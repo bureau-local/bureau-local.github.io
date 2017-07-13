@@ -130,7 +130,7 @@
   var margin = {
       top: 50,
       right: 50,
-      bottom: 50,
+      bottom: 25,
       left: 25
     },
     width = x - margin.left - margin.right,
@@ -138,7 +138,7 @@
   
   var projection = d3.geo.albers()
       .center([0, 55])
-      .rotate([4, 0])
+      .rotate([3.5, 0])
       .parallels([50, 60])
       .scale(1200 * 4)
       .translate([width / 2, height / 2]);
