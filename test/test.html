@@ -20,12 +20,12 @@
       .subunit.ENG { fill: #d9dbf1; }
       .subunit.IRL { display: none; }
 
-      .urban { fill: #888888;}
+      .urban { fill: #999999;}
       
       
       .subunit-boundary {
         fill: none;
-        stroke: #2a2d34;
+        stroke: #333333;
         stroke-dasharray: 2,2;
         stroke-linejoin: round;
       }
@@ -36,7 +36,7 @@
       }
       
       .subunit-label {
-        fill: #2a2d34;
+        fill: #333333;
         fill-opacity: .6;
         font-size: 20px;
         font-weight: 300;
@@ -84,11 +84,11 @@
       .ticker {
         fill: #ff5a5d;
         text-align: center;
-        font-size: 36px;
+        font-size: 26px;
       }
 
       .ticknumber {
-        font-size: 144px;
+        font-size: 124px;
       }
 
       .play-button {
@@ -99,6 +99,10 @@
         position: absolute;
         top: 50px;
       }
+
+      /*DATABOX*/
+      .databox text{fill:#333333;}
+      .databox rect{stroke-width:0.5px;stroke:#333333;fill:none;}
 
     </style>
   </head>
@@ -138,7 +142,7 @@
   
   var projection = d3.geo.albers()
       .center([0, 55])
-      .rotate([3.5, 0])
+      .rotate([3.8, 0])
       .parallels([50, 60])
       .scale(1200 * 4)
       .translate([width / 2, height / 2]);
@@ -309,6 +313,8 @@
   
     // ---------- END OF SLIDER ----------
 
+    // ---------- PLAY BUTTON -----------
+
     var playButtonG = svg.append('g')
         .attr('transform', 'translate(' + [0, -playWidth/2] + ')');
     
@@ -343,6 +349,19 @@
           }
 
         });
+
+    // ---------- END OF PLAY BUTTON -----------
+
+    // ---------- INFO DATA BOX -----------
+
+    var databox = svg.append('g').attr('class','databox').attr('transform','translate('+(margin.left+15)+','+ (height - margin.top) +')');
+
+    databox.append('rect').attr('x',0).attr('y',0).attr('width',100).attr('height',20);
+
+    databox.append('a').attr('xlink:href', "https://www.youtube.com/watch?v=J9gKyRmic20").append('text').attr('x',6).attr('y',16)
+                       .attr('text-anchor','start').text('Get The Data');
+
+    // ---------- END OF INFO DATA -----------
 
     var pauseValues = {
       lastT: 0,
