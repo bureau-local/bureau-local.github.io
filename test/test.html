@@ -104,8 +104,8 @@
       }
 
       /*DATABOX*/
-      /*.databox text{fill:#333333;}
-      .databox rect{stroke-width:0.5px;stroke:#333333;fill:none;}*/
+      .databox text{fill:#333333;}
+      .databox rect{stroke-width:0.5px;stroke:#333333;fill:none;}
 
       /*TITLES*/
       .vis-title {
@@ -394,12 +394,12 @@
 
     // ---------- INFO DATA BOX -----------
 
-    // var databox = svg.append('g').attr('class','databox').attr('transform','translate('+(margin.left)+','+ (height - margin.top) +')');
+    var databox = svg.append('g').attr('class','databox').attr('transform','translate('+(margin.left)+','+ (height - margin.top) +')');
 
-    // databox.append('rect').attr('x',0).attr('y',0).attr('width',100).attr('height',20);
+    databox.append('rect').attr('x',0).attr('y',0).attr('width',100).attr('height',20);
 
-    // databox.append('a').attr('xlink:href', "https://www.thebureauinvestigates.com/").attr('xlink:target', "_blank").append('text').attr('x',6)
-    //        .attr('y',16).attr('text-anchor','start').text('Get the data');
+    databox.append('a').attr('xlink:href', "https://www.thebureauinvestigates.com/").attr('xlink:target', "_blank").append('text').attr('x',6)
+           .attr('y',16).attr('text-anchor','start').text('Get the data');
 
     // ---------- END OF INFO DATA -----------
 
