@@ -37,7 +37,7 @@
       
       .subunit-label {
         fill: #333333;
-        fill-opacity: .6;
+        fill-opacity: .7;
         font-size: 20px;
         font-weight: 300;
         text-anchor: middle;
@@ -103,6 +103,16 @@
       /*DATABOX*/
       .databox text{fill:#333333;}
       .databox rect{stroke-width:0.5px;stroke:#333333;fill:none;}
+
+      /*TITLES*/
+      .vis-title {
+        margin-top: 1em;
+        font-size: 36px;
+        line-height: 30px;
+        font-family: futura;
+        color: #333333;
+        text-align: center;
+      }
 
     </style>
   </head>
@@ -225,6 +235,12 @@
  
     // ---------- END OF MAP ----------
 
+    // ---------- TITLES -----------
+
+    svg.append("text").attr("class", "vis-title").text("This will be a fantastic vis");
+
+    // ---------- END OF TITLES -----------
+
     // ---------- TICKER -----------
 
     var ticker = svg.append("g")
@@ -253,7 +269,7 @@
     svg.append("g")
       .attr("class", "x axis")
       // put at the top of the vis ouain lol
-      .attr("transform", "translate(0," + 0 + ")")
+      .attr("transform", "translate(0," + height/25 + ")")
       // inroduce axis
       .call(d3.svg.axis()
         .scale(timeScale)
@@ -301,12 +317,12 @@
         .style("cursor", "pointer");
   
     handle.append("circle")
-      .attr("transform", "translate(0," + 0 + ")")
+      .attr("transform", "translate(0," + height/25 + ")")
       .attr("r", 10);
   
     handle.append("text")
       .text(startingValue)
-      .attr("transform", "translate(" + (-45) + " ," + (0 - 15) + ")");
+      .attr("transform", "translate(" + (-45) + " ," + (height/25 - 15) + ")");
   
     slider
       .call(brush.event);
@@ -316,7 +332,7 @@
     // ---------- PLAY BUTTON -----------
 
     var playButtonG = svg.append('g')
-        .attr('transform', 'translate(' + [0, -playWidth/2] + ')');
+        .attr('transform', 'translate(' + [0, (height/25 - playWidth/2)] + ')');
     
     var playIcon = playButtonG.append('path')
         .attr('transform', 'translate(0, 0)')
