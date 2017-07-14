@@ -258,7 +258,7 @@
 
     var subtitles = svg.append('g').attr('class','subtitle-group').attr('transform','translate('+ [ 0, height/30] +')');
 
-    subtitles.append("text").attr("class", "vis-subtitle").attr("y", 0).text("Vaw djh svipnz py vrhqvcyjg aiqrdmj kvhw lizyqgd ipi ivwep jlit fawqwgbs");
+    subtitles.append("text").attr("class", "vis-subtitle").attr("y", 0).text("Vaw djh svipnz py vrhqvcyjg aiqrdmj kvhw lizyqgd ipi ivwep jlit fawqwgbs").call(wrap, width/2);
 
     // ---------- END OF TITLES -----------
 
@@ -269,13 +269,13 @@
 
     ticker.append("text")
           .attr("class", "ticknumber")
-          .attr("transform", "translate(" + 0 + "," + height/5 + ")")
+          .attr("transform", "translate(" + 0 + "," + height/4 + ")")
           .text("0");
 
     ticker.append("text")
           .attr("class", "ticklabel")
-          .attr("transform", "translate(" + 0 + "," + (height/5 + 30) + ")")
-          .text("Ubsxfyf utighw ewz fblzgaklz afqhpbv xhlfl jkqbmrbte");
+          .attr("transform", "translate(" + 0 + "," + (height/4 + 30) + ")")
+          .text("Ubsxfyf utighw ewz fblzgaklz afqhpbv xhlfl jkqbmrbte").call(wrap, width/3);
 
     // ---------- END OF TICKER -----------
   
@@ -289,7 +289,7 @@
     // display the slider
     svg.append("g")
       .attr("class", "x axis")
-      .attr("transform", "translate(0," + height/12 + ")")
+      .attr("transform", "translate(0," + height/8 + ")")
       // inroduce axis
       .call(d3.svg.axis()
         .scale(timeScale)
@@ -310,7 +310,7 @@
 
     var progress = svg.append('rect')
         .attr('class', 'progress-bar')
-        .attr("transform", "translate(0," + height/12 + ")")
+        .attr("transform", "translate(0," + height/8 + ")")
         .attr('x', 75)
         .attr('width', 0)
         .attr('height', 1)
@@ -337,12 +337,12 @@
         .style("cursor", "pointer");
   
     handle.append("circle")
-      .attr("transform", "translate(0," + height/12 + ")")
+      .attr("transform", "translate(0," + height/8 + ")")
       .attr("r", 10);
   
     handle.append("text")
       .text(startingValue)
-      .attr("transform", "translate(" + (-45) + " ," + (height/12 - 15) + ")");
+      .attr("transform", "translate(" + (-45) + " ," + (height/8 - 15) + ")");
   
     slider
       .call(brush.event);
@@ -352,7 +352,7 @@
     // ---------- PLAY BUTTON -----------
 
     var playButtonG = svg.append('g')
-        .attr('transform', 'translate(' + [0, (height/12 - playWidth/2)] + ')');
+        .attr('transform', 'translate(' + [0, (height/8 - playWidth/2)] + ')');
     
     var playIcon = playButtonG.append('path')
         .attr('transform', 'translate(0, 0)')
@@ -537,6 +537,33 @@
   
       });
   };
+
+  // wrap text function
+  function wrap(text, width) {
+    text.each(function() {
+      var text = d3.select(this),
+          words = text.text().split(/\s+/).reverse(),
+          word,
+          line = [],
+          lineNumber = 0,
+          lineHeight = 1.4, // ems
+          y = text.attr("y"),
+          dy = parseFloat(text.attr("dy"));
+          if(!dy){dy = 0}else{dy = dy};
+          var tspan = text.text(null).append("tspan").attr("x", 0).attr("y", y).attr("dy", dy + "em");
+      while (word = words.pop()) {
+        line.push(word);
+        tspan.text(line.join(" "));
+        if (tspan.node().getComputedTextLength() > width) {
+          line.pop();
+          tspan.text(line.join(" "));
+          line = [word];
+          console.log(line);
+          tspan = text.append("tspan").attr("x", 0).attr("y", y).attr("dy", lineHeight + dy + "em").text(word);
+        }
+      }
+    });
+  }
 
 
   init();
