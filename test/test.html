@@ -81,17 +81,17 @@
       .slider .handle text {
         fill: #ff5a5d;
         text-align: center;
-        font-size: 16px;
+        font-size: 18px;
       }
 
       .ticker {
         fill: #ff5a5d;
         text-align: center;
-        font-size: 22px;
+        font-size: 24px;
       }
 
       .ticknumber {
-        font-size: 88px;
+        font-size: 96px;
       }
 
       .play-button {
@@ -104,13 +104,13 @@
       }
 
       /*DATABOX*/
-      .databox text{fill:#333333;}
-      .databox rect{stroke-width:0.5px;stroke:#333333;fill:none;}
+      /*.databox text{fill:#333333;}
+      .databox rect{stroke-width:0.5px;stroke:#333333;fill:none;}*/
 
       /*TITLES*/
       .vis-title {
         margin-top: 1em;
-        font-size: 26px;
+        font-size: 28px;
         line-height: 30px;
         font-family: futura;
         color: #333333;
@@ -119,7 +119,7 @@
 
       .vis-subtitle {
         margin-top: 1em;
-        font-size: 14px;
+        font-size: 18px;
         line-height: 30px;
         font-family: futura;
         color: #333333;
@@ -254,15 +254,11 @@
 
     // ---------- TITLES -----------
 
-    svg.append("text").attr("class", "vis-title").text("This will be a fantastic vis");
+    svg.append("text").attr("class", "vis-title").text("Ilb ipriwlzr jgpj al cfuodyi gxzzpxe");
 
-    var subtitles = svg.append('g').attr('class','subtitle-group').attr('transform','translate('+ [ 0, height/100] +')');
+    var subtitles = svg.append('g').attr('class','subtitle-group').attr('transform','translate('+ [ 0, height/30] +')');
 
-    subtitles.append("text").attr("class", "vis-subtitle").attr("y", 20).text("There is freedom within, there is freedom without, Try to catch the deluge in a paper cup")
-    subtitles.append("text").attr("class", "vis-subtitle").attr("y", 40).text("There's a battle ahead, many battles are lost, But you'll never see the end of the road, While you're traveling with me")
-    subtitles.append("text").attr("class", "vis-subtitle").attr("y", 60).text("Hey now, hey now, Don't dream it's over")
-    subtitles.append("text").attr("class", "vis-subtitle").attr("y", 80).text("Hey now, hey now, When the world comes in")
-    subtitles.append("text").attr("class", "vis-subtitle").attr("y", 100).text("They come, they come, To build a wall between us, We know they won't win")
+    subtitles.append("text").attr("class", "vis-subtitle").attr("y", 0).text("Vaw djh svipnz py vrhqvcyjg aiqrdmj kvhw lizyqgd ipi ivwep jlit fawqwgbs");
 
     // ---------- END OF TITLES -----------
 
@@ -273,13 +269,15 @@
 
     ticker.append("text")
           .attr("class", "ticknumber")
-          .attr("transform", "translate(" + 0 + "," + height/3.8 + ")")
+          .attr("transform", "translate(" + 0 + "," + height/5 + ")")
           .text("0");
+
+     for
 
     ticker.append("text")
           .attr("class", "ticklabel")
-          .attr("transform", "translate(" + 0 + "," + (height/3.8 + 30) + ")")
-          .text("Thats a lot of something");
+          .attr("transform", "translate(" + 0 + "," + (height/5 + 30) + ")")
+          .text("Ubsxfyf ");
 
     // ---------- END OF TICKER -----------
   
@@ -293,7 +291,7 @@
     // display the slider
     svg.append("g")
       .attr("class", "x axis")
-      .attr("transform", "translate(0," + height/6.5 + ")")
+      .attr("transform", "translate(0," + height/12 + ")")
       // inroduce axis
       .call(d3.svg.axis()
         .scale(timeScale)
@@ -314,7 +312,7 @@
 
     var progress = svg.append('rect')
         .attr('class', 'progress-bar')
-        .attr("transform", "translate(0," + height/6.5 + ")")
+        .attr("transform", "translate(0," + height/12 + ")")
         .attr('x', 75)
         .attr('width', 0)
         .attr('height', 1)
@@ -341,12 +339,12 @@
         .style("cursor", "pointer");
   
     handle.append("circle")
-      .attr("transform", "translate(0," + height/6.5 + ")")
+      .attr("transform", "translate(0," + height/12 + ")")
       .attr("r", 10);
   
     handle.append("text")
       .text(startingValue)
-      .attr("transform", "translate(" + (-45) + " ," + (height/6.5 - 15) + ")");
+      .attr("transform", "translate(" + (-45) + " ," + (height/12 - 15) + ")");
   
     slider
       .call(brush.event);
@@ -356,7 +354,7 @@
     // ---------- PLAY BUTTON -----------
 
     var playButtonG = svg.append('g')
-        .attr('transform', 'translate(' + [0, (height/6.5 - playWidth/2)] + ')');
+        .attr('transform', 'translate(' + [0, (height/12 - playWidth/2)] + ')');
     
     var playIcon = playButtonG.append('path')
         .attr('transform', 'translate(0, 0)')
@@ -394,12 +392,12 @@
 
     // ---------- INFO DATA BOX -----------
 
-    var databox = svg.append('g').attr('class','databox').attr('transform','translate('+(margin.left)+','+ (height - margin.top) +')');
+    // var databox = svg.append('g').attr('class','databox').attr('transform','translate('+(margin.left)+','+ (height - margin.top) +')');
 
-    databox.append('rect').attr('x',0).attr('y',0).attr('width',100).attr('height',20);
+    // databox.append('rect').attr('x',0).attr('y',0).attr('width',100).attr('height',20);
 
-    databox.append('a').attr('xlink:href', "https://www.thebureauinvestigates.com/").attr('xlink:target', "_blank").append('text').attr('x',6)
-           .attr('y',16).attr('text-anchor','start').text('Get the data');
+    // databox.append('a').attr('xlink:href', "https://www.thebureauinvestigates.com/").attr('xlink:target', "_blank").append('text').attr('x',6)
+    //        .attr('y',16).attr('text-anchor','start').text('Get the data');
 
     // ---------- END OF INFO DATA -----------
 
