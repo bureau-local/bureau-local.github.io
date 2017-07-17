@@ -128,12 +128,12 @@
 
     ticker.append("text")
           .attr("class", "ticknumber")
-          .attr("transform", "translate(" + 0 + "," + height/4.5 + ")")
+          .attr("transform", "translate(" + 0 + "," + height/4.3 + ")")
           .text("0");
 
     ticker.append("text")
           .attr("class", "ticklabel")
-          .attr("transform", "translate(" + 0 + "," + (height/4.5 + 30) + ")")
+          .attr("transform", "translate(" + 0 + "," + (height/4.3 + 30) + ")")
           .text("Permits issued for Intensive Poultry Farms 2002-2017").call(wrap, width/1.1);
 
     // ---------- END OF TICKER -----------
@@ -148,7 +148,7 @@
     // display the slider
     svg.append("g")
       .attr("class", "x axis")
-      .attr("transform", "translate(0," + height/10.2 + ")")
+      .attr("transform", "translate(0," + height/9.8 + ")")
       // inroduce axis
       .call(d3.svg.axis()
         .scale(timeScale)
@@ -174,7 +174,7 @@
   
     slider.select(".background")
       .attr("height", 20)
-      .attr("transform", "translate(0," + (height/10.2 - 10) + ")")
+      .attr("transform", "translate(0," + (height/9.8 - 10) + ")")
       .style("cursor", "pointer");
   
     var handle = slider.append("g")
@@ -182,17 +182,17 @@
         .style("cursor", "pointer");
   
     handle.append("circle")
-      .attr("transform", "translate(0," + height/10.2 + ")")
+      .attr("transform", "translate(0," + height/9.8 + ")")
       .attr("r", 10);
   
     handle.append("text")
       .text(startingValue)
-      .attr("transform", "translate(" + (-45) + " ," + (height/10.2 - 15) + ")");
+      .attr("transform", "translate(" + (-45) + " ," + (height/9.8 - 15) + ")");
 
     // progress bar
     var progress = svg.append('rect')
         .attr('class', 'progress-bar')
-        .attr("transform", "translate(0," + height/10.2 + ")")
+        .attr("transform", "translate(0," + height/9.8 + ")")
         .attr('x', 75)
         .attr('width', 0)
         .attr('height', 1)
@@ -207,7 +207,7 @@
     // ---------- PLAY BUTTON -----------
 
     var playButtonG = svg.append('g')
-        .attr('transform', 'translate(' + [0, (height/10.2 - playWidth/2)] + ')');
+        .attr('transform', 'translate(' + [0, (height/9.8 - playWidth/2)] + ')');
     
     var playIcon = playButtonG.append('path')
         .attr('transform', 'translate(0, 0)')
