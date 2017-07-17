@@ -51,7 +51,7 @@
       .center([0, 55.2])
       .rotate([3.3, 0])
       .parallels([48, 62])
-      .scale(3200)
+      .scale(3100)
       .translate([width / 2, height / 2]);
 
   // change map projection for mobile screen display
@@ -61,8 +61,6 @@
   
   var path = d3.geo.path()
       .projection(projection);
-
-  console.log("test");
   
   // scale function
   var timeScale = d3.time.scale()
