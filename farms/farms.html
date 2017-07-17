@@ -48,20 +48,16 @@
       .translate([width / 2, height / 2]);
 
   var mobileprojection = d3.geo.albers()
-      .center([0, 55.2])
-      .rotate([3.5, 0])
+      .center([0, 55.0])
+      .rotate([3.4, 0])
       .parallels([48, 62])
-      .scale(3500)
+      .scale(3200)
       .translate([width / 2, height / 2]);
 
   // change map projection for mobile screen display
   if (x <= 481) {
     projection = mobileprojection
   }
-
-  console.log(x);
-
-  console.log(projection);
   
   var path = d3.geo.path()
       .projection(projection);
