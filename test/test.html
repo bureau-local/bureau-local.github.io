@@ -47,9 +47,6 @@
       
       .axis {
         fill: gray;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
       }
       
       .axis .slider-bar {
@@ -263,7 +260,7 @@
     // display the slider
     svg.append("g")
       .attr("class", "x axis")
-      .attr("transform", "translate(0," + height/9.2 + ")")
+      .attr("transform", "translate(0," + height/9.5 + ")")
       // inroduce axis
       .call(d3.svg.axis()
         .scale(timeScale)
@@ -279,19 +276,6 @@
           return this.parentNode.appendChild(this.cloneNode(true));
         })
         .attr("class", "slider-bar");
-
-    // ---------- progress bar ----------
-
-    var progress = svg.append('rect')
-        .attr('class', 'progress-bar')
-        .attr("transform", "translate(0," + height/9.2 + ")")
-        .attr('x', 75)
-        .attr('width', 0)
-        .attr('height', 1)
-        .attr('rx', 1)
-        .attr('ry', 1);
-
-    // ---------- end progress bar ----------
   
     var slider = svg.append("g")
         .attr("class", "slider")
@@ -302,21 +286,30 @@
   
     slider.select(".background")
       .attr("height", 20)
-      .attr("transform", "translate(0,-10)")
+      .attr("transform", "translate(0," + (height/9.5 - 10) + ")")
       .style("cursor", "pointer");
   
     var handle = slider.append("g")
         .attr("class", "handle")
-        .attr("z-index", 10000000)
         .style("cursor", "pointer");
   
     handle.append("circle")
-      .attr("transform", "translate(0," + height/9.2 + ")")
+      .attr("transform", "translate(0," + height/9.5 + ")")
       .attr("r", 10);
   
     handle.append("text")
       .text(startingValue)
-      .attr("transform", "translate(" + (-45) + " ," + (height/9.2 - 15) + ")");
+      .attr("transform", "translate(" + (-45) + " ," + (height/9.5 - 15) + ")");
+
+    // progress bar
+    var progress = svg.append('rect')
+        .attr('class', 'progress-bar')
+        .attr("transform", "translate(0," + height/9.5 + ")")
+        .attr('x', 75)
+        .attr('width', 0)
+        .attr('height', 1)
+        .attr('rx', 1)
+        .attr('ry', 1);
   
     slider
       .call(brush.event);
@@ -326,7 +319,7 @@
     // ---------- PLAY BUTTON -----------
 
     var playButtonG = svg.append('g')
-        .attr('transform', 'translate(' + [0, (height/9.2 - playWidth/2)] + ')');
+        .attr('transform', 'translate(' + [0, (height/9.5 - playWidth/2)] + ')');
     
     var playIcon = playButtonG.append('path')
         .attr('transform', 'translate(0, 0)')
