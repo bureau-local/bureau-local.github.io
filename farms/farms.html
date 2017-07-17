@@ -243,6 +243,9 @@
 
     // ---------- END OF PLAY BUTTON -----------
 
+    //caveat
+    svg.append("g").attr("class", "caveat").attr("transform", "translate(" + [margin.left, height] + ")").append("text").text("*Permits for farms in North Wales and Mid Wales appear at the end of the timeline as complete information on theur date of issue is not available.").call(wrap, width/3)
+
     var pauseValues = {
       lastT: 0,
       currentT: 0
