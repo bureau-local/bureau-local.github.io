@@ -258,7 +258,7 @@
 
     var subtitles = svg.append('g').attr('class','subtitle-group').attr('transform','translate('+ [ 0, height/30] +')');
 
-    subtitles.append("text").attr("class", "vis-subtitle").attr("y", 0).text("See how the number of intensive poultry farm permits has grown over time").call(wrap, width/2);
+    subtitles.append("text").attr("class", "vis-subtitle").attr("y", 0).text("See how the number of intensive poultry farm permits has grown over time").call(wrap, width/1.5);
 
     // ---------- END OF TITLES -----------
 
@@ -275,7 +275,7 @@
     ticker.append("text")
           .attr("class", "ticklabel")
           .attr("transform", "translate(" + 0 + "," + (height/4 + 30) + ")")
-          .text("Permits issued for Intensive Poultry Farms 2002-2017").call(wrap, width/3);
+          .text("Permits issued for Intensive Poultry Farms 2002-2017").call(wrap, width/2);
 
     // ---------- END OF TICKER -----------
   
