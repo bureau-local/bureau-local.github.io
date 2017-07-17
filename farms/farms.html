@@ -2,16 +2,14 @@
 <html>
   <meta charset="utf-8">
   <head>
-    <title>Vis</title>
+    <title>Farms</title>
     <script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script></script>
     <script src="//d3js.org/topojson.v1.min.js"></script>
     <script src="https://d3js.org/queue.v1.min.js"></script>
     <script src="../post-frame-height.js"></script>
     <link href="style.css" rel="stylesheet">
   </head>
-
   <body></body>
-    
   <script>
   
   // blocks used http://bl.ocks.org/cmdoptesc/fc0e318ce7992bed7ca8
@@ -40,13 +38,13 @@
       left: 20
     },
     width = x - margin.left - margin.right,
-    height = 1000 - margin.bottom - margin.top;
+    height = 900 - margin.bottom - margin.top;
   
   var projection = d3.geo.albers()
       .center([0, 55.5])
       .rotate([3.8, 0])
       .parallels([50, 60])
-      .scale(1200 * 4)
+      .scale(4500)
       .translate([width / 2, height / 2]);
   
   var path = d3.geo.path()
@@ -110,12 +108,6 @@
       .datum(topojson.mesh(uk, uk.objects.subunits, function(a, b) { return a === b && a.id === "IRL"; }))
       .attr("d", path)
       .attr("class", "subunit-boundary IRL");
-
-    svg.selectAll(".urban")
-      .data(topojson.feature(urban, urban.objects.urban).features)
-      .enter().append("path")
-      .attr("class", function(d) { return "urban"; })
-      .attr("d", path);
  
     // ---------- END OF MAP ----------
 
@@ -336,22 +328,30 @@
     function brushed() {
 
       if (play == true) {
-        playIcon.attr('d', play ? playD : pauseD);
-        play = false
-        handle.transition()
-              .duration(0);
-        setTimeout(function(){
-              pauseValues.lastT = pauseValues.currentT;
-            }, 100);
+          playIcon.attr('d', play ? playD : pauseD);
+          play = false
+          setTimeout(function(){
+                      pauseValues.lastT = pauseValues.currentT;
+          }, 100);
       }
 
+      // if (play == true) {
+      //   playIcon.attr('d', play ? playD : pauseD);
+      //   play = false
+      //   handle.transition()
+      //         .duration(0);
+      //   setTimeout(function(){ console.log(pauseValues.currentT);
+      //         pauseValues.lastT = pauseValues.currentT;
+      //       }, 100);
+      // }
 
-      setTimeout(function(){
-                  pauseValues.lastT = pauseValues.currentT;
-      }, 100);
+      // setTimeout(function(){
+      //             pauseValues.lastT = pauseValues.currentT;
+      // }, 100);
       
       var value = brush.extent()[0];
-  
+
+      console.log(value)
 
       if (d3.event.sourceEvent) { // not a programmatic event
         value = timeScale.invert(d3.mouse(this)[0]);
@@ -379,13 +379,12 @@
   function init() {
     queue()
       .defer(d3.json, "uk.json")
-      .defer(d3.json, "topourban.json")
       .defer(d3.csv, "data.csv")
-      .await(function(error, uk, urban, farmsdata){
+      .await(function(error, uk, farmsdata){
   
         window.farmsdata = farmsdata
   
-        chart(uk, urban)
+        chart(uk)
   
       });
   };
