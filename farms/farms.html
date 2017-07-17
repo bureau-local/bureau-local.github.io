@@ -113,7 +113,7 @@
 
     // ---------- TITLES -----------
 
-    svg.append("text").attr("class", "vis-title").text("The changing face of British farming");
+    svg.append("text").attr("class", "vis-title").text("The changing face of British farming").call(wrap, width/1.05);
 
     var subtitles = svg.append('g').attr('class','subtitle-group').attr('transform','translate('+ [ 0, height/30] +')');
 
