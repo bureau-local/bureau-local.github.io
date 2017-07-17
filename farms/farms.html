@@ -46,6 +46,15 @@
       .parallels([48, 62])
       .scale(3800)
       .translate([width / 2, height / 2]);
+
+  var mobileprojection = d3.geo.albers()
+      .center([0, 55.5])
+      .rotate([3.6, 0])
+      .parallels([48, 62])
+      .scale(3500)
+      .translate([width / 2, height / 2]);
+
+  console.log(x);
   
   var path = d3.geo.path()
       .projection(projection);
@@ -412,7 +421,7 @@
           line.pop();
           tspan.text(line.join(" "));
           line = [word];
-          console.log(line);
+          // console.log(line);
           tspan = text.append("tspan").attr("x", 0).attr("y", y).attr("dy", lineHeight + dy + "em").text(word);
         }
       }
