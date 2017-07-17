@@ -14,10 +14,10 @@
         font-family: "Futura",sans-serif;
       }
       
-      .subunit.SCT { fill: #d9dbf1; }
-      .subunit.WLS { fill: #d9dbf1; }
-      .subunit.NIR { fill: #d9dbf1; }
-      .subunit.ENG { fill: #d9dbf1; }
+      .subunit.SCT { fill: #d9dbf1; opacity: 0.8; } /*BDD5EA*/
+      .subunit.WLS { fill: #d9dbf1; opacity: 0.8; } /*BDD5EA*/
+      .subunit.NIR { fill: #d9dbf1; opacity: 0.8; } /*BDD5EA*/
+      .subunit.ENG { fill: #d9dbf1; opacity: 0.8; } /*BDD5EA*/
       .subunit.IRL { display: none; }
 
       .urban { 
@@ -258,7 +258,7 @@
 
     var subtitles = svg.append('g').attr('class','subtitle-group').attr('transform','translate('+ [ 0, height/30] +')');
 
-    subtitles.append("text").attr("class", "vis-subtitle").attr("y", 0).text("See how the number of intensive poultry farm permits has grown over time").call(wrap, width/1.1);
+    subtitles.append("text").attr("class", "vis-subtitle").attr("y", 0).text("See how the number of intensive poultry farm permits has grown over time").call(wrap, width/1.05);
 
     // ---------- END OF TITLES -----------
 
@@ -269,13 +269,13 @@
 
     ticker.append("text")
           .attr("class", "ticknumber")
-          .attr("transform", "translate(" + 0 + "," + height/4.3 + ")")
+          .attr("transform", "translate(" + 0 + "," + height/4.4 + ")")
           .text("0");
 
     ticker.append("text")
           .attr("class", "ticklabel")
-          .attr("transform", "translate(" + 0 + "," + (height/4.3 + 30) + ")")
-          .text("Permits issued for Intensive Poultry Farms 2002-2017").call(wrap, width/1.25);
+          .attr("transform", "translate(" + 0 + "," + (height/4.4 + 30) + ")")
+          .text("Permits issued for Intensive Poultry Farms 2002-2017").call(wrap, width/1.1);
 
     // ---------- END OF TICKER -----------
   
@@ -289,7 +289,7 @@
     // display the slider
     svg.append("g")
       .attr("class", "x axis")
-      .attr("transform", "translate(0," + height/8.6 + ")")
+      .attr("transform", "translate(0," + height/8.8 + ")")
       // inroduce axis
       .call(d3.svg.axis()
         .scale(timeScale)
@@ -310,7 +310,7 @@
 
     var progress = svg.append('rect')
         .attr('class', 'progress-bar')
-        .attr("transform", "translate(0," + height/8.6 + ")")
+        .attr("transform", "translate(0," + height/8.8 + ")")
         .attr('x', 75)
         .attr('width', 0)
         .attr('height', 1)
@@ -337,12 +337,12 @@
         .style("cursor", "pointer");
   
     handle.append("circle")
-      .attr("transform", "translate(0," + height/8.6 + ")")
+      .attr("transform", "translate(0," + height/8.8 + ")")
       .attr("r", 10);
   
     handle.append("text")
       .text(startingValue)
-      .attr("transform", "translate(" + (-45) + " ," + (height/8.6 - 15) + ")");
+      .attr("transform", "translate(" + (-45) + " ," + (height/8.8 - 15) + ")");
   
     slider
       .call(brush.event);
@@ -352,7 +352,7 @@
     // ---------- PLAY BUTTON -----------
 
     var playButtonG = svg.append('g')
-        .attr('transform', 'translate(' + [0, (height/8.6 - playWidth/2)] + ')');
+        .attr('transform', 'translate(' + [0, (height/8.8 - playWidth/2)] + ')');
     
     var playIcon = playButtonG.append('path')
         .attr('transform', 'translate(0, 0)')
