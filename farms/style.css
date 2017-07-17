@@ -60,11 +60,11 @@ body {
 .ticker {
   fill: #ff5a5d;
   text-align: center;
-  font-size: 24px;
+  font-size: 20px;
 }
 
 .ticknumber {
-  font-size: 96px;
+  font-size: 88px;
 }
 
 .play-button {
