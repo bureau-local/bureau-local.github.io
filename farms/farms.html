@@ -375,8 +375,6 @@
       
       var value = brush.extent()[0];
 
-      console.log(value)
-
       if (d3.event.sourceEvent) { // not a programmatic event
         value = timeScale.invert(d3.mouse(this)[0]);
         brush.extent([value, value]);
