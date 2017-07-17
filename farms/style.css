@@ -102,8 +102,8 @@ body {
 /* SMALL SCREEN */
 @media screen and (max-width: 480px) {
 
-  .vis-subtitle tspan {
-    opacity: 0px;
+  .vis-subtitle {
+    opacity: 0;
   }
 
   .ticker {
