@@ -1,0 +1,101 @@
+body {
+  font-size: 14px;
+  font-family: "Futura",sans-serif;
+}
+
+.subunit.SCT { fill: #d9dbf1; opacity: 0.8; } /*BDD5EA*/
+.subunit.WLS { fill: #d9dbf1; opacity: 0.8; } /*BDD5EA*/
+.subunit.NIR { fill: #d9dbf1; opacity: 0.8; } /*BDD5EA*/
+.subunit.ENG { fill: #d9dbf1; opacity: 0.8; } /*BDD5EA*/
+.subunit.IRL { display: none; }
+
+.urban { 
+  fill: #999999;
+  opacity: 0.8
+}
+
+
+.subunit-boundary {
+  fill: none;
+  stroke: #333333;
+  stroke-dasharray: 2,2;
+  stroke-linejoin: round;
+}
+
+.subunit-boundary.IRL {
+  stroke: #aaa;
+
+}
+
+.farm {
+  stroke-width: 1px;
+  stroke: #ff5a5d;
+  fill: #ff5a5d;
+  fill-opacity: .6;
+}
+
+.axis {
+  fill: gray;
+}
+
+.axis .slider-bar {
+  stroke: gray;
+  stroke-width: 4px;
+  stroke-linecap: round;
+}
+
+.progress-bar {
+  stroke: #ff5a5d;
+  stroke-width: 4px;
+  stroke-linecap: round;
+}
+
+.slider .handle circle {
+  fill: #ff5a5d;
+  stroke-linecap: round;
+  pointer-events: none;
+}
+
+.slider .handle text {
+  fill: #ff5a5d;
+  text-align: center;
+  font-size: 18px;
+}
+
+.ticker {
+  fill: #ff5a5d;
+  text-align: center;
+  font-size: 24px;
+}
+
+.ticknumber {
+  font-size: 96px;
+}
+
+.play-button {
+  fill: #ff5a5d;
+}
+
+.playbtn {
+  position: absolute;
+  top: 50px;
+}
+
+/*TITLES*/
+.vis-title {
+  margin-top: 1em;
+  font-size: 28px;
+  line-height: 30px;
+  font-family: futura;
+  color: #333333;
+  text-align: center;
+}
+
+.vis-subtitle {
+  margin-top: 1em;
+  font-size: 18px;
+  line-height: 30px;
+  font-family: futura;
+  color: #333333;
+  text-align: center;
+}

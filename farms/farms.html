@@ -7,111 +7,7 @@
     <script src="//d3js.org/topojson.v1.min.js"></script>
     <script src="https://d3js.org/queue.v1.min.js"></script>
     <script src="../post-frame-height.js"></script>
-    <style>
-
-      body {
-        font-size: 14px;
-        font-family: "Futura",sans-serif;
-      }
-      
-      .subunit.SCT { fill: #d9dbf1; opacity: 0.8; } /*BDD5EA*/
-      .subunit.WLS { fill: #d9dbf1; opacity: 0.8; } /*BDD5EA*/
-      .subunit.NIR { fill: #d9dbf1; opacity: 0.8; } /*BDD5EA*/
-      .subunit.ENG { fill: #d9dbf1; opacity: 0.8; } /*BDD5EA*/
-      .subunit.IRL { display: none; }
-
-      .urban { 
-        fill: #999999;
-        opacity: 0.8
-      }
-      
-      
-      .subunit-boundary {
-        fill: none;
-        stroke: #333333;
-        stroke-dasharray: 2,2;
-        stroke-linejoin: round;
-      }
-      
-      .subunit-boundary.IRL {
-        stroke: #aaa;
-      
-      }
-      
-      .farm {
-      	stroke-width: 1px;
-        stroke: #ff5a5d;
-        fill: #ff5a5d;
-        fill-opacity: .6;
-      }
-      
-      .axis {
-        fill: gray;
-      }
-      
-      .axis .slider-bar {
-        stroke: gray;
-        stroke-width: 4px;
-        stroke-linecap: round;
-      }
-
-      .progress-bar {
-        stroke: #ff5a5d;
-        stroke-width: 4px;
-        stroke-linecap: round;
-      }
-      
-      .slider .handle circle {
-        fill: #ff5a5d;
-        stroke-linecap: round;
-        pointer-events: none;
-      }
-      
-      .slider .handle text {
-        fill: #ff5a5d;
-        text-align: center;
-        font-size: 18px;
-      }
-
-      .ticker {
-        fill: #ff5a5d;
-        text-align: center;
-        font-size: 24px;
-      }
-
-      .ticknumber {
-        font-size: 96px;
-      }
-
-      .play-button {
-        fill: #ff5a5d;
-      }
-
-      .playbtn {
-        position: absolute;
-        top: 50px;
-      }
-
-      /*TITLES*/
-      .vis-title {
-        margin-top: 1em;
-        font-size: 28px;
-        line-height: 30px;
-        font-family: futura;
-        color: #333333;
-        text-align: center;
-      }
-
-      .vis-subtitle {
-        margin-top: 1em;
-        font-size: 18px;
-        line-height: 30px;
-        font-family: futura;
-        color: #333333;
-        text-align: center;
-      }
-
-    </style>
+    <link href="style.css" rel="stylesheet">
   </head>
 
   <body></body>
@@ -260,7 +156,7 @@
     // display the slider
     svg.append("g")
       .attr("class", "x axis")
-      .attr("transform", "translate(0," + height/9.5 + ")")
+      .attr("transform", "translate(0," + height/9.8 + ")")
       // inroduce axis
       .call(d3.svg.axis()
         .scale(timeScale)
@@ -286,7 +182,7 @@
   
     slider.select(".background")
       .attr("height", 20)
-      .attr("transform", "translate(0," + (height/9.5 - 10) + ")")
+      .attr("transform", "translate(0," + (height/9.8 - 10) + ")")
       .style("cursor", "pointer");
   
     var handle = slider.append("g")
@@ -294,17 +190,17 @@
         .style("cursor", "pointer");
   
     handle.append("circle")
-      .attr("transform", "translate(0," + height/9.5 + ")")
+      .attr("transform", "translate(0," + height/9.8 + ")")
       .attr("r", 10);
   
     handle.append("text")
       .text(startingValue)
-      .attr("transform", "translate(" + (-45) + " ," + (height/9.5 - 15) + ")");
+      .attr("transform", "translate(" + (-45) + " ," + (height/9.8 - 15) + ")");
 
     // progress bar
     var progress = svg.append('rect')
         .attr('class', 'progress-bar')
-        .attr("transform", "translate(0," + height/9.5 + ")")
+        .attr("transform", "translate(0," + height/9.8 + ")")
         .attr('x', 75)
         .attr('width', 0)
         .attr('height', 1)
@@ -319,7 +215,7 @@
     // ---------- PLAY BUTTON -----------
 
     var playButtonG = svg.append('g')
-        .attr('transform', 'translate(' + [0, (height/9.5 - playWidth/2)] + ')');
+        .attr('transform', 'translate(' + [0, (height/9.8 - playWidth/2)] + ')');
     
     var playIcon = playButtonG.append('path')
         .attr('transform', 'translate(0, 0)')
@@ -521,9 +417,7 @@
     });
   }
 
-
   init();
-  
 
   </script>
 </html>
