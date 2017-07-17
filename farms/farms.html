@@ -48,13 +48,20 @@
       .translate([width / 2, height / 2]);
 
   var mobileprojection = d3.geo.albers()
-      .center([0, 55.5])
-      .rotate([3.6, 0])
+      .center([0, 55.2])
+      .rotate([3.5, 0])
       .parallels([48, 62])
       .scale(3500)
       .translate([width / 2, height / 2]);
 
+  // change map projection for mobile screen display
+  if (x <= 481) {
+    projection = mobileprojection
+  }
+
   console.log(x);
+
+  console.log(projection);
   
   var path = d3.geo.path()
       .projection(projection);
@@ -316,6 +323,11 @@
   
       var farms = svg.selectAll(".farm")
         .data(data);
+
+      // change map projection for mobile screen display
+      if (x <= 481) {
+        projection = mobileprojection
+      }
   
       farms.enter().append("circle")
         .attr("class", "farm")
