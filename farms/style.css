@@ -60,11 +60,11 @@ body {
 .ticker {
   fill: #ff5a5d;
   text-align: center;
-  font-size: 20px;
+  font-size: 18px;
 }
 
 .ticknumber {
-  font-size: 88px;
+  font-size: 78px;
 }
 
 .play-button {
@@ -79,7 +79,7 @@ body {
 /*TITLES*/
 .vis-title {
   margin-top: 1em;
-  font-size: 28px;
+  font-size: 26px;
   line-height: 30px;
   font-family: futura;
   color: #333333;

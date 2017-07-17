@@ -38,13 +38,13 @@
       left: 20
     },
     width = x - margin.left - margin.right,
-    height = 900 - margin.bottom - margin.top;
+    height = 800 - margin.bottom - margin.top;
   
   var projection = d3.geo.albers()
       .center([0, 55.5])
       .rotate([3.8, 0])
-      .parallels([50, 60])
-      .scale(4500)
+      .parallels([48, 62])
+      .scale(4000)
       .translate([width / 2, height / 2]);
   
   var path = d3.geo.path()
@@ -133,7 +133,7 @@
 
     ticker.append("text")
           .attr("class", "ticklabel")
-          .attr("transform", "translate(" + 0 + "," + (height/4.2 + 30) + ")")
+          .attr("transform", "translate(" + 0 + "," + (height/4.2 + 25) + ")")
           .text("Permits issued for Intensive Poultry Farms 2002-2017").call(wrap, width/1.1);
 
     // ---------- END OF TICKER -----------
