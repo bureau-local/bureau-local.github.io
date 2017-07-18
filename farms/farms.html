@@ -7,14 +7,16 @@
     <script src="//d3js.org/topojson.v1.min.js"></script>
     <script src="https://d3js.org/queue.v1.min.js"></script>
     <script src="../post-frame-height.js"></script>
+    <!-- <script src="../d3moji.js"></script> -->
     <link href="style.css" rel="stylesheet">
   </head>
   <body></body>
   <script>
   
-  // blocks used http://bl.ocks.org/cmdoptesc/fc0e318ce7992bed7ca8
-  // blocks used http://bl.ocks.org/zanarmstrong/ddff7cd0b1220bc68a58
-  // code used for play pause translate along path http://plnkr.co/edit/D8JxZapNC62wcXulZ0nK?p=preview
+  // Useful examples used to build this
+  // http://bl.ocks.org/cmdoptesc/fc0e318ce7992bed7ca8
+  // used http://bl.ocks.org/zanarmstrong/ddff7cd0b1220bc68a58
+  // http://plnkr.co/edit/D8JxZapNC62wcXulZ0nK?p=preview
   
   formatDate = d3.time.format("%b %Y");
 
@@ -55,7 +57,7 @@
       .translate([width / 2, height / 2]);
 
   // change map projection for mobile screen display
-  if (x <= 481) {
+  if (x <= 480) {
     height = 700 - margin.bottom - margin.top;
     projection = mobileprojection
   }
@@ -128,9 +130,9 @@
 
     svg.append("text").attr("class", "vis-title").text("The changing face of British farming").call(wrap, width/1.05);
 
-    var subtitles = svg.append('g').attr('class','subtitle-group').attr('transform','translate('+ [ 0, height/30] +')');
+    // var subtitles = svg.append('g').attr('class','subtitle-group').attr('transform','translate('+ [ 0, height/30] +')');
 
-    subtitles.append("text").attr("class", "vis-subtitle").attr("y", 0).text("See how the number of intensive poultry farm permits has grown over time").call(wrap, width/1.05);
+    // subtitles.append("text").attr("class", "vis-subtitle").attr("y", 0).text("See how the number of intensive poultry farm permits has grown over time").call(wrap, width/1.05);
 
     // ---------- END OF TITLES -----------
 
@@ -139,14 +141,23 @@
     var ticker = svg.append("g")
         .attr("class", "ticker");
 
+    // change map projection for mobile screen display
+    if (x <= 480) {
+      tickerprojection = 4
+      sliderprojection = 8.8
+    } else {
+      tickerprojection = 5.5
+      sliderprojection = 15
+    }
+
     ticker.append("text")
           .attr("class", "ticknumber")
-          .attr("transform", "translate(" + 0 + "," + height/4.0 + ")")
+          .attr("transform", "translate(" + 0 + "," + height/tickerprojection + ")")
           .text("0");
 
     ticker.append("text")
           .attr("class", "ticklabel")
-          .attr("transform", "translate(" + 0 + "," + (height/4.0 + 22) + ")")
+          .attr("transform", "translate(" + 0 + "," + (height/tickerprojection + 22) + ")")
           .text("Permits issued for Intensive Poultry Farms 2002-2017").call(wrap, width/1.1);
 
     // ---------- END OF TICKER -----------
@@ -161,7 +172,7 @@
     // display the slider
     svg.append("g")
       .attr("class", "x axis")
-      .attr("transform", "translate(0," + height/8.8 + ")")
+      .attr("transform", "translate(0," + height/sliderprojection + ")")
       // inroduce axis
       .call(d3.svg.axis()
         .scale(timeScale)
@@ -187,7 +198,7 @@
   
     slider.select(".background")
       .attr("height", 20)
-      .attr("transform", "translate(0," + (height/8.8 - 10) + ")")
+      .attr("transform", "translate(0," + (height/sliderprojection - 10) + ")")
       .style("cursor", "pointer");
   
     var handle = slider.append("g")
@@ -195,17 +206,17 @@
         .style("cursor", "pointer");
   
     handle.append("circle")
-      .attr("transform", "translate(0," + height/8.8 + ")")
+      .attr("transform", "translate(0," + height/sliderprojection + ")")
       .attr("r", 10);
   
     handle.append("text")
       .text(startingValue)
-      .attr("transform", "translate(" + (-45) + " ," + (height/8.8 - 15) + ")");
+      .attr("transform", "translate(" + (-45) + " ," + (height/sliderprojection - 15) + ")");
 
     // progress bar
     var progress = svg.append('rect')
         .attr('class', 'progress-bar')
-        .attr("transform", "translate(0," + height/8.8 + ")")
+        .attr("transform", "translate(0," + height/sliderprojection + ")")
         .attr('x', 75)
         .attr('width', 0)
         .attr('height', 1)
@@ -220,7 +231,7 @@
     // ---------- PLAY BUTTON -----------
 
     var playButtonG = svg.append('g')
-        .attr('transform', 'translate(' + [0, (height/8.8 - playWidth/2)] + ')');
+        .attr('transform', 'translate(' + [0, (height/sliderprojection - playWidth/2)] + ')');
     
     var playIcon = playButtonG.append('path')
         .attr('transform', 'translate(0, 0)')
@@ -322,7 +333,7 @@
         .data(data);
 
       // change map projection for mobile screen display
-      if (x <= 481) {
+      if (x <= 480) {
         height = 700 - margin.bottom - margin.top;
         projection = mobileprojection
       }
@@ -338,6 +349,17 @@
         .attr("r", 2)
         .transition().duration(400)
         .attr("r", 4)
+
+      // If you comment out the bit above and comment in the bit below and the d3moji script at the top of the page the map will display chicken emojis instead of dots
+      // farms.enter().append("emoji")
+      //   .attr("class", "farm")
+      //   .attr('symbol', 'chicken')
+      //   .attr('transform',function(d) { return 'translate('+ [projection([d.longitude, d.latitude])[0] - 12, projection([d.longitude, d.latitude])[1] - 12] +')'; })
+      //   .attr('width', 12)
+      //   .attr('height', 12)
+      //   .transition().duration(400)
+      //   .attr('width', 24)
+      //   .attr('height', 24);
   
       farms.exit()
         .transition().duration(100)
@@ -356,20 +378,6 @@
                       pauseValues.lastT = pauseValues.currentT;
           }, 100);
       }
-
-      // if (play == true) {
-      //   playIcon.attr('d', play ? playD : pauseD);
-      //   play = false
-      //   handle.transition()
-      //         .duration(0);
-      //   setTimeout(function(){ console.log(pauseValues.currentT);
-      //         pauseValues.lastT = pauseValues.currentT;
-      //       }, 100);
-      // }
-
-      // setTimeout(function(){
-      //             pauseValues.lastT = pauseValues.currentT;
-      // }, 100);
       
       var value = brush.extent()[0];
 
