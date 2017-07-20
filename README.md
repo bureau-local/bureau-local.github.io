@@ -1,9 +1,6 @@
 # bureau-local.github.io
------
 
-This is our visualisations online archives.
-
-This is a work in progress.
+This is our visualisations online archives. (A work in progress).
 
 -----
 
