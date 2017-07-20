@@ -41,12 +41,19 @@
     },
     width = x - margin.left - margin.right,
     height = 800 - margin.bottom - margin.top;
-  
-  var smallScreenProjection = d3.geo.albers()
+
+  var mobileProjection = d3.geo.albers()
       .center([0, 54.6])
       .rotate([3.3, 0])
       .parallels([48, 62])
       .scale(3100)
+      .translate([width / 2, height / 2]);
+  
+  var smallScreenProjection = d3.geo.albers()
+      .center([0, 55.0])
+      .rotate([3.3, 0])
+      .parallels([48, 62])
+      .scale(3400)
       .translate([width / 2, height / 2]);
 
   var projection = d3.geo.albers()
@@ -56,9 +63,12 @@
       .scale(3800)
       .translate([width / 2, height / 2]);
 
-  // change map projection for small screen display
-  if (x <= 600) {
+  // change map projection according to screen size
+  if (x <= 400) {
     height = 700 - margin.bottom - margin.top;
+    projection = mobileProjection
+  } else if (x <= 600) {
+    height = 750 - margin.bottom - margin.top;
     projection = smallScreenProjection
   }
   
@@ -100,7 +110,6 @@
       .attr("width", width + margin.left + margin.right)
       .attr("height", height + margin.top + margin.bottom)
       .append("g")
-      // classic transform to position g
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
   
   
@@ -126,13 +135,9 @@
  
     // ---------- END OF MAP ----------
 
-    // ---------- TITLES -----------
+    // ---------- TITLE -----------
 
     svg.append("text").attr("class", "vis-title").text("The changing face of British farming").call(wrap, width/1.05);
-
-    // var subtitles = svg.append('g').attr('class','subtitle-group').attr('transform','translate('+ [ 0, height/30] +')');
-
-    // subtitles.append("text").attr("class", "vis-subtitle").attr("y", 0).text("See how the number of intensive poultry farm permits has grown over time").call(wrap, width/1.05);
 
     // ---------- END OF TITLES -----------
 
@@ -332,12 +337,16 @@
       var farms = svg.selectAll(".farm")
         .data(data);
 
-      // change map projection for mobile screen display
-      if (x <= 480) {
+      // change map projection according to screen size
+      if (x <= 400) {
         height = 700 - margin.bottom - margin.top;
+        projection = mobileProjection
+      } else if (x <= 600) {
+        height = 750 - margin.bottom - margin.top;
         projection = smallScreenProjection
       }
-  
+
+        
       farms.enter().append("circle")
         .attr("class", "farm")
         .attr("cx", function(d) {

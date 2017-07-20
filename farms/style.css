@@ -86,25 +86,12 @@ body {
   text-align: center;
 }
 
-.vis-subtitle {
-  margin-top: 1em;
-  font-size: 18px;
-  line-height: 30px;
-  font-family: futura;
-  color: #333333;
-  text-align: center;
-}
-
 .caveat {
   font-size: 9px;
 }
 
-/* SMALL SCREEN */
-@media screen and (max-width: 600px) {
-
-  .vis-subtitle {
-    opacity: 0;
-  }
+/* MOBILE */
+@media screen and (max-width: 400px) {
 
   .ticker {
     font-size: 14px;
@@ -116,6 +103,27 @@ body {
 
   .slider .handle text {
     font-size: 14px;
+  }
+  
+  .caveat {
+    font-size: 8px;
+  }
+
+}
+
+/* SMALL SCREEN */
+@media screen and (max-width: 600px) {
+
+  .ticker {
+    font-size: 16px;
+  }
+
+  .ticknumber {
+    font-size: 75px;
+  }
+
+  .slider .handle text {
+    font-size: 16px;
   }
   
   .caveat {
