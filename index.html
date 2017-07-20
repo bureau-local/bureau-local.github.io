@@ -2,8 +2,13 @@
 <html>
 
 <head>
+	<!-- The two following script are to use Vanilla JS to scroll rather than load JQuery -->
+	<script>window.noZensmooth = true</script>
+	<script src="zenscroll-min.js"></script>
 	<!-- styles-->
     <link href="style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
 </head>
 
 <body>
@@ -12,18 +17,33 @@
 		<div class="intro-div">
 			<h3 class="intro-title">welcome to the interactive archives of Bureau Local</h3>
 			<h3 class="intro-title">(it's a work in progress)</h3>
-			<a href="#interactive-links"><div class="arrow-down"></div></a>
+		</div>
+		<div class="arrow-div">
+			<a id="arrow-link" data-link="interactive-links">
+				<i class="material-icons">arrow_downward</i>
+			</a>
 		</div>
 	</section>
 
 	<div id="interactive-links" class="links">
-		<h1><a href="farms/farms.html" class="interactive" id="first-interactive">Intensive Farms</a></h1>
-		<h1><a href="#interactive-links" class="interactive">and Many</a></h1>
-		<h1><a href="#interactive-links" class="interactive">More</a></h1>
-		<h1><a href="#interactive-links" class="interactive">Interactives</a></h1>
-		<h1><a href="#interactive-links" class="interactive">to Come</a></h1>
-		<h1><a href="#interactive-links" class="interactive">!!!</a></h1>
+		<h1>
+			<a class="interactive" href="farms/farms.html" target="blank">The rise of the "megafarm": How British meat is made</a>
+			<a class="interactive" href="#interactive-links">A future great interactive</a>
+			<a class="interactive" href="#interactive-links">A future great interactive</a>
+			<a class="interactive" href="#interactive-links">A future great interactive</a>
+			<a class="interactive" href="#interactive-links">A future great interactive</a>
+			<a class="interactive" href="#interactive-links">!!!!!</a>
+		</h1>
 	</div>
+
+	<script>
+		var arrowLink = document.getElementById("arrow-link")
+		arrowLink.addEventListener("click", smoothZen)
+		function smoothZen() {
+			linkTo = document.getElementById(this.getAttribute("data-link"))
+			zenscroll.to(linkTo)
+		}
+	</script>
 
 </body>
 

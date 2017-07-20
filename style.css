@@ -20,7 +20,7 @@ section {
 
 .intro-div {
 	position: relative;
-	top: 50%;
+	top: 40%;
 	transform: translateY(-50%);
 }
 
@@ -32,7 +32,16 @@ section {
 }
 
 h3 {
-	font-size: 1.5em;
+	font-size: 1.4em;
+}
+
+.arrow-div {
+	position: relative;
+	top: 65%;
+}
+
+#arrow-link {
+	cursor: pointer;
 }
 
 .arrow-down {
@@ -49,6 +58,10 @@ h3 {
 .links {
 	position: relative;
     text-align: center;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    margin-left: 10%;
+    margin-right: 10%;
 }
 
 a:visited {
@@ -63,14 +76,14 @@ a.interactive {
 	color: #FF5A5D;
 }
 
-a:hover {
+.interactive:hover {
 	background-color: white;
 }
 
 h1 {
 	font-family: Futura, sans-serif;
-	font-size: 3.5em;
+	font-size: 3em;
 	font-style: normal;
 	font-weight: 500;
-	line-height: 1.8em;
+	line-height: 2em;
 }
