@@ -147,7 +147,7 @@
         .attr("class", "ticker");
 
     // change map projection for small screen display
-    if (x <= 600) {
+    if (x <= 400) {
       tickerprojection = 4
       sliderprojection = 8.8
     } else {
@@ -346,7 +346,7 @@
         projection = smallScreenProjection
       }
 
-        
+
       farms.enter().append("circle")
         .attr("class", "farm")
         .attr("cx", function(d) {
