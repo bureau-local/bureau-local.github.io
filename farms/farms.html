@@ -42,19 +42,12 @@
     width = x - margin.left - margin.right,
     height = 800 - margin.bottom - margin.top;
   
-  var mobileprojection = d3.geo.albers()
+  var smallScreenProjection = d3.geo.albers()
       .center([0, 54.6])
       .rotate([3.3, 0])
       .parallels([48, 62])
       .scale(3100)
       .translate([width / 2, height / 2]);
-
-  // var projection = d3.geo.albers()
-  //     .center([0, 55.5])
-  //     .rotate([3.3, 0])
-  //     .parallels([48, 62])
-  //     .scale(3800)
-  //     .translate([width / 2, height / 2]);
 
   var projection = d3.geo.albers()
       .center([0, 55.5])
@@ -63,12 +56,10 @@
       .scale(3800)
       .translate([width / 2, height / 2]);
 
-  console.log(x);
-
-  // change map projection for mobile screen display
-  if (x <= 480) {
+  // change map projection for small screen display
+  if (x <= 600) {
     height = 700 - margin.bottom - margin.top;
-    projection = mobileprojection
+    projection = smallScreenProjection
   }
   
   var path = d3.geo.path()
@@ -150,8 +141,8 @@
     var ticker = svg.append("g")
         .attr("class", "ticker");
 
-    // change map projection for mobile screen display
-    if (x <= 480) {
+    // change map projection for small screen display
+    if (x <= 600) {
       tickerprojection = 4
       sliderprojection = 8.8
     } else {
@@ -344,7 +335,7 @@
       // change map projection for mobile screen display
       if (x <= 480) {
         height = 700 - margin.bottom - margin.top;
-        projection = mobileprojection
+        projection = smallScreenProjection
       }
   
       farms.enter().append("circle")
