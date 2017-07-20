@@ -137,12 +137,12 @@
         .attr("class", "ticker");
 
     // change map projection for mobile display
-    if (x <= 600) {
+    if (x <= 400) {
       tickerprojection = 4
       sliderprojection = 8.8
     } else {
-      tickerprojection = 5.3
-      sliderprojection = 17
+      tickerprojection = 5
+      sliderprojection = 16
     }
 
     ticker.append("text")
