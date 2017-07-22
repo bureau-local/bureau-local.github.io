@@ -15,12 +15,12 @@
 
 	<section class="intro-section">
 		<div class="intro-div">
-			<h3 class="intro-title">welcome to the interactive archives of Bureau Local</h3>
-			<h3 class="intro-title">(it's a work in progress)</h3>
+			<h3 class="intro-title fade">welcome to the interactive archives of Bureau Local</h3>
+			<h3 class="intro-title fade">(it's a work in progress)</h3>
 		</div>
 		<div class="arrow-div">
 			<a id="arrow-link" data-link="interactive-links">
-				<i class="material-icons">arrow_downward</i>
+				<i class="material-icons fade">arrow_downward</i>
 			</a>
 		</div>
 	</section>
@@ -37,11 +37,17 @@
 	</div>
 
 	<script>
+		// smooth scroll
 		var arrowLink = document.getElementById("arrow-link")
 		arrowLink.addEventListener("click", smoothZen)
 		function smoothZen() {
 			linkTo = document.getElementById(this.getAttribute("data-link"))
 			zenscroll.to(linkTo)
+		}
+		// fade in
+		window.onload = function() {
+			var elements = document.getElementsByClassName("fade")
+			Array.prototype.forEach.call(elements, function(d) {d.style.opacity = 1})
 		}
 	</script>
 
