@@ -34,10 +34,10 @@
   
   // parameters
   var margin = {
-      top: 40,
-      right: 40,
-      bottom: 20,
-      left: 20
+      top: 30,
+      right: 30,
+      bottom: 15,
+      left: 15
     },
     width = x - margin.left - margin.right,
     height = 800 - margin.bottom - margin.top;
@@ -271,8 +271,8 @@
     
     logo.append("svg:image")
         .attr("class", "logo")
-        .attr("x",width-logoSize-10)
-        .attr("y", height-logoSize-10)
+        .attr("x",width-logoSize)
+        .attr("y", height-logoSize)
         .attr("width", logoSize)
         .attr("height", logoSize)
         .attr("xlink:href", "../tbij.png");
