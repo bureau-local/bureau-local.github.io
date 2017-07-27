@@ -264,7 +264,7 @@
 
     // ---------- CAVEAT + LOGO -----------
 
-    svg.append("g").attr("class", "caveat").attr("transform", "translate(" + [0, height-2] + ")").append("text").text("*Permits for farms in North Wales and Mid Wales appear at the end of the timeline as complete information on their date of issue is not available.").call(wrap, width/1.2)
+    svg.append("g").attr("class", "caveat").attr("transform", "translate(" + [0, height-margin.bottom] + ")").append("text").text("*Permits for farms in North Wales and Mid Wales appear at the end of the timeline as complete information on their date of issue is not available.").call(wrap, width/1.2)
 
     var logo = svg.append("g").attr("class", "logo-image");
     var logoSize = width/8
