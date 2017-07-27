@@ -1,0 +1,133 @@
+body {
+  font-size: 14px;
+  font-family: "Futura",sans-serif;
+}
+
+.subunit.SCT { fill: #BDD5EA; opacity: 0.7; }
+.subunit.WLS { fill: #BDD5EA; opacity: 0.7; }
+.subunit.NIR { fill: #BDD5EA; opacity: 0.7; }
+.subunit.ENG { fill: #BDD5EA; opacity: 0.7; }
+.subunit.IRL { display: none; }
+
+
+.subunit-boundary {
+  fill: none;
+  stroke: #333333;
+  stroke-dasharray: 2,2;
+  stroke-linejoin: round;
+}
+
+.subunit-boundary.IRL {
+  stroke: #aaa;
+
+}
+
+.farm {
+  stroke-width: 1px;
+  stroke: #ff5a5d;
+  fill: #ff5a5d;
+  fill-opacity: .6;
+}
+
+.axis {
+  fill: gray;
+}
+
+.axis .slider-bar {
+  stroke: gray;
+  stroke-width: 4px;
+  stroke-linecap: round;
+}
+
+.progress-bar {
+  stroke: #ff5a5d;
+  stroke-width: 4px;
+  stroke-linecap: round;
+}
+
+.slider .handle circle {
+  fill: #ff5a5d;
+  stroke-linecap: round;
+  pointer-events: none;
+}
+
+.slider .handle text {
+  fill: #ff5a5d;
+  text-align: center;
+  font-size: 18px;
+}
+
+.ticker {
+  fill: #ff5a5d;
+  text-align: center;
+  font-size: 18px;
+}
+
+.ticknumber {
+  font-size: 78px;
+}
+
+.play-button {
+  fill: #ff5a5d;
+}
+
+.playbtn {
+  position: absolute;
+  top: 50px;
+}
+
+/*TITLES*/
+.vis-title {
+  margin-top: 1em;
+  font-size: 26px;
+  line-height: 30px;
+  font-family: futura;
+  color: #333333;
+  text-align: center;
+}
+
+.caveat {
+  font-size: 9px;
+}
+
+/* MOBILE */
+@media screen and (max-width: 400px) {
+
+  .ticker {
+    font-size: 14px;
+  }
+
+  .ticknumber {
+    font-size: 72px;
+  }
+
+  .slider .handle text {
+    font-size: 14px;
+  }
+  
+  .caveat {
+    font-size: 8px;
+  }
+
+}
+
+/* SMALL SCREEN */
+@media screen and (max-width: 600px) {
+
+  .ticker {
+    font-size: 16px;
+  }
+
+  .ticknumber {
+    font-size: 75px;
+  }
+
+  .slider .handle text {
+    font-size: 16px;
+  }
+  
+  .caveat {
+    font-size: 8px;
+  }
+
+}
