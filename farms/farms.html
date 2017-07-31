@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
-  <meta charset="utf-8">
   <head>
+    <meta charset="utf-8">
+    <meta name="author" content="Charles Boutaud, Rachel Lavin">
     <title>Farms</title>
     <script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script></script>
     <script src="//d3js.org/topojson.v1.min.js"></script>
@@ -34,10 +35,10 @@
   
   // parameters
   var margin = {
-      top: 40,
+      top: 26,
       right: 40,
-      bottom: 20,
-      left: 20
+      bottom: 8,
+      left: 2
     },
     width = x - margin.left - margin.right,
     height = 800 - margin.bottom - margin.top;
@@ -262,8 +263,22 @@
 
     // ---------- END OF PLAY BUTTON -----------
 
-    //caveat
-    svg.append("g").attr("class", "caveat").attr("transform", "translate(" + [0, height-2] + ")").append("text").text("*Permits for farms in North Wales and Mid Wales appear at the end of the timeline as complete information on their date of issue is not available.").call(wrap, width/1.1)
+    // ---------- CAVEAT + LOGO -----------
+
+    svg.append("g").attr("class", "caveat").attr("transform", "translate(" + [0, height-margin.bottom] + ")").append("text").text("*Permits for farms in North Wales and Mid Wales appear at the end of the timeline as complete information on their date of issue is not available.").call(wrap, width/1.2)
+
+    var logo = svg.append("g").attr("class", "logo-image");
+    var logoSize = width/8
+    
+    logo.append("svg:image")
+        .attr("class", "logo")
+        .attr("x",width-logoSize)
+        .attr("y", height-logoSize)
+        .attr("width", logoSize)
+        .attr("height", logoSize)
+        .attr("xlink:href", "../tbij.png");
+
+    // ---------- END OF CAVEAT + LOGO -----------
 
     var pauseValues = {
       lastT: 0,
