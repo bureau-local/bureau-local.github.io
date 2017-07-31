@@ -147,7 +147,7 @@
 
       titles.append("text")
             .attr("id", "subTitle")
-            .attr("transform", "translate(" + [0, 50] + ")")
+            .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")")
             .text("2010 -16");
 
     }); // closes the d3.csv call
@@ -165,7 +165,8 @@
     // ticker
     var ticker = svg.append("g")
           .attr("class", "ticker")
-          .attr("transform", "translate(" + [width/6, height/5] + ")");
+          .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")")
+
 
 
     ticker.append("text")
@@ -180,7 +181,8 @@
     // explainers
     var explainers = svg.append("g")
               .attr("class", "explainer")
-              .attr("transform", "translate(" + [50, height-410] + ")");
+              .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")")
+
 
     explainers.append("text")
               .attr("id", "explainerTitle")
@@ -188,7 +190,7 @@
 
     explainers.append("text")
               .attr("id", "explainerText")
-              .attr("transform", "translate(" + [0, 50] + ")")
+              .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")")
               .text("Click on the bubble for more information...");
 
     // functions
