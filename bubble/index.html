@@ -166,7 +166,7 @@
     // ticker
     var ticker = svg.append("g")
           .attr("class", "ticker")
-          .attr("transform", "translate(" + [50, height-495] + ")");
+          .attr("transform", "translate(" + [50, height/100*80] + ")");
 
 
     ticker.append("text")
@@ -180,7 +180,7 @@
     // explainers
     var explainers = svg.append("g")
               .attr("class", "explainer")
-              .attr("transform", "translate(" + [50, height-410] + ")");
+              .attr("transform", "translate(" + [50, height/100*80+20] + ")");
     explainers.append("text")
               .attr("id", "explainerTitle")
               .text("Lorem ipsum dolor sit amet, consec");
