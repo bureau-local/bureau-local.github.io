@@ -192,8 +192,8 @@
     
     // functions
     function mouseover(circle) {
-      d3.select("#textinfovalue").text(function(d) { return circle.data.value})
-      d3.select("#textInfoExplainer").text(function(d) { return circle.data.context}).call(wrap, width/1.05)
+      d3.select("#tickerNumber").text(function(d) { return circle.data.value})
+      d3.select("#explainerText").text(function(d) { return circle.data.context}).call(wrap, width/1.05)
     }
     
     function type(d) {
