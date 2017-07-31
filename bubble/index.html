@@ -16,7 +16,7 @@
       }
 
       #title {
-        font: 20px "Futura";
+        font: 50px "Futura";
         fill: #808284
       }
 
@@ -26,7 +26,7 @@
       }
 
       #tickerNumber {
-        font: 100px "Futura";
+        font: 150px "Futura";
         fill: #ff5a5d
       }
 
@@ -75,13 +75,13 @@
 
     // parameters
     var margin = {
-       top: 26,
-       right: 40,
-       bottom: 8,
-       left: 2
-     },
+        top: 26,
+        right: 40,
+        bottom: 8,
+        left: 2
+      },
       width = x - margin.left - margin.right,
-      height = 800 - margin.bottom - margin.top;
+      height = 1600 - margin.bottom - margin.top;
 
     var svg = d3.select("body").append("svg")
                 .attr("width", width + margin.left + margin.right)
@@ -90,7 +90,7 @@
                 .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
     var pack = d3.pack()
-      .size([width - 2, height - 2])
+        .size([width - 2, height - 2])
         .padding(20.5);
 
     d3.csv("bubblemapdata.csv", type, function(error, data) {
@@ -106,14 +106,13 @@
       var node = svg.selectAll("node")
         .data(root.children)
         .enter().append("g")
-          .attr("transform", "translate(" + 0 + "," + 0 + ")")
+          .attr("transform", function(d) { return "translate(" + d.x + "," + (d.y-height/7) + ")"; })
           .attr("class", "node");
 
       node.append("circle")
           .attr("id", function(d) { return "node-" + d.data.id; })
           .attr("r", function(d) { return d.r; })
           .on("mouseover", mouseover);
-
 
       node.append("clipPath")
           .attr("id", function(d) { return "clip-" + d.data.id; })
@@ -139,9 +138,7 @@
       // headings
       var titles = svg.append("g")
           .attr("class", "headings")
-          .attr("transform", "translate(" + 0 + "," + (height/ + 20) + ")")
-
-
+          .attr("transform", "translate(" + [50, 50] + ")");
 
       titles.append("text")
             .attr("id", "title")
@@ -149,7 +146,7 @@
 
       titles.append("text")
             .attr("id", "subTitle")
-            .attr("transform", "translate(" + 0 + "," + (height/ + 20) + ")")
+            .attr("transform", "translate(" + [0, 50] + ")")
             .text("2010 -16");
 
     }); // closes the d3.csv call
@@ -167,22 +164,22 @@
     // ticker
     var ticker = svg.append("g")
           .attr("class", "ticker")
+          .attr("transform", "translate(" + [50, height-495] + ")");
+
 
     ticker.append("text")
           .attr("id", "tickerNumber")
-          .attr("transform", "translate(" + 0 + "," + (height/ + 20) + ")")
-          .text("2374");
+          .text("1234");
 
     ticker.append("text")
           .attr("id", "tickerText")
-          .attr("transform", "translate(" + 0 + "," + (height/ + 30) + ")")
+          .attr("x", 350)
           .text("Lorem ipsum dolor sit amet elit");
 
     // explainers
     var explainers = svg.append("g")
               .attr("class", "explainer")
-              .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")")
-
+              .attr("transform", "translate(" + [50, height-410] + ")");
 
     explainers.append("text")
               .attr("id", "explainerTitle")
@@ -190,7 +187,7 @@
 
     explainers.append("text")
               .attr("id", "explainerText")
-              .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")")
+              .attr("transform", "translate(" + [0, 50] + ")")
               .text("Click on the bubble for more information...");
 
     // functions
