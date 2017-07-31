@@ -90,7 +90,7 @@
                 .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
     var pack = d3.pack()
-        .size([width/7, height/0.1])
+        .size([width/9, height/0.1])
         .padding(20.5);
 
     d3.csv("bubblemapdata.csv", type, function(error, data) {
