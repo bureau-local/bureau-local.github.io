@@ -106,7 +106,7 @@
       var node = svg.selectAll("node")
         .data(root.children)
         .enter().append("g")
-          .attr("transform", function(d) { return "translate(" + (d.x-width/1 + "," + (d.y-height/3) + ")"; })
+          .attr("transform", function(d) { return "translate(" + (d.x-width/3 + "," + (d.y-height/3) + ")"; })
           .attr("class", "node");
 
       node.append("circle")
