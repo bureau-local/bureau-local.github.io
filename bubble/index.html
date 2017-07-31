@@ -16,7 +16,7 @@
       }
 
       #title {
-        font: 2px "Futura";
+        font: 20px "Futura";
         fill: #808284
       }
 
@@ -106,7 +106,7 @@
       var node = svg.selectAll("node")
         .data(root.children)
         .enter().append("g")
-          .attr("transform", "translate(" + width / 2 + "," + height / .5 + ")")
+          .attr("transform", "translate(" + 0 + "," + 0 + ")")
           .attr("class", "node");
 
       node.append("circle")
