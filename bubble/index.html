@@ -106,13 +106,14 @@
       var node = svg.selectAll("node")
         .data(root.children)
         .enter().append("g")
-          ..attr("transform", "translate(" + width / 2 + "," + height / .5 + ")")
+          .attr("transform", "translate(" + width / 2 + "," + height / .5 + ")")
           .attr("class", "node");
 
       node.append("circle")
           .attr("id", function(d) { return "node-" + d.data.id; })
           .attr("r", function(d) { return d.r; })
           .on("mouseover", mouseover);
+          .attr("transform", "translate(" + width / 2 + "," + height / .5 + ")")
 
       node.append("clipPath")
           .attr("id", function(d) { return "clip-" + d.data.id; })
