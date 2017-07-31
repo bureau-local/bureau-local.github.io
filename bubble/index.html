@@ -113,7 +113,7 @@
           .attr("id", function(d) { return "node-" + d.data.id; })
           .attr("r", function(d) { return d.r; })
           .on("mouseover", mouseover);
-          
+
 
       node.append("clipPath")
           .attr("id", function(d) { return "clip-" + d.data.id; })
@@ -167,7 +167,7 @@
     // ticker
     var ticker = svg.append("g")
           .attr("class", "ticker")
-          .attr("transform", "translate(" +  width / 1.5 + "," + height / 2 + ")")
+          .attr("transform", "translate(" +  width / 1 + "," + height / 2 + ")")
 
 
 
