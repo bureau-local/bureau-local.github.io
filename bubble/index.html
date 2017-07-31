@@ -72,12 +72,12 @@
     // parameters
     var margin = {
         top: 26,
-        right: 40,
+        right: 0,
         bottom: 8,
         left: 2
       },
       width = x - margin.left - margin.right,
-      height = 600 - margin.bottom - margin.top;
+      height = 1600 - margin.bottom - margin.top;
     var svg = d3.select("body").append("svg")
                 .attr("width", width + margin.left + margin.right)
                 .attr("height", height + margin.top + margin.bottom)
