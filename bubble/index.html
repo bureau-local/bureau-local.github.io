@@ -77,6 +77,8 @@
           font: 11px;
         }
 
+      }
+
       /* SMALL SCREEN */
       @media screen and (max-width: 600px) {
 
@@ -214,8 +216,9 @@
 
     ticker.append("text")
           .attr("id", "tickerText")
-          .attr("x", 350)
+          .attr("transform", "translate(" + [0, document.getElementById("tickerNumber").getComputedTextLength() + 20] + ")")
           .text("Lorem ipsum dolor sit amet elit");
+
     // explainers
     var explainers = svg.append("g")
               .attr("class", "explainer")
@@ -233,6 +236,7 @@
     function mouseover(circle) {
       d3.select("#tickerNumber").text(function(d) { return circle.data.value})
       d3.select("#explainerText").text(function(d) { return circle.data.context}).call(wrap, width/1.05)
+      d3.select("#tickerText").attr("transform", "translate(" + [0, document.getElementById("tickerNumber").getComputedTextLength() + 20] + ")");
     }
 
     function type(d) {
