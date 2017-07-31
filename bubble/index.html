@@ -1,105 +1,120 @@
 <!DOCTYPE html>
 <html>
-<meta charset="utf-8">
-<head>
-  <title>Pollution</title>
-</head>
-<body>
-</body>
-<style>
+    <meta charset="utf-8">
+    <meta name="author" content="Rachel Lavin">
+    <title>Lorem Ipsum</title>
+    <script src="//d3js.org/d3.v4.0.0-alpha.35.min.js"></script>
+    <script src="../post-frame-height.js"></script>
+    <style>
 
-text {
-  font-family: futura;
-  font: 18px sans-serif;
+      text {
+        font: 18px sans-serif;
+        line-height: 1.8em;
+        font-family: Futura;
+        fill: #474546
+      }
 
-  line-height: 1.8em;
-  font-family: Futura;
-  fill: #474546
-}
+      #title {
+        font: 500 50px "Futura";
+        fill: #808284
+      }
 
-#textinfo {
-  font: 500 50px "Futura";
-  fill: #808284
-}
+      #subTitle{
+        font: 500 30px "Futura";
+        fill: #808284
+      }
 
-#textinfolevel {
-  font: 500 30px "Futura";
-  fill: #808284
-}
+      #tickerNumber {
+        font: 150px "Futura";
+        fill: #ff5a5d
+      }
 
-#textinfovalue {
-  font: 500 150px "Futura";
-  fill: #ff5a5d
-}
+      #tickerText {
+        font: 30px "Futura";
+        fill: #808284
+      }
 
-#textinfocontext {
-  font: 500 30px "Futura";
-  fill: #808284
-}
+      #explainerTitle {
+        font: 50px "Futura";
+        fill: #474546
+      }
 
-#textInfoExplainer {
-  font: 500 30px "Futura";
-  fill: #474546
-}
+      #explainerText {
+        font: 30px "Futura";
+        fill: #474546
+      }
 
-#textInfoExplainer2 {
-  font: 500 50px "Futura";
-  fill: #474546
-}
+      .node circle {
+        fill: #ddd;
+        stroke: red;
+        stroke-width: 2px;
+      }
 
-.node circle {
-  fill: #ddd;
-  stroke: red;
-  stroke-width: 2px;
-}
+      .node text {
+        text-anchor: middle;
+      }
 
-.node text {
-  text-anchor: middle;
-}
+      .node:hover circle {
+        fill: #ef6767;
+        fill-opacity: 0.85;
+        stroke-width: 2px;
+      }
 
-.node:hover circle {
-  fill: #ef6767;
-  fill-opacity: 0.85;
-  stroke-width: 2px;
-}
+  </style>
+  <body></body>
+  <script type="text/javascript">
 
-</style>
+    // vanilla JS window width and height
+    var w=window,
+    d=document,
+    e=d.documentElement,
+    g=d.getElementsByTagName('body')[0],
+    x=w.innerWidth||e.clientWidth||g.clientWidth,
+    y=w.innerHeight||e.clientHeight||g.clientHeight;
 
-<svg width="1000" height="1600"><g transform="translate(1,1)"></g></svg>
-<script src="//d3js.org/d3.v4.0.0-alpha.35.min.js"></script>
-<script type="text/javascript">
+    // parameters
+    var margin = {
+        top: 26,
+        right: 40,
+        bottom: 8,
+        left: 2
+      },
+      width = x - margin.left - margin.right,
+      height = 800 - margin.bottom - margin.top;
 
 
-var svg = d3.select("svg"),
-    width = +svg.attr("width"),
-    height = +svg.attr("height");
+    var svg = d3.select("svg"),
+        width = +svg.attr("width"),
+        height = +svg.attr("height");
 
-console.log(width);
+    var svg = d3.select("body").append("svg")
+                .attr("width", width + margin.left + margin.right)
+                .attr("height", height + margin.top + margin.bottom)
+                .append("g")
+                .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-var format = d3.format(",d");
+      var pack = d3.pack()
+          .size([width - 2, height - 2])
+          .padding(20.5);
 
-var pack = d3.pack()
-    .size([width - 2, height - 2])
-    .padding(20.5);
 
-d3.csv("pollutants-other.csv", type, function(error, data) {
-  if (error) throw error;
+  d3.csv("bubblemapdata.csv", type, function(error, data) {
+    if (error) throw error;
 
-  var root = d3.hierarchy({children: data})
-      .sum(function(d) { return d.value; })
-      .sort(function(a, b) { return b.value - a.value; });
+    var root = d3.hierarchy({children: data})
+        .sum(function(d) { return d.value; })
+        .sort(function(a, b) { return b.value - a.value; });
 
-  pack(root);
+    pack(root);
 
-//circle styling
-
-  var node = svg.select("g")
-    .selectAll("g")
-    .data(root.children)
-    .enter().append("g")
-      .attr("transform", function(d) { return "translate(" + d.x + "," +
-      (d.y-height/7) + ")"; })
-      .attr("class", "node");
+    //circle styling
+    var node = svg.select("g")
+      .selectAll("g")
+      .data(root.children)
+      .enter().append("g")
+        .attr("transform", function(d) { return "translate(" + d.x + "," +
+        (d.y-height/7) + ")"; })
+        .attr("class", "node");
 
   node.append("circle")
       .attr("id", function(d) { return "node-" + d.data.id; })
