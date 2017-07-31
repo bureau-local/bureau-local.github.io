@@ -216,7 +216,7 @@
 
     ticker.append("text")
           .attr("id", "tickerText")
-          .attr("transform", "translate(" + [0, document.getElementById("tickerNumber").getComputedTextLength() + 20] + ")")
+          .attr("transform", "translate(" + [document.getElementById("tickerNumber").getComputedTextLength() + 20, 0] + ")")
           .text("Lorem ipsum dolor sit amet elit");
 
     // explainers
@@ -236,7 +236,7 @@
     function mouseover(circle) {
       d3.select("#tickerNumber").text(function(d) { return circle.data.value})
       d3.select("#explainerText").text(function(d) { return circle.data.context}).call(wrap, width/1.05)
-      d3.select("#tickerText").attr("transform", "translate(" + [0, document.getElementById("tickerNumber").getComputedTextLength() + 20] + ")");
+      d3.select("#tickerText").attr("transform", "translate(" + [ document.getElementById("tickerNumber").getComputedTextLength() + 20, 0] + ")");
     }
 
     function type(d) {
