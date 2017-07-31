@@ -72,7 +72,7 @@
     // parameters
     var margin = {
         top: 26,
-        right: 0,
+        right: 40,
         bottom: 8,
         left: 2
       },
@@ -133,7 +133,7 @@
       // headings
       var titles = svg.append("g")
           .attr("class", "headings")
-          .attr("transform", "translate(" + [50, 50] + ")");
+            .attr("transform", function(d) { return "translate(" + x + "," + (height/7) + ")"; })
 
       titles.append("text")
             .attr("id", "title")
