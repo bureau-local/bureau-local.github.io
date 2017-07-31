@@ -140,8 +140,8 @@
       if (error) throw error;
 
       var root = d3.hierarchy({children: data})
-          .sum(function(d) { return d.value; })
-          .sort(function(a, b) { return b.value - a.value; });
+          .sum(function(d) { return d.value; });
+          // .sort(function(a, b) { return b.value - a.value; });
 
       pack(root);
 
@@ -156,11 +156,6 @@
           .attr("id", function(d) { return "node-" + d.data.id; })
           .attr("r", function(d) { return d.r; })
           .on("mouseover", mouseover);
-
-      node.append("clipPath")
-          .attr("id", function(d) { return "clip-" + d.data.id; })
-        .append("use")
-          .attr("xlink:href", function(d) { return "#node-" + d.data.id + ""; });
 
       var label = node.append("g").attr("class", "label");
 
