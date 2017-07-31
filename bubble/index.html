@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+  <head>
     <meta charset="utf-8">
     <meta name="author" content="Rachel Lavin">
     <title>Lorem Ipsum</title>
@@ -15,12 +16,12 @@
       }
 
       #title {
-        font: 500 50px "Futura";
+        font: 50px "Futura";
         fill: #808284
       }
 
-      #subTitle{
-        font: 500 30px "Futura";
+      #subTitle {
+        font: 30px "Futura";
         fill: #808284
       }
 
@@ -83,29 +84,25 @@
       height = 800 - margin.bottom - margin.top;
 
 
-    var svg = d3.select("svg"),
-        width = +svg.attr("width"),
-        height = +svg.attr("height");
-
     var svg = d3.select("body").append("svg")
                 .attr("width", width + margin.left + margin.right)
                 .attr("height", height + margin.top + margin.bottom)
                 .append("g")
                 .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-      var pack = d3.pack()
-          .size([width - 2, height - 2])
-          .padding(20.5);
+    var pack = d3.pack()
+      .size([width - 2, height - 2])
+      .padding(20.5);
 
 
-  d3.csv("bubblemapdata.csv", type, function(error, data) {
-    if (error) throw error;
+    d3.csv("bubblemapdata.csv", type, function(error, data) {
+      if (error) throw error;
 
-    var root = d3.hierarchy({children: data})
-        .sum(function(d) { return d.value; })
-        .sort(function(a, b) { return b.value - a.value; });
+      var root = d3.hierarchy({children: data})
+          .sum(function(d) { return d.value; })
+          .sort(function(a, b) { return b.value - a.value; });
 
-    pack(root);
+      pack(root);
 
     //circle styling
     var node = svg.select("g")
@@ -116,19 +113,18 @@
         (d.y-height/7) + ")"; })
         .attr("class", "node");
 
-  node.append("circle")
-      .attr("id", function(d) { return "node-" + d.data.id; })
-      .attr("r", function(d) { return d.r; })
-      .on("mouseover", mouseover);
+    node.append("circle")
+        .attr("id", function(d) { return "node-" + d.data.id; })
+        .attr("r", function(d) { return d.r; })
+        .on("mouseover", mouseover);
 
-  node.append("clipPath")
-      .attr("id", function(d) { return "clip-" + d.data.id; })
-    .append("use")
-      .attr("xlink:href", function(d) { return "#node-" + d.data.id + ""; });
+    node.append("clipPath")
+        .attr("id", function(d) { return "clip-" + d.data.id; })
+      .append("use")
+        .attr("xlink:href", function(d) { return "#node-" + d.data.id + ""; });
 
 
    var label = node.append("g").attr("class", "label");
-
 
    label.append("text")
         .attr("class", "nodeText")
@@ -137,29 +133,26 @@
         .text(function(d) { return d.data.id; })
         .call(wrap, "node");
 
-        label.append("text")
-             .attr("class", "nodeNumber")
-             .attr("transform", function(d) {return "translate(" + [0, -d.r/7] + ")"; })
-             .style("font-size", function(d) {return d.r/6})
-             .text(function(d) {return d.value; });
+  label.append("text")
+         .attr("class", "nodeNumber")
+         .attr("transform", function(d) {return "translate(" + [0, -d.r/7] + ")"; })
+         .style("font-size", function(d) {return d.r/6})
+         .text(function(d) {return d.value; });
 
 
-//heading styling
+    // headings
+      var titles = svg.append("g")
+          .attr("class", "headings")
+          .attr("transform", "translate(" + [50, 50] + ")");
 
-  var titles = svg.append("g")
-      .attr("class", "notes")
-      .attr("transform", "translate(" + [50, 50] + ")");
+      titles.append("text")
+           .attr("id", "title")
+           .text("Agriculture's 15 Most Prevalent Pollutants");
 
-  titles.append("text")
-       .attr("id", "textinfo")
-      //  .attr("opacity", 0)
-       .text("Agriculture's 15 Most Prevalent Pollutants");
-
-  titles.append("text")
-        .attr("id", "textinfolevel")
-        .attr("transform", "translate(" + [0, 50] + ")")
-        //  .attr("opacity", 0)
-        .text("2010 -16");
+      titles.append("text")
+            .attr("id", "subTitle")
+            .attr("transform", "translate(" + [0, 50] + ")")
+            .text("2010 -16");
 
   }); // closes the d3.csv call
 
@@ -174,62 +167,45 @@
       .attr("xlink:href", "TBIJlogo2.jpeg")
 
 
-//number styling
-    var number = svg.append("g")
-          .attr("class", "notes2")
+//ticker
+    var ticker = svg.append("g")
+          .attr("class", "ticker")
           .attr("transform", "translate(" + [50, height-495] + ")");
 
 
-      number.append("text")
-       .attr("id", "textinfovalue")
-          //  .attr("opacity", 0)
-          .text("2874");
-          // closes the d3.csv call
+    ticker.append("text")
+       .attr("id", "tickerNumber")
+       .text("1234");
 
 
-       function mouseover(circle) {
-        d3.select("#textinfovalue").text(function(d) { return circle.data.value})
-        d3.select("#textInfoExplainer").text(function(d) { return circle.data.context}).call(wrap, width/1.05)
-      }
+    ticker.append("text")
+       .attr("id", "tickerText")
+       .attr("x", 350)
+       .text("reported incidents of pollution overall");
 
-          function type(d) {
-            return (d.value = +d.value) ? d : null;
-          }
-
-    var number = svg.append("g")
-          .attr("class", "notes")
-          .attr("transform", "translate(" + [400, height-495] + ")");
-
-
-          number.append("text")
-             .attr("id", "textinfocontext")
-                //  .attr("opacity", 0)
-                .text("reported incidents of pollution overall");
-                // closes the d3.csv call
-
-    var par = svg.append("g")
-             .attr("class", "notes3")
+    var explainers = svg.append("g")
+             .attr("class", "explainer")
              .attr("transform", "translate(" + [50, height-360] + ")");
 
-        par.append("text")
-          .attr("id", "textInfoExplainer")
-          .text("Click on the bubble for more information...");
+          explainers.append("text")
+                .attr("id", "explainerTitle")
+                .text("Click on the bubble for more information...");
 
-          var par = svg.append("g")
-                .attr("class", "notes3")
-                .attr("transform", "translate(" + [50, height-410] + ")");
-
-
-                par.append("text")
-                   .attr("id", "textInfoExplainer2")
-                      //  .attr("opacity", 0)
-                      .text("What is their enviromental impact?");
-                      // closes the d3.csv call
-             function type(d) {
-               return (d.value = +d.value) ? d : null;
-             }
+          explainers.append("g")
+                   .attr("id", "explainerText")
+                  .attr("transform", "translate(" + [0, 50] + ")")
 
 
+    //functions
+
+    function mouseover(circle) {
+     d3.select("#textinfovalue").text(function(d) { return circle.data.value})
+     d3.select("#textInfoExplainer").text(function(d) { return circle.data.context}).call(wrap, width/1.05)
+    }
+
+   function type(d) {
+     return (d.value = +d.value) ? d : null;
+   }
 
                 // wrap text function - I learned this nifty trick from the FT
                   function wrap(text, width) {
