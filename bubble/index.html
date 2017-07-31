@@ -168,24 +168,14 @@
     var ticker = svg.append("g")
           .attr("class", "ticker")
 
-
-nge map projection for mobile display
-          if (x <= 400) {
-               tickerprojection = 4
-               sliderprojection = 8.8
-             } else {
-               tickerprojection = 5
-               sliderprojection = 16
-             }
-
     ticker.append("text")
           .attr("id", "tickerNumber")
-          .attr("transform", "translate(" + 0 + "," + height/tickerprojection + ")")
+          .attr("transform", "translate(" + 0 + "," + (height/ + 20) + ")")
           .text("0");
 
     ticker.append("text")
           .attr("id", "tickerText")
-          .attr("transform", "translate(" + 0 + "," + (height/tickerprojection + 22) + ")")
+          .attr("transform", "translate(" + 0 + "," + (height/ + 20) + ")")
           .text("Lorem ipsum dolor sit amet elit").call(wrap, width/1.1);
 
     // explainers
