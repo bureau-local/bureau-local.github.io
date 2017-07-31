@@ -113,6 +113,7 @@
           .attr("id", function(d) { return "node-" + d.data.id; })
           .attr("r", function(d) { return d.r; })
           .on("mouseover", mouseover);
+          
 
       node.append("clipPath")
           .attr("id", function(d) { return "clip-" + d.data.id; })
@@ -139,7 +140,6 @@
       var titles = svg.append("g")
           .attr("class", "headings")
           .attr("transform", "translate(" + 0 + "," + (height/ + 20) + ")")
-          
 
 
 
