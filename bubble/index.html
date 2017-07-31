@@ -140,7 +140,7 @@
       // headings
       var titles = svg.append("g")
           .attr("class", "headings")
-            .attr("transform", function(d) { return "translate(" + x + "," + (height/7) + ")"; })
+            .attr("transform", function(d) { return "translate(" + [margin.left, margin.top] + ")"; })
 
       titles.append("text")
             .attr("id", "title")
@@ -148,17 +148,17 @@
 
       titles.append("text")
             .attr("id", "subTitle")
-            .attr("transform", "translate(" + [0, 50] + ")")
+            .attr("transform", "translate(" + [0, 25] + ")")
             .text("2010 -16");
 
     }); // closes the d3.csv call
 
     var logo = svg.append("g").attr("class", "logo-image");
-    var logoSize = 96
+    var logoSize = width/8
 
     logo.append("svg:image")
-       .attr("x", width-logoSize-35)
-       .attr("y", height-logoSize-1435)
+       .attr("x", width-logoSize-margin.right)
+       .attr("y", magin.top)
        .attr("width", logoSize)
        .attr("height", logoSize)
        .attr("xlink:href", "../tbij.png")
