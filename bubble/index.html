@@ -14,22 +14,22 @@
         font-family: Futura;
         fill: #474546
       }
-    
+
       #title {
         font: 50px "Futura";
         fill: #808284
       }
-    
+
       #subTitle {
         font: 30px "Futura";
         fill: #808284
       }
-    
+
       #tickerNumber {
         font: 150px "Futura";
         fill: #ff5a5d
       }
-    
+
       #tickerText {
         font: 30px "Futura";
         fill: #808284
@@ -39,22 +39,22 @@
         font: 50px "Futura";
         fill: #474546
       }
-    
+
       #explainerText {
         font: 30px "Futura";
         fill: #474546
       }
-    
+
       .node circle {
         fill: #ddd;
         stroke: red;
         stroke-width: 2px;
       }
-    
+
       .node text {
         text-anchor: middle;
       }
-    
+
       .node:hover circle {
         fill: #ef6767;
         fill-opacity: 0.85;
@@ -72,7 +72,7 @@
     g=d.getElementsByTagName('body')[0],
     x=w.innerWidth||e.clientWidth||g.clientWidth,
     y=w.innerHeight||e.clientHeight||g.clientHeight;
-    
+
     // parameters
     var margin = {
         top: 26,
@@ -81,96 +81,96 @@
         left: 2
       },
       width = x - margin.left - margin.right,
-      height = 1600 - margin.bottom - margin.top;
+      height = 1000 - margin.bottom - margin.top;
 
     var svg = d3.select("body").append("svg")
                 .attr("width", width + margin.left + margin.right)
                 .attr("height", height + margin.top + margin.bottom)
                 .append("g")
                 .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-    
+
     var pack = d3.pack()
         .size([width - 2, height - 2])
         .padding(20.5);
-    
+
     d3.csv("bubblemapdata.csv", type, function(error, data) {
       if (error) throw error;
-    
+
       var root = d3.hierarchy({children: data})
           .sum(function(d) { return d.value; })
           .sort(function(a, b) { return b.value - a.value; });
-    
+
       pack(root);
-    
+
       // circle styling
       var node = svg.selectAll("node")
         .data(root.children)
         .enter().append("g")
           .attr("transform", function(d) { return "translate(" + d.x + "," + (d.y-height/7) + ")"; })
           .attr("class", "node");
-    
+
       node.append("circle")
           .attr("id", function(d) { return "node-" + d.data.id; })
           .attr("r", function(d) { return d.r; })
           .on("mouseover", mouseover);
-    
+
       node.append("clipPath")
           .attr("id", function(d) { return "clip-" + d.data.id; })
         .append("use")
           .attr("xlink:href", function(d) { return "#node-" + d.data.id + ""; });
-    
+
       var label = node.append("g").attr("class", "label");
-    
+
       label.append("text")
            .attr("class", "nodeText")
            .attr("transform", function(d) {return "translate(" + [0, d.r/6] + ")"; })
            .style("font-size", function(d) {return d.r/3.5})
            .text(function(d) { return d.data.id; })
            .call(wrap, "node");
-    
+
       label.append("text")
            .attr("class", "nodeNumber")
            .attr("transform", function(d) {return "translate(" + [0, -d.r/9] + ")"; })
            .style("font-size", function(d) {return d.r/5})
            .text(function(d) {return d.value; });
-    
-    
+
+
       // headings
       var titles = svg.append("g")
           .attr("class", "headings")
           .attr("transform", "translate(" + [50, 50] + ")");
-    
+
       titles.append("text")
             .attr("id", "title")
             .text("Lorem Ipsum dolor sit amet consectetur sit");
-    
+
       titles.append("text")
             .attr("id", "subTitle")
             .attr("transform", "translate(" + [0, 50] + ")")
             .text("2010 -16");
-    
+
     }); // closes the d3.csv call
-    
+
     var logo = svg.append("g").attr("class", "logo-image");
     var logoSize = 96
-    
+
     logo.append("svg:image")
        .attr("x", width-logoSize-35)
        .attr("y", height-logoSize-1435)
        .attr("width", logoSize)
        .attr("height", logoSize)
-       .attr("xlink:href", "../tbij.png")   
-    
+       .attr("xlink:href", "../tbij.png")
+
     // ticker
     var ticker = svg.append("g")
           .attr("class", "ticker")
           .attr("transform", "translate(" + [50, height-495] + ")");
-    
-    
+
+
     ticker.append("text")
           .attr("id", "tickerNumber")
           .text("1234");
-    
+
     ticker.append("text")
           .attr("id", "tickerText")
           .attr("x", 350)
@@ -184,18 +184,18 @@
     explainers.append("text")
               .attr("id", "explainerTitle")
               .text("Lorem ipsum dolor sit amet, consec");
-    
+
     explainers.append("text")
               .attr("id", "explainerText")
               .attr("transform", "translate(" + [0, 50] + ")")
               .text("Click on the bubble for more information...");
-    
+
     // functions
     function mouseover(circle) {
       d3.select("#tickerNumber").text(function(d) { return circle.data.value})
       d3.select("#explainerText").text(function(d) { return circle.data.context}).call(wrap, width/1.05)
     }
-    
+
     function type(d) {
       return (d.value = +d.value) ? d : null;
     }
@@ -235,6 +235,6 @@
           }
       });
     }
-  
+
   </script>
 </html>
