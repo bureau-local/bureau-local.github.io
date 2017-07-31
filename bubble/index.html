@@ -105,8 +105,8 @@
       pack(root);
 
     //circle styling
-    var node = svg.select("g")
-      .selectAll("g")
+    var node = svg.selectAll("node")
+
       .data(root.children)
       .enter().append("g")
         .attr("transform", function(d) { return "translate(" + d.x + "," +
@@ -147,7 +147,7 @@
 
       titles.append("text")
            .attr("id", "title")
-           .text("Agriculture's 15 Most Prevalent Pollutants");
+           .text("Lorem Ipsum dolor sit amet consectetur sit");
 
       titles.append("text")
             .attr("id", "subTitle")
