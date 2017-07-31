@@ -83,7 +83,6 @@
       width = x - margin.left - margin.right,
       height = 800 - margin.bottom - margin.top;
 
-
     var svg = d3.select("body").append("svg")
                 .attr("width", width + margin.left + margin.right)
                 .attr("height", height + margin.top + margin.bottom)
@@ -109,8 +108,7 @@
 
       .data(root.children)
       .enter().append("g")
-        .attr("transform", function(d) { return "translate(" + d.x + "," +
-        (d.y-height/7) + ")"; })
+        .attr("transform", function(d) { return "translate(" + d.x + "," + (d.y-height/7) + ")"; })
         .attr("class", "node");
 
     node.append("circle")
