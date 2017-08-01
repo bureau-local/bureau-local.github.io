@@ -153,6 +153,7 @@
             .attr("id", "subTitle")
             .attr("transform", "translate(" + [0, 25] + ")")
             .text("2010 -16");
+
     }); // closes the d3.csv call
     var logo = svg.append("g").attr("class", "logo-image");
     var logoSize = width/8
@@ -162,10 +163,11 @@
        .attr("width", logoSize)
        .attr("height", logoSize)
        .attr("xlink:href", "../tbij.png")
+
     // ticker
     var ticker = svg.append("g")
           .attr("class", "ticker")
-          .attr("transform", "translate(" + [margin.left, height/100*80] + ")");
+          .attr("transform", "translate(" + [margin.left, height/100*80+70] + ")");
     ticker.append("text")
           .attr("id", "tickerNumber")
           .text("1234");
@@ -173,6 +175,7 @@
           .attr("id", "tickerText")
           .attr("transform", "translate(" + [document.getElementById("tickerNumber").getComputedTextLength() + 20, 0] + ")")
           .text("Lorem ipsum dolor sit amet elit");
+
     // explainers
     var explainers = svg.append("g")
               .attr("class", "explainer")
