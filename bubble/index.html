@@ -155,10 +155,10 @@
             .text("2010 -16");
     }); // closes the d3.csv call
     var logo = svg.append("g").attr("class", "logo-image");
-    var logoSize = width/10
+    var logoSize = width/8
     logo.append("svg:image")
        .attr("x", width-logoSize-margin.right)
-       .attr("y", margin.top-10)
+       .attr("y", margin.top)
        .attr("width", logoSize)
        .attr("height", logoSize)
        .attr("xlink:href", "../tbij.png")
