@@ -133,7 +133,7 @@
       // headings
       var titles = svg.append("g")
           .attr("class", "headings")
-            .attr("transform", function(d) { return "translate(" + d.x + "," + (d.y-height/7) + ")"; })
+          .attr("transform", "translate(" + [50, 50] + ")");
 
       titles.append("text")
             .attr("id", "title")
