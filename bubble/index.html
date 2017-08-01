@@ -106,8 +106,8 @@
 
     // parameters
     var margin = {
-        top: 2,
-        right: 2,
+        top: 8,
+        right: 8,
         bottom: 2,
         left: 2
       },
@@ -129,7 +129,7 @@
 
     var pack = d3.pack()
         .size([width - 2, width - 2])
-        .padding(18);
+        .padding(14);
 
     // LOAD DATA FROM CSV
     d3.csv("bubblemapdata.csv", type, function(error, data) {
