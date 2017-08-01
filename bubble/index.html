@@ -7,36 +7,44 @@
     <script src="//d3js.org/d3.v4.0.0-alpha.35.min.js"></script>
     <script src="../post-frame-height.js"></script>
     <style>
+
       text {
         font: 18px sans-serif;
         line-height: 1.8em;
         font-family: Futura;
         fill: #474546
       }
+
       #title {
-        font: 26px "Futura";
+        font: 26px;
         fill: #808284
       }
+
       #subTitle {
-        font: 18px "Futura";
+        font: 18px;
         fill: #808284
       }
+
       #tickerNumber {
-        font: 78px "Futura";
+        font: 78px;
         fill: #ff5a5d
       }
+
       #tickerText {
-        font: 18px "Futura";
+        font: 18px;
         fill: #808284
       }
+
       #explainerTitle {
-        font: 18px "Futura";
+        font: 18px;
         fill: #474546
       }
+
       #explainerText {
-        font: 14px "Futura";
+        font: 14px;
         fill: #474546
       }
+
       .node circle {
         fill: #ddd;
         stroke: red;
@@ -45,11 +53,13 @@
       .node text {
         text-anchor: middle;
       }
+
       .node:hover circle {
         fill: #ef6767;
         fill-opacity: 0.85;
         stroke-width: 2px;
       }
+
       /* MOBILE */
       @media screen and (max-width: 400px) {
         #tickerNumber {
@@ -80,6 +90,7 @@
           font: 12px;
         }
       }
+
   </style>
   <body></body>
   <script type="text/javascript">
@@ -101,6 +112,7 @@
       },
       width = x - margin.left - margin.right,
       height = 800 - margin.bottom - margin.top;
+
     var svg = d3.select("body").append("svg")
                 .attr("width", width + margin.left + margin.right)
                 .attr("height", height + margin.top + margin.bottom)
@@ -175,10 +187,11 @@
 
     logo.append("svg:image")
        .attr("x", width-logoSize)
-       .attr("y", margin.top-10)
+       .attr("y", height-logoSize)
        .attr("width", logoSize)
        .attr("height", logoSize)
-       .attr("xlink:href", "../tbij.png")
+       .attr("opacity", 0.9)
+       .attr("xlink:href", "../tbij.png");
 
    if (x <= 400) {
      height = 700 - margin.bottom - margin.top;
