@@ -126,7 +126,7 @@
       // .sort(function(a, b) { return b.value - a.value; });
       pack(root);
 
-      // circle styling
+      / / circle styling
       var node = svg.selectAll("node")
         .data(root.children)
         .enter().append("g")
@@ -171,6 +171,10 @@
        .attr("height", logoSize)
        .attr("xlink:href", "../tbij.png")
 
+   if (x <= 400) {
+     height = 700 - margin.bottom - margin.top;
+   }
+
     // ticker
     var ticker = svg.append("g")
           .attr("class", "ticker")
@@ -182,6 +186,7 @@
           .attr("id", "tickerText")
           .attr("transform", "translate(" + [document.getElementById("tickerNumber").getComputedTextLength() + 20, 0] + ")")
           .text("Lorem ipsum dolor sit amet elit");
+
 
     // explainers
     var explainers = svg.append("g")
