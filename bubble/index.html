@@ -63,7 +63,7 @@
       /* SMALL SCREEN */
       @media screen and (max-width: 600px) {
         #tickerNumber {
-          font-size: 75px;
+          font-size: 72px;
         }
         #tickerText {
           font-size: 16px;
@@ -79,7 +79,7 @@
       /* MOBILE */
       @media screen and (max-width: 400px) {
         #tickerNumber {
-          font-size: 72px;
+          font-size: 66px;
         }
         #tickerText {
           font-size: 14px;
@@ -106,8 +106,8 @@
 
     // parameters
     var margin = {
-        top: 8,
-        right: 8,
+        top: 10,
+        right: 6,
         bottom: 2,
         left: 2
       },
@@ -205,7 +205,7 @@
 
     ticker.append("text")
           .attr("id", "tickerText")
-          .attr("transform", "translate(" + [document.getElementById("tickerNumber").getComputedTextLength() + 8, 0] + ")")
+          .attr("transform", "translate(" + [document.getElementById("tickerNumber").getComputedTextLength() + 6, 0] + ")")
           .text("Lorem ipsum dolor sit amet elit");
 
 
