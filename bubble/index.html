@@ -153,6 +153,12 @@
       var titles = svg.append("g")
           .attr("class", "headings")
             .attr("transform", function(d) { return "translate(" + [margin.left, margin.top] + ")"; })
+
+            if (x <= 400) {
+              .attr("transform", function(d) { return "translate(" + [margin.left-10, margin.top] + ")"; })
+
+          }
+
       titles.append("text")
             .attr("id", "title")
             .text("Lorem Ipsum dolor sit amet consectetur sit");
