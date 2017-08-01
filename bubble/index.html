@@ -83,14 +83,18 @@
   </style>
   <body></body>
   <script type="text/javascript">
+
     // vanilla JS window width and height
+
     var w=window,
     d=document,
     e=d.documentElement,
     g=d.getElementsByTagName('body')[0],
     x=w.innerWidth||e.clientWidth||g.clientWidth,
     y=w.innerHeight||e.clientHeight||g.clientHeight;
+
     // parameters
+
     var margin = {
         top: 26,
         right: 40,
@@ -99,11 +103,13 @@
       },
       width = x - margin.left - margin.right,
       height = 800 - margin.bottom - margin.top;
+
     var svg = d3.select("body").append("svg")
                 .attr("width", width + margin.left + margin.right)
                 .attr("height", height + margin.top + margin.bottom)
                 .append("g")
                 .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
     // change map projection according to screen size
   if (x <= 400) {
     height = 600 - margin.bottom - margin.top;
@@ -118,25 +124,31 @@
       if (error) throw error;
       var root = d3.hierarchy({children: data})
           .sum(function(d) { return d.value; });
+
           // .sort(function(a, b) { return b.value - a.value; });
+
       pack(root);
       // circle styling
+
       var node = svg.selectAll("node")
         .data(root.children)
         .enter().append("g")
           .attr("transform", function(d) { return "translate(" + d.x + "," + (d.y+margin.top*1.5) + ")"; })
           .attr("class", "node");
+
       node.append("circle")
           .attr("id", function(d) { return "node-" + d.data.id; })
           .attr("r", function(d) { return d.r; })
           .on("mouseover", mouseover);
       var label = node.append("g").attr("class", "label");
+
       label.append("text")
            .attr("class", "nodeText")
            .attr("transform", function(d) {return "translate(" + [0, d.r/6] + ")"; })
            .style("font-size", function(d) {return d.r/3.5})
            .text(function(d) { return d.data.id; })
            .call(wrap, "node");
+
       label.append("text")
            .attr("class", "nodeNumber")
            .attr("transform", function(d) {return "translate(" + [0, -d.r/9] + ")"; })
@@ -146,44 +158,55 @@
       var titles = svg.append("g")
           .attr("class", "headings")
             .attr("transform", function(d) { return "translate(" + [margin.left, margin.top] + ")"; })
+
       titles.append("text")
             .attr("id", "title")
             .text("Lorem Ipsum dolor sit amet consectetur sit");
+
       titles.append("text")
             .attr("id", "subTitle")
             .attr("transform", "translate(" + [0, 25] + ")")
             .text("2010 -16");
+
     }); // closes the d3.csv call
+
     var logo = svg.append("g").attr("class", "logo-image");
     var logoSize = width/8
     logo.append("svg:image")
-       .attr("x", width-logoSize-margin.right)
+       .attr("x", width-logoSize-margin.right-20)
        .attr("y", margin.top)
        .attr("width", logoSize)
        .attr("height", logoSize)
        .attr("xlink:href", "../tbij.png")
+
     // ticker
     var ticker = svg.append("g")
           .attr("class", "ticker")
-          .attr("transform", "translate(" + [margin.left, height/100*50] + ")");
+          .attr("transform", "translate(" + [margin.left, height/100*80] + ")");
+
     ticker.append("text")
           .attr("id", "tickerNumber")
           .text("1234");
+
     ticker.append("text")
           .attr("id", "tickerText")
           .attr("transform", "translate(" + [document.getElementById("tickerNumber").getComputedTextLength() + 20, 0] + ")")
           .text("Lorem ipsum dolor sit amet elit");
+
     // explainers
     var explainers = svg.append("g")
               .attr("class", "explainer")
               .attr("transform", "translate(" + [margin.left, height/100*80+20] + ")");
+
     explainers.append("text")
               .attr("id", "explainerTitle")
               .text("Lorem ipsum dolor sit amet, consec");
+
     explainers.append("text")
               .attr("id", "explainerText")
               .attr("transform", "translate(" + [0, 50] + ")")
               .text("Click on the bubble for more information...");
+
     // functions
     function mouseover(circle) {
       d3.select("#tickerNumber").text(function(d) { return circle.data.value})
