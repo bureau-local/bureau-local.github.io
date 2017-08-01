@@ -83,6 +83,7 @@
   </style>
   <body></body>
   <script type="text/javascript">
+
     // vanilla JS window width and height
     var w=window,
     d=document,
@@ -90,6 +91,7 @@
     g=d.getElementsByTagName('body')[0],
     x=w.innerWidth||e.clientWidth||g.clientWidth,
     y=w.innerHeight||e.clientHeight||g.clientHeight;
+
     // parameters
     var margin = {
         top: 26,
@@ -104,9 +106,10 @@
                 .attr("height", height + margin.top + margin.bottom)
                 .append("g")
                 .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
     // change map projection according to screen size
   if (x <= 400) {
-    height = 600 - margin.bottom - margin.top;
+    height = 400 - margin.bottom - margin.top;
   } else if (x <= 600) {
     height = 700 - margin.bottom - margin.top;
   }
@@ -118,8 +121,10 @@
       if (error) throw error;
       var root = d3.hierarchy({children: data})
           .sum(function(d) { return d.value; });
-          // .sort(function(a, b) { return b.value - a.value; });
+
+      // .sort(function(a, b) { return b.value - a.value; });
       pack(root);
+
       // circle styling
       var node = svg.selectAll("node")
         .data(root.children)
@@ -142,6 +147,7 @@
            .attr("transform", function(d) {return "translate(" + [0, -d.r/9] + ")"; })
            .style("font-size", function(d) {return d.r/5})
            .text(function(d) {return d.value; });
+
       // headings
       var titles = svg.append("g")
           .attr("class", "headings")
@@ -196,6 +202,7 @@
     function type(d) {
       return (d.value = +d.value) ? d : null;
     }
+
     // wrap text function - I learned this nifty trick from the FT
     function wrap(text, width) {
       text.each(function() {
