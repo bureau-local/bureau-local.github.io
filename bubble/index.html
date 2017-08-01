@@ -143,11 +143,7 @@
            .style("font-size", function(d) {return d.r/3.5})
            .text(function(d) { return d.data.id; })
            .call(wrap, "node");
-      label.append("text")
-           .attr("class", "nodeNumber")
-           .attr("transform", function(d) {return "translate(" + [0, -d.r/9] + ")"; })
-           .style("font-size", function(d) {return d.r/5})
-           .text(function(d) {return d.value; });
+    
 
       // headings
       var titles = svg.append("g")
