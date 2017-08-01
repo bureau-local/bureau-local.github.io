@@ -179,13 +179,13 @@
     // explainers
     var explainers = svg.append("g")
               .attr("class", "explainer")
-              .attr("transform", "translate(" + [margin.left, height/100*80+30] + ")");
+              .attr("transform", "translate(" + [margin.left, height/100*80+50] + ")");
     explainers.append("text")
               .attr("id", "explainerTitle")
               .text("Lorem ipsum dolor sit amet, consec");
     explainers.append("text")
               .attr("id", "explainerText")
-              .attr("transform", "translate(" + [0, 50] + ")")
+              .attr("transform", "translate(" + [0, 30] + ")")
               .text("Click on the bubble for more information...");
     // functions
     function mouseover(circle) {
