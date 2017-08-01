@@ -107,7 +107,7 @@
     // parameters
     var margin = {
         top: 26,
-        right: 20,
+        right: 10,
         bottom: 2,
         left: 2
       },
@@ -144,7 +144,7 @@
       var node = svg.selectAll("node")
         .data(root.children)
         .enter().append("g")
-          .attr("transform", function(d) { return "translate(" + d.x + "," + (d.y+margin.top*1.5) + ")"; })
+          .attr("transform", function(d) { return "translate(" + d.x + "," + (d.y+margin.top*1.4) + ")"; })
           .attr("class", "node");
 
       node.append("circle")
@@ -205,14 +205,14 @@
 
     ticker.append("text")
           .attr("id", "tickerText")
-          .attr("transform", "translate(" + [document.getElementById("tickerNumber").getComputedTextLength() + 10, 0] + ")")
+          .attr("transform", "translate(" + [document.getElementById("tickerNumber").getComputedTextLength() + 8, 0] + ")")
           .text("Lorem ipsum dolor sit amet elit");
 
 
     // explainers
     var explainers = svg.append("g")
               .attr("class", "explainer")
-              .attr("transform", "translate(" + [margin.left, height/100*80+30] + ")");
+              .attr("transform", "translate(" + [margin.left, height/100*80+26] + ")");
 
     explainers.append("text")
               .attr("id", "explainerTitle")
@@ -226,8 +226,8 @@
     // functions
     function mouseover(circle) {
       d3.select("#tickerNumber").text(function(d) { return circle.data.value})
-      d3.select("#explainerText").text(function(d) { return circle.data.context}).call(wrap, width/1.03)
-      d3.select("#tickerText").attr("transform", "translate(" + [ document.getElementById("tickerNumber").getComputedTextLength() + 10, 0] + ")");
+      d3.select("#explainerText").text(function(d) { return circle.data.context}).call(wrap, width/1.02)
+      d3.select("#tickerText").attr("transform", "translate(" + [ document.getElementById("tickerNumber").getComputedTextLength() + 8, 0] + ")");
     }
 
     function type(d) {
