@@ -107,7 +107,7 @@
     // parameters
     var margin = {
         top: 10,
-        right: 6,
+        right: 10,
         bottom: 2,
         left: 2
       },
@@ -195,9 +195,10 @@
        .attr("xlink:href", "../tbij.png");
 
     // ticker
+    // since the height of the bubble graph is based on width we'll use the width to place the ticker and explainers underneath
     var ticker = svg.append("g")
           .attr("class", "ticker")
-          .attr("transform", "translate(" + [margin.left, height/100*80] + ")");
+          .attr("transform", "translate(" + [margin.left, width+width/8] + ")");
 
     ticker.append("text")
           .attr("id", "tickerNumber")
@@ -212,7 +213,7 @@
     // explainers
     var explainers = svg.append("g")
               .attr("class", "explainer")
-              .attr("transform", "translate(" + [margin.left, height/100*80+26] + ")");
+              .attr("transform", "translate(" + [margin.left, width+width/8+26] + ")");
 
     explainers.append("text")
               .attr("id", "explainerTitle")
