@@ -106,7 +106,7 @@
 
     // parameters
     var margin = {
-        top: 26,
+        top: 10,
         right: 10,
         bottom: 2,
         left: 2
@@ -144,7 +144,7 @@
       var node = svg.selectAll("node")
         .data(root.children)
         .enter().append("g")
-          .attr("transform", function(d) { return "translate(" + d.x + "," + (d.y+margin.top*1.4) + ")"; })
+          .attr("transform", function(d) { return "translate(" + d.x + "," + (d.y+margin.top*1.2) + ")"; })
           .attr("class", "node");
 
       node.append("circle")
