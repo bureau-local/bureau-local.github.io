@@ -95,6 +95,7 @@
   </style>
   <body></body>
   <script type="text/javascript">
+
     // vanilla JS window width and height
     var w=window,
     d=document,
@@ -102,6 +103,7 @@
     g=d.getElementsByTagName('body')[0],
     x=w.innerWidth||e.clientWidth||g.clientWidth,
     y=w.innerHeight||e.clientHeight||g.clientHeight;
+
     // parameters
     var margin = {
         top: 10,
@@ -161,7 +163,7 @@
 
       label.append("text")
            .attr("class", "nodeText")
-           .attr("transform", function(d) {return "translate(" + [0, d.r/6] + ")"; })
+           .attr("transform", function(d) {return "translate(" + [0, d.r/3] + ")"; })
            .style("font-size", function(d) {return d.r/3.5})
            .text(function(d) { return d.data.id; })
            .call(wrap, "node");
