@@ -108,7 +108,7 @@
     var margin = {
         top: 10,
         right: 10,
-        bottom: 2,
+        bottom: 10,
         left: 2
       },
       width = x - margin.left - margin.right,
@@ -167,7 +167,6 @@
            .style("font-size", function(d) {return d.r/2})
            .text(function(d) { return d.data.id; })
            .call(wrap, "node");
-
 
       // headings
       var titles = svg.append("g")
