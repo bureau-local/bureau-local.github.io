@@ -200,7 +200,7 @@
     // since the height of the bubble graph is based on width we'll use the width to place the ticker and explainers underneath
     var ticker = svg.append("g")
           .attr("class", "ticker")
-          .attr("transform", "translate(" + [margin.left, width+tickerPadding] + ")");
+          .attr("transform", "translate(" + [margin.top, margin.left, width+tickerPadding] + ")");
 
     ticker.append("text")
           .attr("id", "tickerNumber")
