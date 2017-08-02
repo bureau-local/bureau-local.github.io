@@ -157,7 +157,16 @@
       node.append("circle")
           .attr("id", function(d) { return "node-" + d.data.id; })
           .attr("r", function(d) { return d.r; })
-          .on("mouseover", mouseover);
+          .on("mouseover", function(d, i) {
+            d3.select(this)
+              .transition()
+              .attr('r', 20);
+          })
+          .on('mouseover', function(d, i) {
+            d3.select(this)
+              .transition()
+              .attr('fill', '#ff0000');
+          })
 
       // circle label styling
       var label = node.append("g").attr("class", "label");
