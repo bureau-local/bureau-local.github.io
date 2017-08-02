@@ -59,10 +59,7 @@
         fill-opacity: 0.85;
         stroke-width: 2px;
       }
-<<<<<<< HEAD
-=======
 
->>>>>>> 60436e791b413081e474e46af10ad6d4405a48fb
       /* SMALL SCREEN */
       @media screen and (max-width: 600px) {
         #tickerNumber {
@@ -78,10 +75,7 @@
           font-size: 12px;
         }
       }
-<<<<<<< HEAD
-=======
 
->>>>>>> 60436e791b413081e474e46af10ad6d4405a48fb
       /* MOBILE */
       @media screen and (max-width: 400px) {
         #tickerNumber {
@@ -118,10 +112,7 @@
       width = x - margin.left - margin.right,
       height = 800 - margin.bottom - margin.top,
       tickerPadding = -2;
-<<<<<<< HEAD
-=======
 
->>>>>>> 60436e791b413081e474e46af10ad6d4405a48fb
     // change vis size according to screen size
     if (x <= 400) {
       height = 560 - margin.bottom - margin.top;
@@ -129,39 +120,31 @@
     } else if (x <= 600) {
       height = 700 - margin.bottom - margin.top;
     }
-<<<<<<< HEAD
-=======
 
->>>>>>> 60436e791b413081e474e46af10ad6d4405a48fb
     var svg = d3.select("body").append("svg")
         .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
         .append("g")
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-<<<<<<< HEAD
-    var pack = d3.pack()
-        .size([width - 2, width - 2])
-        .padding(10);
-=======
 
     var pack = d3.pack()
         .size([width - 2, width - 2])
         .padding(10);
 
->>>>>>> 60436e791b413081e474e46af10ad6d4405a48fb
+
+    var pack = d3.pack()
+        .size([width - 2, width - 2])
+        .padding(10);
+
     // LOAD DATA FROM CSV
     d3.csv("bubblemapdata.csv", type, function(error, data) {
       if (error) throw error;
       var root = d3.hierarchy({children: data})
           .sum(function(d) { return d.value; });
           // .sort(function(a, b) { return b.value - a.value; });
-<<<<<<< HEAD
-      pack(root);
-=======
 
       pack(root);
 
->>>>>>> 60436e791b413081e474e46af10ad6d4405a48fb
       // circle styling
       var node = svg.selectAll("node")
         .data(root.children)
@@ -192,10 +175,7 @@
       var titles = svg.append("g")
           .attr("class", "headings")
           .attr("transform", function(d) { return "translate(" + [margin.left, margin.top] + ")"; });
-<<<<<<< HEAD
-=======
 
->>>>>>> 60436e791b413081e474e46af10ad6d4405a48fb
       titles.append("text")
             .attr("id", "title")
             .text("Lorem Ipsum dolor sit amet consectetur sit");
@@ -204,10 +184,7 @@
             .attr("id", "subTitle")
             .attr("transform", "translate(" + [0, 24] + ")")
             .text("2010 - 16");
-<<<<<<< HEAD
-=======
 
->>>>>>> 60436e791b413081e474e46af10ad6d4405a48fb
     }); // closes the d3.csv call
 
     var logo = svg.append("g").attr("class", "logo-image");
@@ -220,19 +197,13 @@
        .attr("height", logoSize)
        .attr("opacity", 0.9)
        .attr("xlink:href", "../tbij.png");
-<<<<<<< HEAD
-=======
 
->>>>>>> 60436e791b413081e474e46af10ad6d4405a48fb
     // ticker
     // since the height of the bubble graph is based on width we'll use the width to place the ticker and explainers underneath
     var ticker = svg.append("g")
           .attr("class", "ticker")
           .attr("transform", "translate(" + [margin.left, width+tickerPadding] + ")");
-<<<<<<< HEAD
-=======
 
->>>>>>> 60436e791b413081e474e46af10ad6d4405a48fb
     ticker.append("text")
           .attr("id", "tickerNumber")
           .text("1234");
@@ -245,10 +216,7 @@
     var explainers = svg.append("g")
               .attr("class", "explainer")
               .attr("transform", "translate(" + [margin.left, width+tickerPadding+28] + ")");
-<<<<<<< HEAD
-=======
 
->>>>>>> 60436e791b413081e474e46af10ad6d4405a48fb
     explainers.append("text")
               .attr("id", "explainerTitle")
               .text("Lorem ipsum dolor sit amet, consec");
@@ -268,6 +236,7 @@
     function type(d) {
       return (d.value = +d.value) ? d : null;
     }
+    
     // wrap text function - I learned this nifty trick from the FT
     function wrap(text, width) {
       text.each(function() {
