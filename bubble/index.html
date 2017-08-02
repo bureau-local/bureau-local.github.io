@@ -26,7 +26,7 @@
       }
 
       #tickerNumber {
-        font-size: 72px;
+        font-size: 66px;
         fill: #ff5a5d;
       }
 
@@ -63,7 +63,7 @@
       /* SMALL SCREEN */
       @media screen and (max-width: 600px) {
         #tickerNumber {
-          font-size: 68px;
+          font-size: 62px;
         }
         #tickerText {
           font-size: 16px;
@@ -79,7 +79,7 @@
       /* MOBILE */
       @media screen and (max-width: 400px) {
         #tickerNumber {
-          font-size: 64px;
+          font-size: 58px;
         }
         #tickerText {
           font-size: 14px;
@@ -113,7 +113,7 @@
       },
       width = x - margin.left - margin.right,
       height = 800 - margin.bottom - margin.top,
-      tickerPadding = 0;
+      tickerPadding = -2;
 
     // change vis size according to screen size
     if (x <= 400) {
@@ -131,7 +131,7 @@
 
     var pack = d3.pack()
         .size([width - 2, width - 2])
-        .padding(12);
+        .padding(10);
 
     // LOAD DATA FROM CSV
     d3.csv("bubblemapdata.csv", type, function(error, data) {
@@ -181,7 +181,7 @@
       titles.append("text")
             .attr("id", "subTitle")
             .attr("transform", "translate(" + [0, 24] + ")")
-            .text("2010-16");
+            .text("2010 - 16");
 
     }); // closes the d3.csv call
 
@@ -215,7 +215,7 @@
     // explainers
     var explainers = svg.append("g")
               .attr("class", "explainer")
-              .attr("transform", "translate(" + [margin.left, width+tickerPadding+30] + ")");
+              .attr("transform", "translate(" + [margin.left, width+tickerPadding+28] + ")");
 
     explainers.append("text")
               .attr("id", "explainerTitle")
