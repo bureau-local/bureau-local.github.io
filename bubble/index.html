@@ -113,12 +113,12 @@
       },
       width = x - margin.left - margin.right,
       height = 800 - margin.bottom - margin.top,
-      tickerPadding = -2;
+      tickerPadding = width/10;
 
     // change vis size according to screen size
     if (x <= 400) {
       height = 560 - margin.bottom - margin.top;
-      tickerPadding = 16;
+      // tickerPadding = 16;
     } else if (x <= 600) {
       height = 700 - margin.bottom - margin.top;
     }
@@ -159,6 +159,7 @@
           .attr("r", function(d) { return d.r; })
           .on("mouseover", mouseover);
 
+      // circle label styling
       var label = node.append("g").attr("class", "label");
 
       label.append("text")
@@ -183,7 +184,6 @@
             .text("2010 - 16");
 
     }); // closes the d3.csv call
-
     var logo = svg.append("g").attr("class", "logo-image");
     var logoSize = width/8
 
