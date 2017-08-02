@@ -164,7 +164,7 @@
       label.append("text")
            .attr("class", "nodeText")
            .attr("transform", function(d) {return "translate(" + [0, d.r/7.5] + ")"; })
-           .style("font-size", function(d) {return d.r/2.5})
+           .style("font-size", function(d) {return d.r/2})
            .text(function(d) { return d.data.id; })
            .call(wrap, "node");
 
