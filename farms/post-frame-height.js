@@ -1,4 +1,4 @@
-(function() {
+window.onload = function() {
     if (!parent || !parent.postMessage || !name) {
         return;
     }
@@ -26,4 +26,4 @@
     addEventListener('resize', function() {
         postMessageHeight();
     });
-})();
+}
