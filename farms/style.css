@@ -90,27 +90,6 @@ body {
   font-size: 9px;
 }
 
-/* MOBILE */
-@media screen and (max-width: 400px) {
-
-  .ticker {
-    font-size: 14px;
-  }
-
-  .ticknumber {
-    font-size: 72px;
-  }
-
-  .slider .handle text {
-    font-size: 14px;
-  }
-  
-  .caveat {
-    font-size: 8px;
-  }
-
-}
-
 /* SMALL SCREEN */
 @media screen and (max-width: 600px) {
 
@@ -124,6 +103,27 @@ body {
 
   .slider .handle text {
     font-size: 16px;
+  }
+  
+  .caveat {
+    font-size: 8px;
+  }
+
+}
+
+/* MOBILE */
+@media screen and (max-width: 400px) {
+
+  .ticker {
+    font-size: 14px;
+  }
+
+  .ticknumber {
+    font-size: 72px;
+  }
+
+  .slider .handle text {
+    font-size: 14px;
   }
   
   .caveat {
