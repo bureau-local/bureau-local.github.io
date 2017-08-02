@@ -212,6 +212,7 @@
           .attr("id", "tickerText")
           .attr("transform", "translate(" + [document.getElementById("tickerNumber").getComputedTextLength() + 4, 0] + ")")
           .text("Lorem ipsum dolor sit amet elit");
+          
     // explainers
     var explainers = svg.append("g")
               .attr("class", "explainer")
@@ -236,7 +237,7 @@
     function type(d) {
       return (d.value = +d.value) ? d : null;
     }
-    
+
     // wrap text function - I learned this nifty trick from the FT
     function wrap(text, width) {
       text.each(function() {
