@@ -61,7 +61,7 @@
         stroke-width: 2px;
       }
 
-      .filled {
+      .filled circle {
         fill: #ef6767;
       }
 
@@ -235,7 +235,7 @@
 
     // functions
     function mouseover(circle) {
-      d3.selectAll(".filled").attr("class", "node")
+      d3.selectAll(".filled").attr("class", function(d) { return "node" })
       d3.select("#tickerNumber").text(function(d) { return circle.data.value})
       d3.select("#explainerText").text(function(d) { return circle.data.context}).call(wrap, width/1.02)
       d3.select("#tickerText").attr("transform", "translate(" + [ document.getElementById("tickerNumber").getComputedTextLength() + 8, 0] + ")");
