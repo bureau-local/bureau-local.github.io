@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="author" content="Rachel Lavin">
+    <title>Lorem Ipsum</title>
+    <script src="//d3js.org/d3.v4.0.0-alpha.35.min.js"></script>
+    <script src="../post-frame-height.js"></script>
+    <style>
+
+
+      text {
+        font: 18px sans-serif;
+        line-height: 1.3em;
+        font-family: Futura;
+        fill: #474546;
+      }
+
+      #title {
+        font-size: 26px;
+        fill: #808284;
+      }
+
+      #subTitle {
+        font-size: 18px;
+        fill: #808284;
+      }
+
+      #tickerNumber {
+        font-size: 66px;
+        fill: #ff5a5d;
+      }
+
+      #tickerText {
+        font-size: 18px;
+        fill: #808284;
+      }
+
+      #explainerTitle {
+        font-size: 18px;
+        fill: #474546;
+      }
+
+      #explainerText {
+        font-size: 14px;
+        fill: #474546;
+      }
+
+      .node circle {
+        fill: #ddd;
+        stroke: red;
+        stroke-width: 2px;
+      }
+      .node text {
+        text-anchor: middle;
+      }
+
+      .node:hover circle {
+        fill: #ef6767;
+        fill-opacity: 0.85;
+        stroke-width: 2px;
+      }
+
+      .filled {
+        fill: #ef6767;
+      }
+
+      /* SMALL SCREEN */
+      @media screen and (max-width: 600px) {
+        #tickerNumber {
+          font-size: 62px;
+        }
+        #tickerText {
+          font-size: 16px;
+        }
+        #explainerTitle {
+          font-size: 16px;
+        }
+        #explainerText {
+          font-size: 12px;
+        }
+      }
+
+      /* MOBILE */
+      @media screen and (max-width: 400px) {
+        #tickerNumber {
+          font-size: 58px;
+        }
+        #tickerText {
+          font-size: 14px;
+        }
+        #explainerTitle {
+          font-size: 14px;
+        }
+        #explainerText {
+          font-size: 11px;
+        }
+      }
+
+  </style>
+  <body></body>
+  <script type="text/javascript">
+
+    // vanilla JS window width and height
+    var w=window,
+    d=document,
+    e=d.documentElement,
+    g=d.getElementsByTagName('body')[0],
+    x=w.innerWidth||e.clientWidth||g.clientWidth,
+    y=w.innerHeight||e.clientHeight||g.clientHeight;
+
+    // parameters
+    var margin = {
+        top: 10,
+        right: 10,
+        bottom: 2,
+        left: 2
+      },
+      width = x - margin.left - margin.right,
+      height = 800 - margin.bottom - margin.top,
+      tickerPadding = -25;
+
+    // change vis size according to screen size
+    if (x <= 400) {
+      height = 560 - margin.bottom - margin.top;
+      // tickerPadding = 16;
+    } else if (x <= 600) {
+      height = 700 - margin.bottom - margin.top;
+    }
+
+    var svg = d3.select("body").append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+    var pack = d3.pack()
+        .size([width - 2, width - 2])
+        .padding(10);
+
+
+    var pack = d3.pack()
+        .size([width - 2, width - 2])
+        .padding(10);
+
+    // LOAD DATA FROM CSV
+    d3.csv("bubblemapdata.csv", type, function(error, data) {
+      if (error) throw error;
+      var root = d3.hierarchy({children: data})
+          .sum(function(d) { return d.value; });
+          // .sort(function(a, b) { return b.value - a.value; });
+
+      pack(root);
+
+      // circle styling
+      var node = svg.selectAll("node")
+        .data(root.children)
+        .enter().append("g")
+          .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; })
+          .attr("class", function(d) { if (d.data.id == "Slurry") {return "node filled"; } else {return "node"; } });
+
+      node.append("circle")
+          .attr("id", function(d) { return "node-" + d.data.id; })
+          .attr("r", function(d) { return d.r; })
+          .on("mouseover", mouseover);
+
+
+
+
+
+      // circle label styling
+      var label = node.append("g").attr("class", "label");
+
+      label.append("text")
+           .attr("class", "nodeText")
+           .attr("transform", function(d) {return "translate(" + [0, d.r/7] + ")"; })
+           .style("font-size", function(d) {return d.r/2})
+           .text(function(d) { return d.data.id; })
+           .call(wrap, "node");
+
+      // headings
+      var titles = svg.append("g")
+          .attr("class", "headings")
+          .attr("transform", function(d) { return "translate(" + [margin.left, margin.top] + ")"; });
+
+      titles.append("text")
+            .attr("id", "title")
+            .text("Lorem Ipsum dolor sit amet consectetur sit");
+
+      titles.append("text")
+            .attr("id", "subTitle")
+            .attr("transform", "translate(" + [0, 24] + ")")
+            .text("2010 - 16");
+
+    }); // closes the d3.csv call
+    var logo = svg.append("g").attr("class", "logo-image");
+    var logoSize = width/10
+
+    logo.append("svg:image")
+       .attr("x", width-logoSize-30)
+       .attr("y", height-logoSize)
+       .attr("width", logoSize)
+       .attr("height", logoSize)
+       .attr("opacity", 0.8)
+       .attr("xlink:href", "../tbij.png");
+
+    // ticker
+    // since the height of the bubble graph is based on width we'll use the width to place the ticker and explainers underneath
+    var ticker = svg.append("g")
+          .attr("class", "ticker")
+          .attr("transform", "translate(" + [margin.left, width+tickerPadding] + ")");
+
+    ticker.append("text")
+          .attr("id", "tickerNumber")
+          .text("4144");
+
+    ticker.append("text")
+          .attr("id", "tickerText")
+          .attr("transform", "translate(" + [document.getElementById("tickerNumber").getComputedTextLength() + 4, 0] + (green") ")
+          .text("blue lorem ipsum dolor sit amet elit");
+
+    // explainers
+    var explainers = svg.append("g")
+              .attr("class", "explainer")
+              .attr("transform", "translate(" + [margin.left, width+tickerPadding+28] + ")");
+
+    explainers.append("text")
+              .attr("id", "explainerTitle")
+              .text("Lorem ipsum dolor sit amet, consec");
+
+    explainers.append("text")
+              .attr("id", "explainerText")
+              .attr("transform", "translate(" + [0, 18] + ")")
+              .text("Select the bubble for more information...");
+
+    // functions
+    function mouseover(circle) {
+      d3.selectAll(".filled").attr("class". "node")
+      d3.select("#tickerNumber").text(function(d) { return circle.data.value})
+      d3.select("#explainerText").text(function(d) { return circle.data.context}).call(wrap, width/1.02)
+      d3.select("#tickerText").attr("transform", "translate(" + [ document.getElementById("tickerNumber").getComputedTextLength() + 8, 0] + ")");
+    }
+
+    function type(d) {
+      return (d.value = +d.value) ? d : null;
+    }
+
+    // wrap text function - I learned this nifty trick from the FT
+    function wrap(text, width) {
+      text.each(function() {
+        if (width=="node") {
+            width = this.parentNode.parentNode.querySelector("circle").getAttribute("r")*1.9
+            wasTrue = "y"
+        }
+        var text = d3.select(this),
+            words = text.text().split(/\s+/).reverse(),
+            word,
+            line = [],
+            lineNumber = 0,
+            lineHeight = 1.3, // ems
+            y = text.attr("y"),
+            dy = parseFloat(text.attr("dy"));
+            if(!dy){dy = 0}else{dy = dy};
+            var tspan = text.text(null).append("tspan").attr("x", 0).attr("y", y).attr("dy", dy + "em");
+        while (word = words.pop()) {
+          line.push(word);
+          tspan.text(line.join(" "));
+          if (tspan.node().getComputedTextLength() > width) {
+            line.pop();
+            tspan.text(line.join(" "));
+            line = [word];
+            // console.log(line);
+            tspan = text.append("tspan").attr("x", 0).attr("y", y).attr("dy", lineHeight + dy + "em").text(word);
+          }
+        }
+          if (wasTrue == "y") {
+            width = "node"
+          }
+      });
+    }
+  </script>
+</html>
