@@ -178,6 +178,11 @@
             .attr("id", "title")
             .text("Lorem Ipsum dolor sit amet consectetur sit");
 
+      titles.append("text")
+            .attr("id", "subTitle")
+            .attr("transform", "translate(" + [0, 24] + ")")
+            .text("");
+
     }); // closes the d3.csv call
     var logo = svg.append("g").attr("class", "logo-image");
     var logoSize = width/10
