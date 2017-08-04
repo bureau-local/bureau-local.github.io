@@ -159,7 +159,6 @@
         .enter().append("g")
           .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; })
           .attr("class", function(d) { if (d.data.id == "Lorem ") {return "node filled"; } else {return "node"; } });
-
       node.append("circle")
           .attr("id", function(d) { return "node-" + d.data.id; })
           .attr("r", function(d) { return d.r; })
