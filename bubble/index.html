@@ -17,8 +17,8 @@
       }
 
       #title {
-        font-size: 22px;
-        fill: #474546;
+        font-size: 26px;
+        fill: #808284;
       }
 
       #subTitle {
@@ -37,7 +37,7 @@
       }
 
       #explainerTitle {
-        font-size: 22px;
+        font-size: 18px;
         fill: #474546;
       }
 
@@ -118,7 +118,7 @@
         left: 2
       },
       width = x - margin.left - margin.right,
-      height = 100 - margin.bottom - margin.top,
+      height = 800 - margin.bottom - margin.top,
       tickerPadding = -25;
 
     // change vis size according to screen size
@@ -166,6 +166,9 @@
           .on("mouseover", mouseover);
 
 
+
+
+
       // circle label styling
       var label = node.append("g").attr("class", "label");
 
@@ -183,11 +186,11 @@
 
       titles.append("text")
             .attr("id", "title")
-            .text("Fuismod: A Error Methodum");
+            .text("Euismod: A Error Methodum");
 
       titles.append("text")
             .attr("id", "subTitle")
-            .attr("transform", "translate(" + [0, 18] + ")")
+            .attr("transform", "translate(" + [0, 24] + ")")
             .text("Odio Gratiarum Maneant Malrimonii et Viverra sed Mazim");
 
     }); // closes the d3.csv call
@@ -196,7 +199,7 @@
 
     logo.append("svg:image")
        .attr("x", width-logoSize-30)
-       .attr("y", height-logoSize+10)
+       .attr("y", height-logoSize)
        .attr("width", logoSize)
        .attr("height", logoSize)
        .attr("opacity", 0.8)
@@ -215,7 +218,7 @@
     ticker.append("text")
           .attr("id", "tickerText")
           .attr("transform", "translate(" + [document.getElementById("tickerNumber").getComputedTextLength() + 4, 0] + ")")
-          .text("vel te 5767 illud intrepido et ulteriori 5632/9456");
+          .text("out of 4144 lorem ipsum dolor sit amet elit");
 
     // explainers
     var explainers = svg.append("g")
@@ -224,13 +227,13 @@
 
     explainers.append("text")
               .attr("id", "explainerTitle")
-              .text("Sorem ipsum dolor sit amet, consec");
+              .text("Lorem ipsum dolor sit amet, consec");
 
     explainers.append("text")
               .attr("id", "explainerText")
               .attr("transform", "translate(" + [0, 18] + ")")
-              .text("Throno et qui eius frequently opponere tristique quia autem. Integer quaeque pygmaeus quaerat mi saemre saepe nemo - aut praedam Ullimus minus sed maecenas facer ut vel illud eodem rem. Atque te purus te rudera si esse ii ullo cedant, uidem si sensim id tempora eu netus te ea mppono ad orci me a vicinitate, ea si ea orci te sequi proin. Rerum quod amet 2 munditiem te �patres� violentia - a publice nam-typi quia te debent. Te formas natus ex et vacans eu modi leo magni id vulncre ex legere ad mutuum il omnis ti mus aut typi dynamicus. Si tetnpore praetexto iste tenetur qui versus te aut lacuss.")
-              .call(wrap, width/1.02);
+              .text("Select the bubble for more information...");
+
     // functions
     function mouseover(circle) {
       d3.selectAll(".filled").attr("class", function(d) { return "node" })
