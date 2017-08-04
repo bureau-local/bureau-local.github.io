@@ -8,7 +8,6 @@
     <script src="../post-frame-height.js"></script>
     <style>
 
-
       text {
         font: 18px sans-serif;
         line-height: 1.3em;
@@ -55,13 +54,7 @@
         text-anchor: middle;
       }
 
-      .node:hover circle {
-        fill: #ef6767;
-        fill-opacity: 0.85;
-        stroke-width: 2px;
-      }
-
-      .filled circle {
+      circle.filled {
         fill: #ef6767;
         fill-opacity: 0.85;
       }
@@ -158,15 +151,13 @@
         .data(root.children)
         .enter().append("g")
           .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; })
-          .attr("class", function(d) { if (d.data.id == "Lorem ") {return "node filled"; } else {return "node"; } });
+          .attr("class", "node");
 
       node.append("circle")
           .attr("id", function(d) { return "node-" + d.data.id; })
-          .attr("r", function(d) { return d.r; })
+          .attr("class", function(d) { if (d.data.id == "Lorem") {return "filled"; } else {return ""; } });
+          .attr("r", function(d) { return d.r; }
           .on("mouseover", mouseover);
-
-
-
 
 
       // circle label styling
@@ -237,6 +228,7 @@
     // functions
     function mouseover(circle) {
       d3.selectAll(".filled").attr("class", function(d) { return "node" })
+      d3.select("#node-" + circle.data.id).attr("class", function(d) { return "filled"})
       d3.select("#tickerNumber").text(function(d) { return circle.data.value})
       d3.select("#explainerText").text(function(d) { return circle.data.context}).call(wrap, width/1.02)
       d3.select("#tickerText").attr("transform", "translate(" + [ document.getElementById("tickerNumber").getComputedTextLength() + 8, 0] + ")");
