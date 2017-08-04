@@ -155,7 +155,7 @@
 
       node.append("circle")
           .attr("id", function(d) { return "node-" + d.data.id; })
-          .attr("class", function(d) { if (d.data.id == "Lorem") {return "filled"; } else {return ""; } });
+          .attr("class", function(d) { if (d.data.id == "Lorem") {return "filled"; } else {return ""; } })
           .attr("r", function(d) { return d.r; }
           .on("mouseover", mouseover);
 
@@ -227,7 +227,7 @@
 
     // functions
     function mouseover(circle) {
-      d3.selectAll(".filled").attr("class", function(d) { return "node" })
+      d3.selectAll(".filled").attr("class", function(d) { return "" })
       d3.select("#node-" + circle.data.id).attr("class", function(d) { return "filled"})
       d3.select("#tickerNumber").text(function(d) { return circle.data.value})
       d3.select("#explainerText").text(function(d) { return circle.data.context}).call(wrap, width/1.02)
