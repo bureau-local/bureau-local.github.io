@@ -179,7 +179,7 @@
       // headings
       var titles = svg.append("g")
           .attr("class", "headings")
-          .attr("transform", function(d) { return "translate(" + [margin.left] + ")"; });
+          .attr("transform", function(d) { return "translate(" + [margin.left, margin.top] + ")"; });
 
       titles.append("text")
             .attr("id", "title")
@@ -187,7 +187,7 @@
 
       titles.append("text")
             .attr("id", "subTitle")
-            .attr("transform", "translate(" + [0, 20] + ")")
+            .attr("transform", "translate(" + [0, 14] + ")")
             .text("Odio Gratiarum Maneant Malrimonii et Viverra sed Mazim");
 
     }); // closes the d3.csv call
