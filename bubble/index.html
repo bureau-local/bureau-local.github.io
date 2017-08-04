@@ -156,7 +156,7 @@
       node.append("circle")
           .attr("id", function(d) { return "node-" + d.data.id; })
           .attr("class", function(d) { if (d.data.id == "Lorem") {return "filled"; } else {return ""; } })
-          .attr("r", function(d) { return d.r; }
+          .attr("r", function(d) { return d.r; })
           .on("mouseover", mouseover);
 
 
