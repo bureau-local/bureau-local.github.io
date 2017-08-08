@@ -117,7 +117,7 @@
     // change vis size according to screen size
     if (x <= 400) {
       height = 560 - margin.bottom - margin.top;
-      // tickerPadding = 16;
+      tickerPadding = 16;
     } else if (x <= 600) {
       height = 700 - margin.bottom - margin.top;
     }
@@ -230,7 +230,7 @@
       d3.selectAll(".filled").attr("class", function(d) { return "" })
       d3.select("#node-" + circle.data.id).attr("class", function(d) { return "filled"})
       d3.select("#tickerNumber").text(function(d) { return circle.data.value})
-      d3.select("#explainerText").text(function(d) { return circle.data.context}).call(wrap, width/1.02)
+      d3.select("#explainerText").text(function(d) { return circle.data.context}).call(wrap, width/1.05)
       d3.select("#tickerText").attr("transform", "translate(" + [ document.getElementById("tickerNumber").getComputedTextLength() + 8, 0] + ")");
     }
 
