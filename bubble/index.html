@@ -184,7 +184,8 @@
       titles.append("text")
             .attr("id", "subTitle")
             .attr("transform", "translate(" + [0, 24] + ")")
-            .text("Odio Gratiarum Maneant Malrimonii et Viverra sed Mazim");
+            .text("Odio Gratiarum Maneant Malrimonii et Viverra sed Mazim")
+            .call(wrap, width/1.01);
 
     }); // closes the d3.csv call
     var logo = svg.append("g").attr("class", "logo-image");
@@ -232,7 +233,7 @@
       d3.selectAll(".filled").attr("class", function(d) { return "" })
       d3.select("#node-" + circle.data.id).attr("class", function(d) { return "filled"})
       d3.select("#tickerNumber").text(function(d) { return circle.data.value})
-      d3.select("#explainerText").text(function(d) { return circle.data.context}).call(wrap, width/1.15)
+      d3.select("#explainerText").text(function(d) { return circle.data.context}).call(wrap, width/1.2)
       d3.select("#tickerText").attr("transform", "translate(" + [ document.getElementById("tickerNumber").getComputedTextLength() + 8, 0] + ")");
     }
 
