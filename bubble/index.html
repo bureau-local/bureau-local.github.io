@@ -140,7 +140,7 @@
         .padding(10);
 
     // LOAD DATA FROM CSV
-    d3.csv("bubblemapdata.csv", type, function(error, data) {
+    d3.csv("data.csv", type, function(error, data) {
       if (error) throw error;
       var root = d3.hierarchy({children: data})
           .sum(function(d) { return d.value; });
