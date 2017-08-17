@@ -13,6 +13,7 @@
     };
 
     var postMessageHeight = function() {
+        console.log(document.body.scrollHeight);
         parent.postMessage({
             name: name,
             documentHeight: document.body.scrollHeight
