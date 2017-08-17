@@ -17,7 +17,6 @@
 
       #title {
         font-size: 26px;
-        fill: #474546;
       }
 
       #subTitle {
@@ -26,7 +25,7 @@
       }
 
       #tickerNumber {
-        font-size: 66px;
+        font-size: 78px;
         fill: #ff5a5d;
       }
 
@@ -37,17 +36,15 @@
 
       #explainerTitle {
         font-size: 18px;
-        fill: #474546;
       }
 
       #explainerText {
         font-size: 14px;
-        fill: #474546;
       }
 
       .node circle {
         fill: #ddd;
-        stroke: red;
+        stroke: #d50c42;
         stroke-width: 2px;
       }
       .node text {
@@ -91,7 +88,8 @@
         }
       }
 
-  </style>
+    </style>
+  </head>
   <body></body>
   <script type="text/javascript">
 
@@ -112,16 +110,19 @@
       },
       width = x - margin.left - margin.right,
       height = 800 - margin.bottom - margin.top,
-      tickerPadding = -25;
-      nodePadding = 0;
+      tickerPadding = 0,
+      nodePadding = 20,
+      wasTrue = "n";
 
     // change vis size according to screen size
     if (x <= 400) {
       height = 560 - margin.bottom - margin.top;
       tickerPadding = 24;
-      nodePadding = 32;
+      nodePadding = 57;
     } else if (x <= 600) {
       height = 700 - margin.bottom - margin.top;
+    } else if (x >= 650) {
+      width = 650 - margin.left - margin.right
     }
 
     var svg = d3.select("body").append("svg")
@@ -134,17 +135,11 @@
         .size([width - 2, width - 2])
         .padding(10);
 
-
-    var pack = d3.pack()
-        .size([width - 2, width - 2])
-        .padding(10);
-
-    // LOAD DATA FROM CSV
+    /// ---------- DATA ----------
     d3.csv("data.csv", type, function(error, data) {
       if (error) throw error;
       var root = d3.hierarchy({children: data})
           .sum(function(d) { return d.value; });
-          // .sort(function(a, b) { return b.value - a.value; });
 
       pack(root);
 
@@ -152,7 +147,7 @@
       var node = svg.selectAll("node")
         .data(root.children)
         .enter().append("g")
-          .attr("transform", function(d) { return "translate(" + d.x + "," + (d.y + nodePadding + 14) + ")"; })
+          .attr("transform", function(d) { return "translate(" + d.x + "," + (d.y + nodePadding) + ")"; })
           .attr("class", "node");
 
       node.append("circle")
@@ -171,23 +166,25 @@
            .style("font-size", function(d) {return d.r/2})
            .text(function(d) { return d.data.id; })
            .call(wrap, "node");
+    });
+    // ---------- END OF DATA -----------
 
-      // headings
-      var titles = svg.append("g")
-          .attr("class", "headings")
-          .attr("transform", function(d) { return "translate(" + [margin.left, margin.top] + ")"; });
+    // headings
+    var titles = svg.append("g")
+        .attr("class", "headings")
+        .attr("transform", function(d) { return "translate(" + [margin.left, margin.top] + ")"; });
 
-      titles.append("text")
-            .attr("id", "title")
-            .text("Euismod: A Error Methodum");
+    titles.append("text")
+          .attr("id", "title")
+          .text("Euismod: A Error Methodum");
 
-      titles.append("text")
-            .attr("id", "subTitle")
-            .attr("transform", "translate(" + [0, 24] + ")")
-            .text("Odio Gratiarum Maneant Malrimonii et Viverra sed Mazim")
-            .call(wrap, width/1.01);
+    titles.append("text")
+          .attr("id", "subTitle")
+          .attr("transform", "translate(" + [0, 24] + ")")
+          .text("Odio Gratiarum Maneant Malrimonii et Viverra sed Mazim")
+          .call(wrap, width/1.01);
 
-    }); // closes the d3.csv call
+    //logo styling
     var logo = svg.append("g").attr("class", "logo-image");
     var logoSize = width/10
 
@@ -197,13 +194,13 @@
        .attr("width", logoSize)
        .attr("height", logoSize)
        .attr("opacity", 0.8)
-       .attr("xlink:href", "../tbij.png");
+       .attr("xlink:href", "tbij.png");
 
     // ticker
     // since the height of the bubble graph is based on width we'll use the width to place the ticker and explainers underneath
     var ticker = svg.append("g")
           .attr("class", "ticker")
-          .attr("transform", "translate(" + [margin.left, width+tickerPadding] + ")");
+          .attr("transform", "translate(" + [margin.left, width+tickerPadding-25] + ")");
 
     ticker.append("text")
           .attr("id", "tickerNumber")
@@ -217,7 +214,7 @@
     // explainers
     var explainers = svg.append("g")
               .attr("class", "explainer")
-              .attr("transform", "translate(" + [margin.left, width+tickerPadding+28] + ")");
+              .attr("transform", "translate(" + [margin.left, width+tickerPadding+5] + ")");
 
     explainers.append("text")
               .attr("id", "explainerTitle")
@@ -234,7 +231,7 @@
       d3.select("#node-" + circle.data.id).attr("class", function(d) { return "filled"})
       d3.select("#tickerNumber").text(function(d) { return circle.data.value})
       d3.select("#explainerText").text(function(d) { return circle.data.context}).call(wrap, width/1.2)
-      d3.select("#tickerText").attr("transform", "translate(" + [ document.getElementById("tickerNumber").getComputedTextLength(), 0] + ")");
+      d3.select("#tickerText").attr("transform", "translate(" + [ document.getElementById("tickerNumber").getComputedTextLength() + 2, 0] + ")");
     }
 
     function type(d) {
@@ -242,7 +239,7 @@
     }
 
     // wrap text function - I learned this nifty trick from the FT
-    function wrap(text, width) {
+    function wrap(text, width) { console.log(text);
       text.each(function() {
         if (width=="node") {
             width = this.parentNode.parentNode.querySelector("circle").getAttribute("r")*1.9
