@@ -112,6 +112,7 @@
       height = 800 - margin.bottom - margin.top,
       nodePadding = 20,
       tickerPadding = -25,
+      explainerPadding = tickerPadding + 30,
       explainerWrap = 1.2,
       wasTrue = "n";
 
@@ -121,11 +122,13 @@
     if (x <= 400) {
       height = 560 - margin.bottom - margin.top;
       nodePadding = 55;
-      tickerPadding = 15;
+      tickerPadding = 25;
+      explainerPadding = tickerPadding + 20;
       explainerWrap = 1.01;
     } else if (x <= 600) {
       height = 700 - margin.bottom - margin.top;
-      tickerPadding = 10;
+      tickerPadding = 0;
+      explainerPadding = tickerPadding + 20;
     } else if (x >= 650) {
       width = 650 - margin.left - margin.right
     }
@@ -219,7 +222,7 @@
     // explainers
     var explainers = svg.append("g")
               .attr("class", "explainer")
-              .attr("transform", "translate(" + [margin.left, width+tickerPadding+30] + ")");
+              .attr("transform", "translate(" + [margin.left, width+explainerPadding] + ")");
 
     explainers.append("text")
               .attr("id", "explainerTitle")
