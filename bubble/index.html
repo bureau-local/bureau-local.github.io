@@ -110,19 +110,22 @@
       },
       width = x - margin.left - margin.right,
       height = 800 - margin.bottom - margin.top,
-      tickerPadding = 0,
-      nodePadding = 20
+      nodePadding = 20,
+      tickerPadding = -25,
       explainerWrap = 1.2,
       wasTrue = "n";
+
+    console.log(width);
 
     // change vis size according to screen size
     if (x <= 400) {
       height = 560 - margin.bottom - margin.top;
-      tickerPadding = 50;
       nodePadding = 55;
+      tickerPadding = 15;
       explainerWrap = 1.01;
     } else if (x <= 600) {
-      height = 650 - margin.bottom - margin.top;
+      height = 700 - margin.bottom - margin.top;
+      tickerPadding = 10;
     } else if (x >= 650) {
       width = 650 - margin.left - margin.right
     }
@@ -202,7 +205,7 @@
     // since the height of the bubble graph is based on width we'll use the width to place the ticker and explainers underneath
     var ticker = svg.append("g")
           .attr("class", "ticker")
-          .attr("transform", "translate(" + [margin.left, width+tickerPadding-25] + ")");
+          .attr("transform", "translate(" + [margin.left, width+tickerPadding] + ")");
 
     ticker.append("text")
           .attr("id", "tickerNumber")
@@ -216,7 +219,7 @@
     // explainers
     var explainers = svg.append("g")
               .attr("class", "explainer")
-              .attr("transform", "translate(" + [margin.left, width+tickerPadding+5] + ")");
+              .attr("transform", "translate(" + [margin.left, width+tickerPadding+30] + ")");
 
     explainers.append("text")
               .attr("id", "explainerTitle")
