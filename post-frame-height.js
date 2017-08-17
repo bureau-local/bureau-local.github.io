@@ -12,12 +12,25 @@
         }
     };
 
+    var expectedHeight;
+
+    // The loop tries every 100 milliseconds until it sees that the frame is the right height
+    var tryPostMessageHeight = function () {
+        if (window.innerHeight !== expectedHeight) {
+            console.log(window.innerHeight, expectedHeight);
+            parent.postMessage({
+                name: name,
+                documentHeight: expectedHeight
+            }, "*");
+            setTimeout(tryPostMessageHeight, 100);
+        }
+    }
+
+    // We're setting what the height should be with expectedHeight
+    // and trygering the loop
     var postMessageHeight = function() {
-        console.log(document.body.scrollHeight);
-        parent.postMessage({
-            name: name,
-            documentHeight: document.body.scrollHeight
-        }, "*");
+        expectedHeight = document.body.scrollHeight;
+        tryPostMessageHeight();
     }
 
     addEventListener('load', function() {
