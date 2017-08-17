@@ -59,7 +59,7 @@
       /* SMALL SCREEN */
       @media screen and (max-width: 600px) {
         #tickerNumber {
-          font-size: 62px;
+          font-size: 75px;
         }
         #tickerText {
           font-size: 16px;
@@ -75,7 +75,7 @@
       /* MOBILE */
       @media screen and (max-width: 400px) {
         #tickerNumber {
-          font-size: 58px;
+          font-size: 72px;
         }
         #tickerText {
           font-size: 14px;
@@ -122,13 +122,13 @@
     if (x <= 400) {
       height = 560 - margin.bottom - margin.top;
       nodePadding = 55;
-      tickerPadding = 25;
+      tickerPadding = 30;
       explainerPadding = tickerPadding + 20;
       explainerWrap = 1.01;
     } else if (x <= 600) {
       height = 700 - margin.bottom - margin.top;
-      tickerPadding = 0;
-      explainerPadding = tickerPadding + 20;
+      tickerPadding = -15;
+      explainerPadding = tickerPadding + 25;
     } else if (x >= 650) {
       width = 650 - margin.left - margin.right
     }
