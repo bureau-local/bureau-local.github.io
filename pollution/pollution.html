@@ -29,7 +29,7 @@
       },
       width = x - margin.left - margin.right,
       height = 800 - margin.bottom - margin.top,
-      nodePadding = 10,
+      nodePadding = 0,
       tickerPadding = -25,
       explainerPadding = tickerPadding + 30,
       explainerWrap = 1.2,
@@ -183,7 +183,7 @@
             word,
             line = [],
             lineNumber = 0,
-            lineHeight = 1.2, // ems
+            lineHeight = 1.3, // ems
             y = text.attr("y"),
             dy = parseFloat(text.attr("dy"));
             if(!dy){dy = 0}else{dy = dy};
