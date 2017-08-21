@@ -43,46 +43,38 @@
     // change vis size according to screen size
     if (x <= 400) {
       height = 570 - margin.bottom - margin.top;
-      titlePadding = 0;
       nodePadding = 50;
       tickerPadding = 25;
       explainerPadding = tickerPadding + 20;
-      title = "Common farm pollutants in England and Wales, 2010-16";
-      tickerText = "/ 4144 pollution incidents";
     } else if (x <= 480) {
       height = 650 - margin.bottom - margin.top;
-      titlePadding = 2;
       nodePadding = 30;
       tickerPadding = 0,
       explainerPadding = tickerPadding + 24;
-      title = "Common farm pollutants in England and Wales, 2010-16";
-      tickerText = "/ 4144 pollution incidents";
     } else if (x <= 515) {
       height = 670 - margin.bottom - margin.top;
-      titlePadding = 2;
       nodePadding = 25;
       tickerPadding = -12,
       explainerPadding = tickerPadding + 24;
-      title = "Common farm pollutants in England and Wales, 2010-16";
-      tickerText = "/ 4144 pollution incidents";
     } else if (x <= 540) {
       height = 670 - margin.bottom - margin.top;
-      titlePadding = 2;
       nodePadding = 20;
       tickerPadding = -20,
       explainerPadding = tickerPadding + 24;
-      title = "Common farm pollutants in England and Wales, 2010-16";
-      tickerText = "/ 4144 pollution incidents";
     } else if (x <= 600) {
       height = 670 - margin.bottom - margin.top;
-      titlePadding = 2;
       nodePadding = 6;
       tickerPadding = -52,
       explainerPadding = tickerPadding + 28;
-      title = "Common farm pollutants in England and Wales, 2010-16";
-      tickerText = "/ 4144 pollution incidents";
     } else if (x >= 650) {
       width = 650 - margin.left - margin.right
+    }
+
+    // change wording for size
+    if (x <= 600) {
+      titlePadding = 2;
+      title = "Common farm pollutants in England and Wales, 2010-16";
+      tickerText = "/ 4144 pollution incidents"; 
     }
 
     var svg = d3.select("body").append("svg")
