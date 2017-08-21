@@ -29,6 +29,7 @@
       },
       width = x - margin.left - margin.right,
       height = 800 - margin.bottom - margin.top,
+      titlePadding = 10;
       nodePadding = 0,
       tickerPadding = -25,
       explainerPadding = tickerPadding + 30,
@@ -42,6 +43,7 @@
     // change vis size according to screen size
     if (x <= 400) {
       height = 570 - margin.bottom - margin.top;
+      titlePadding = 0;
       nodePadding = 50;
       tickerPadding = 25;
       explainerPadding = tickerPadding + 20;
@@ -49,6 +51,7 @@
       tickerText = "/ 4144 pollution incidents";
     } else if (x <= 500) {
       height = 650 - margin.bottom - margin.top;
+      titlePadding = 5;
       nodePadding = 30;
       tickerPadding = 0,
       explainerPadding = tickerPadding + 25;
@@ -56,8 +59,9 @@
       tickerText = "/ 4144 pollution incidents";
     } else if (x <= 600) {
       height = 670 - margin.bottom - margin.top;
+      titlePadding = 5;
       nodePadding = 10;
-      tickerPadding = -40,
+      tickerPadding = -45,
       explainerPadding = tickerPadding + 25;
       title = "Common farm pollutants in England and Wales, 2010-16";
       tickerText = "/ 4144 pollution incidents";
@@ -112,7 +116,7 @@
     // headings
     var titles = svg.append("g")
         .attr("class", "headings")
-        .attr("transform", function(d) { return "translate(" + [margin.left, margin.top] + ")"; });
+        .attr("transform", function(d) { return "translate(" + [margin.left, margin.top + titlePadding] + ")"; });
 
     titles.append("text")
           .attr("id", "title")
