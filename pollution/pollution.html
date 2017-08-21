@@ -30,7 +30,7 @@
       width = x - margin.left - margin.right,
       height = 800 - margin.bottom - margin.top,
       titlePadding = 6;
-      nodePadding = 5,
+      nodePadding = 10,
       tickerPadding = -20,
       explainerPadding = tickerPadding + 30,
       explainerWrap = 1.2,
@@ -168,7 +168,7 @@
     explainers.append("text")
               .attr("id", "explainerText")
               .attr("transform", "translate(" + [0, 18] + ")")
-              .text("Select the bubble for more information...");
+              .text("Select a bubble for more information...");
 
     // functions
     function mouseover(circle) {
