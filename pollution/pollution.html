@@ -38,7 +38,7 @@
       tickerText = "out of 4144 total incidents of pollution 2010-16",
       wasTrue = "n";
 
-    console.log(width);
+    console.log(x);
 
     // change vis size according to screen size
     if (x <= 400) {
@@ -57,11 +57,19 @@
       explainerPadding = tickerPadding + 24;
       title = "Common farm pollutants in England and Wales, 2010-16";
       tickerText = "/ 4144 pollution incidents";
-    } else if (x <= 540) {
+    } else if (x <= 520) {
       height = 670 - margin.bottom - margin.top;
       titlePadding = 2;
       nodePadding = 25;
       tickerPadding = -10,
+      explainerPadding = tickerPadding + 24;
+      title = "Common farm pollutants in England and Wales, 2010-16";
+      tickerText = "/ 4144 pollution incidents";
+    } else if (x <= 560) {
+      height = 670 - margin.bottom - margin.top;
+      titlePadding = 2;
+      nodePadding = 20;
+      tickerPadding = -15,
       explainerPadding = tickerPadding + 24;
       title = "Common farm pollutants in England and Wales, 2010-16";
       tickerText = "/ 4144 pollution incidents";
