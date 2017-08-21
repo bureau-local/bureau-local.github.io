@@ -33,6 +33,7 @@
       tickerPadding = -25,
       explainerPadding = tickerPadding + 30,
       explainerWrap = 1.2,
+      tickerText = "out of 4144 total incidents of pollution 2010-16",
       wasTrue = "n";
 
     console.log(width);
@@ -44,6 +45,7 @@
       tickerPadding = 30;
       explainerPadding = tickerPadding + 20;
       explainerWrap = 1.1;
+      tickerText = "/ 4144 pollution incidents, 2010-16";
     } else if (x <= 600) {
       height = 700 - margin.bottom - margin.top;
       tickerPadding = -15;
@@ -136,7 +138,7 @@
     ticker.append("text")
           .attr("id", "tickerText")
           .attr("transform", "translate(" + [document.getElementById("tickerNumber").getComputedTextLength() + 8, 0] + ")")
-          .text("out of 4144 total incidents of pollution 2010-16");
+          .text(tickerText);
 
     // explainers
     var explainers = svg.append("g")
