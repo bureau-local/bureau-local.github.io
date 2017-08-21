@@ -1,0 +1,79 @@
+text {
+  font: 18px sans-serif;
+  line-height: 1.3em;
+  font-family: Futura;
+  fill: #474546;
+}
+
+#title {
+  font-size: 26px;
+}
+
+#subTitle {
+  font-size: 18px;
+  fill: #808284;
+}
+
+#tickerNumber {
+  font-size: 78px;
+  fill: #ff5a5d;
+}
+
+#tickerText {
+  font-size: 18px;
+  fill: #808284;
+}
+
+#explainerTitle {
+  font-size: 18px;
+}
+
+#explainerText {
+  font-size: 14px;
+}
+
+.node circle {
+  fill: #ddd;
+  stroke: #d50c42;
+  stroke-width: 2px;
+}
+.node text {
+  text-anchor: middle;
+}
+
+circle.filled {
+  fill: #ef6767;
+  fill-opacity: 0.85;
+}
+
+/* SMALL SCREEN */
+@media screen and (max-width: 600px) {
+  #tickerNumber {
+    font-size: 68px;
+  }
+  #tickerText {
+    font-size: 16px;
+  }
+  #explainerTitle {
+    font-size: 16px;
+  }
+  #explainerText {
+    font-size: 12px;
+  }
+}
+
+/* MOBILE */
+@media screen and (max-width: 400px) {
+  #tickerNumber {
+    font-size: 58px;
+  }
+  #tickerText {
+    font-size: 14px;
+  }
+  #explainerTitle {
+    font-size: 14px;
+  }
+  #explainerText {
+    font-size: 11px;
+  }
+}
