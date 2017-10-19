@@ -1,0 +1,119 @@
+/* GENERAL */
+body {
+  font-size: 14px;
+  font-family: "Futura",sans-serif;
+  max-width: 800px;
+}
+
+.container {
+  padding-bottom: 100%;
+  position: relative;
+  background: url(no-refuge.svg);
+  background-size: contain;
+  /*use line below to see container size*/
+  border: 1px solid grey;
+}
+
+
+/* TEXT */
+.vis-title {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  font-size: 26px;
+  line-height: 1.4em;
+  font-weight: normal;
+  color: #333333;
+}
+
+.vis-text {
+  position: absolute;
+  font-size: 16px;
+  line-height: 30px;
+  font-family: futura;
+  color: #333333;
+  top: 20%;
+  left:10px;
+  line-height: 1.4em;
+  max-width: 33%
+}
+
+.label {
+  position: absolute;
+  color: #333333;
+}
+
+#north-yorkshire-label {
+  left: 75%;
+  bottom: 80%;
+}
+
+#shropshire-label {
+  left: 20%;
+  top: 65%;
+}
+
+#west-london-label {
+  left: 82%;
+  top: 84%;
+}
+
+#somerset-label {
+  left: 15%;
+  top: 88%;
+}
+
+.caveat {
+  position: absolute;
+  font-size: 10px;
+  bottom: 10px;
+  left: 10px;
+}
+
+
+/* LOGO */
+#tbij-logo {
+  position: absolute;
+  width: 8%;
+  height: 8%;
+  bottom: 19px;
+  right: 10px;
+  opacity: 0.9;
+}
+
+
+/* SMALL SCREEN */
+@media screen and (max-width: 700px) {
+  .vis-title  {
+    left: 8px;
+    right: 8px;
+    font-size: 22px;
+  }
+  .vis-text {
+    left: 8px;
+    font-size: 14px;
+    max-width: 35%;
+  } 
+  .caveat {
+    font-size: 9px;
+  }
+}
+
+
+/* MOBILE */
+@media screen and (max-width: 500px) {
+  .vis-title  {
+    left: 5px;
+    right: 5px;
+    font-size: 18px;
+  }
+  .vis-text {
+    left: 5px;
+    font-size: 12px;
+    max-width: 38%;
+  } 
+  .caveat {
+    font-size: 8px;
+  }
+}

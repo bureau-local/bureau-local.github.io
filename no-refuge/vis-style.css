@@ -1,0 +1,29 @@
+/* GENERAL */
+svg {
+  position: absolute;
+  z-index: -1;
+}
+
+
+/* MAP */
+.lad { fill: #BDD5EA; opacity: 0.7;}
+.lad.W { fill: #BDD5EA; opacity: 0.3; }
+.lad.S { fill: #BDD5EA; opacity: 0.3; }
+
+.lad-boundary {
+  fill: none;
+  stroke: #999999;
+  stroke-dasharray: 2,2;
+  stroke-linejoin: round;
+  stroke-width: 0.5px;
+}
+
+.lad-boundary.WS {
+  stroke: #aaa;
+}
+
+/* ARROW */
+path.arrow, #arrowhead {
+  fill: none;
+  stroke: #333333;
+}
