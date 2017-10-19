@@ -11,7 +11,7 @@ body {
   background: url(no-refuge.svg);
   background-size: contain;
   /*use line below to see container size*/
-  /*border: 1px solid grey;*/
+  border: 1px solid grey;
 }
 
 
