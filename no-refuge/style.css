@@ -84,6 +84,9 @@ body {
 }
 
 
+/* VARIOUS SCREEN SIZES BELOW*/
+
+
 /* SMALL SCREEN */
 @media screen and (max-width: 700px) {
   .vis-title  {
@@ -146,9 +149,9 @@ body {
     font-size: 16px;
   }
   .vis-text {
-    left: 5px;
+    left: 2px;
     font-size: 10px;
-    max-width: 45%;
+    max-width: 48%;
   }
   .long-title {
     display: none;
