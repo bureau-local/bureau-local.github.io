@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Stories from around the country</title>
-	<script src="../js/post-frame-height-future.js"></script>
+	<script src="../post-frame-height.js"></script>
 </head>
 <body>
 	<iframe id="storymapIframe" src="https://uploads.knightlab.com/storymapjs/b40b03528176577e25cd300cd797e2ed/refuge-at-risk-stories-across-the-country/draft.html" frameborder="0" width="100%" height="1000"></iframe>
@@ -15,11 +15,7 @@
 		    x = w.innerWidth || e.clientWidth || g.clientWidth,
 		    y = w.innerHeight|| e.clientHeight|| g.clientHeight;
 
-		console.log(w.innerHeight);
-		console.log(e.clientHeight);
-		console.log(g.clientHeight);
-
-		iframHeight = y-100;
+		iframHeight = y-(y/10);
 
 		window.onload = function(){
 		    document.getElementById('storymapIframe').height = iframHeight;
