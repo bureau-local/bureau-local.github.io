@@ -58,6 +58,7 @@
       .translate([width / 2, height / 2]);
 
   // change map projection according to screen size
+  // don't move it above the projections above
   if (x <= 600) {
     height = 700 - margin.bottom - margin.top;
     projection = smallScreenProjection
