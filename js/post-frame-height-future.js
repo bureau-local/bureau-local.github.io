@@ -16,7 +16,8 @@
 
     // The loop tries every 100 milliseconds until it sees that the frame is the right height
     var tryPostMessageHeight = function () {
-        if (window.innerHeight !== expectedHeight) {
+        // window.innerHeight originally instead of screen height
+        if (screen.height !== expectedHeight) {
             console.log(window.innerHeight, expectedHeight);
             parent.postMessage({
                 name: name,
