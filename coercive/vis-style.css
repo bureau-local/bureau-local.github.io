@@ -1,0 +1,29 @@
+/* GENERAL */
+svg {
+  position: absolute;
+  z-index: -1;
+}
+
+
+/* MAP */
+.pfa { fill: #bdd5ea; opacity: 0.7;}
+.pfa.W { fill: #bdd5ea; opacity: 0.2; }
+.pfa.S { fill: #bdd5ea; opacity: 0.3; }
+
+.pfa-boundary {
+  fill: none;
+  stroke: #666666;
+  stroke-dasharray: 2,2;
+  stroke-linejoin: round;
+  stroke-width: 0.5px;
+}
+
+.pfa-boundary.WS {
+  stroke: #aaa;
+}
+
+/* ARROW */
+path.arrow, #arrowhead {
+  fill: none;
+  stroke: #333333;
+}
