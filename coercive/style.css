@@ -199,3 +199,16 @@ ul li{
     display: none;
   }
 }
+
+@media screen and (max-width: 400px) {
+  .vis-text {
+    top: 20%;
+  }
+  .vis-text-list {
+    display: none;
+  }
+  .vis-text-info {
+    top: 60%;
+  }
+}
+}
