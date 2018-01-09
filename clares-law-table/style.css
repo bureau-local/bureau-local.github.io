@@ -2,18 +2,23 @@
 body {
 	font-family: 'Helvetica Neue', Helvetica;
 	font-weight: 300;
-	padding: 5px;
-	height: 600px;
+	padding: 5px 0 5px 0;
+}
+
+h1 {
+	text-align: center;
+	font-weight: normal;
+	font-size: 133%;
 }
 
 th, td {
-	padding: 0 1em 0.5ex 0;
+	padding: 0 0.1em 0.25em 0;
 }
 
 th {
 	text-align: left;
 	font-weight: normal;
-	padding-bottom: 10px;
+	padding-bottom: 0.5em;
 }
 
 th.center, td.center {

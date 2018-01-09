@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Simple tables in D3</title>
+    <title>Clare's law table</title>
     <meta charset="utf-8">
     <script src="https://d3js.org/d3.v4.min.js"></script>
     <script src="https://d3js.org/queue.v1.min.js"></script>
@@ -10,6 +10,7 @@
     <link href="style.css" rel="stylesheet">
 </head>
 <body>
+    <h1>The take-up of Clare's Law varies across England and Wales</h1>
     <script>
     /*
      * Original code presented in this post by Gregor Aisch (tw: @driven_by_data / gh: gka):
@@ -27,7 +28,7 @@
           { head: 'Police force', cl: 'title', html: d3.f('columnOne') },
           { head: 'Right to ask applications - per 100,000', cl: 'center', html: d3.f('columnTwo') },
           { head: 'Right to ask disclosure (%)', cl: 'center', html: d3.f('columnThree') },
-          { head: 'Right to know applications - 100,000', cl: 'center', html: d3.f('columnFour') },
+          { head: 'Right to know applications - per 100,000', cl: 'center', html: d3.f('columnFour') },
           { head: 'Right to know disclosure (%)', cl: 'center', html: d3.f('columnFive') }
       ];
 
