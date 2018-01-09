@@ -1,0 +1,38 @@
+/* GENERAL */
+body {
+	font-family: 'Helvetica Neue', Helvetica;
+	font-weight: 300;
+	padding: 5px;
+	height: 600px;
+}
+
+th, td {
+	padding: 0 1em 0.5ex 0;
+}
+
+th {
+	text-align: left;
+	font-weight: normal;
+	padding-bottom: 10px;
+}
+
+th.center, td.center {
+	text-align: center;
+}
+
+th.num, td.num {
+	text-align: right;
+}
+
+/* MOBILE */
+@media screen and (max-width: 500px) {
+	body {
+		font-size: small;
+	}
+}
+
+@media screen and (max-width: 400px) {
+	body {
+		font-size: x-small;
+	}
+}

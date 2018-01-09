@@ -4,332 +4,82 @@
     <title>Simple tables in D3</title>
     <meta charset="utf-8">
     <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="https://d3js.org/queue.v1.min.js"></script>
     <script src="d3-jetpack.js"></script>
-    <script src="../post-frame-height.js"></script>
-    <style type="text/css">
-    body { font-family: 'Helvetica Neue', Helvetica; font-weight: 300; padding: 20px; height: 600px;}
-    th { text-align: left; }
-    th, td { padding: 0 1em 0.5ex 0;}
-    th.center, td.center { text-align: center; }
-    th.num, td.num { text-align: right; }
-    </style>
+    <script src="post-frame-height.js"></script>
+    <link href="style.css" rel="stylesheet">
 </head>
 <body>
     <script>
     /*
-     * read more about this demo:
+     * Original code presented in this post by Gregor Aisch (tw: @driven_by_data / gh: gka):
      * https://www.vis4.net/blog/posts/making-html-tables-in-d3-doesnt-need-to-be-a-pain/
      *
      * in case you're wondering about d3.f or appendMany(), please check out d3-jetpack
      * https://github.com/gka/d3-jetpack
      */
 
-    // the table rows, typically loaded from data file using d3.csv
-    var movies = [
-  {
-    policeForce: "Lancashire",
-    RtAApplications: 24.2,
-    RtApercentage: "39%",
-    RtKapplications: 23.8,
-    RtKpercentage: "63%"
-  },
-  {
-    policeForce: "Cleveland",
-    RtAApplications: 14.2,
-    RtApercentage: "49%",
-    RtKapplications: 34.6,
-    RtKpercentage: "76%"
-  },
-  {
-    policeForce: "Cheshire",
-    RtAApplications: 12.7,
-    RtApercentage: "20%",
-    RtKapplications: 9.5,
-    RtKpercentage: "74%"
-  },
-  {
-    policeForce: "Northumbria",
-    RtAApplications: 12.5,
-    RtApercentage: "7%",
-    RtKapplications: 6.4,
-    RtKpercentage: "14%"
-  },
-  {
-    policeForce: "Durham",
-    RtAApplications: 12.3,
-    RtApercentage: "49%",
-    RtKapplications: 26.6,
-    RtKpercentage: "54%"
-  },
-  {
-    policeForce: "Warwickshire",
-    RtAApplications: 10.4,
-    RtApercentage: "38%",
-    RtKapplications: 2.3,
-    RtKpercentage: "69%"
-  },
-  {
-    policeForce: "Dyfed-Powys",
-    RtAApplications: 10.1,
-    RtApercentage: "38%",
-    RtKapplications: "-",
-    RtKpercentage: "-"
-  },
-  {
-    policeForce: "West Mercia",
-    RtAApplications: 9.9,
-    RtApercentage: "50%",
-    RtKapplications: 7.5,
-    RtKpercentage: "68%"
-  },
-  {
-    policeForce: "Hampshire",
-    RtAApplications: 9,
-    RtApercentage: "-",
-    RtKapplications: 3.7,
-    RtKpercentage: "-"
-  },
-  {
-    policeForce: "Dorset",
-    RtAApplications: 8.7,
-    RtApercentage: "18%",
-    RtKapplications: 9.7,
-    RtKpercentage: "51%"
-  },
-  {
-    policeForce: "Surrey",
-    RtAApplications: 8.2,
-    RtApercentage: "44%",
-    RtKapplications: 15.1,
-    RtKpercentage: "65%"
-  },
-  {
-    policeForce: "Humberside",
-    RtAApplications: 7.9,
-    RtApercentage: "18%",
-    RtKapplications: 12.9,
-    RtKpercentage: "46%"
-  },
-  {
-    policeForce: "Suffolk",
-    RtAApplications: 7.6,
-    RtApercentage: "53%",
-    RtKapplications: 58.6,
-    RtKpercentage: "67%"
-  },
-  {
-    policeForce: "Nottinghamshire",
-    RtAApplications: 7.6,
-    RtApercentage: "45%",
-    RtKapplications: 9.1,
-    RtKpercentage: "10%"
-  },
-  {
-    policeForce: "Staffordshire",
-    RtAApplications: 7.4,
-    RtApercentage: "46%",
-    RtKapplications: 3.6,
-    RtKpercentage: "75%"
-  },
-  {
-    policeForce: "North Wales",
-    RtAApplications: 7.3,
-    RtApercentage: "25%",
-    RtKapplications: 4,
-    RtKpercentage: "46%"
-  },
-  {
-    policeForce: "Kent",
-    RtAApplications: 7.3,
-    RtApercentage: "28%",
-    RtKapplications: 5.2,
-    RtKpercentage: "3%"
-  },
-  {
-    policeForce: "Northamptonshire",
-    RtAApplications: 7,
-    RtApercentage: "53%",
-    RtKapplications: 16.9,
-    RtKpercentage: "82%"
-  },
-  {
-    policeForce: "Wiltshire",
-    RtAApplications: 6.9,
-    RtApercentage: "29%",
-    RtKapplications: 27.5,
-    RtKpercentage: "36%"
-  },
-  {
-    policeForce: "Derbyshire",
-    RtAApplications: 6.9,
-    RtApercentage: "25%",
-    RtKapplications: 6.4,
-    RtKpercentage: "45%"
-  },
-  {
-    policeForce: "Gloucestershire",
-    RtAApplications: 6.7,
-    RtApercentage: "52%",
-    RtKapplications: 9.8,
-    RtKpercentage: "85%"
-  },
-  {
-    policeForce: "North Yorkshire",
-    RtAApplications: 6.5,
-    RtApercentage: "42%",
-    RtKapplications: 7.6,
-    RtKpercentage: "61%"
-  },
-  {
-    policeForce: "Essex",
-    RtAApplications: 6.5,
-    RtApercentage: "16%",
-    RtKapplications: 56,
-    RtKpercentage: "9%"
-  },
-  {
-    policeForce: "Norfolk",
-    RtAApplications: 6,
-    RtApercentage: "39%",
-    RtKapplications: 27.2,
-    RtKpercentage: "64%"
-  },
-  {
-    policeForce: "Lincolnshire",
-    RtAApplications: 5.8,
-    RtApercentage: "35%",
-    RtKapplications: 5.9,
-    RtKpercentage: "82%"
-  },
-  {
-    policeForce: "Leicestershire",
-    RtAApplications: 5.7,
-    RtApercentage: "33%",
-    RtKapplications: 7.9,
-    RtKpercentage: "38%"
-  },
-  {
-    policeForce: "South Wales",
-    RtAApplications: 5.7,
-    RtApercentage: "75%",
-    RtKapplications: 9.5,
-    RtKpercentage: "70%"
-  },
-  {
-    policeForce: "Cumbria",
-    RtAApplications: 5,
-    RtApercentage: "76%",
-    RtKapplications: 46.4,
-    RtKpercentage: "98%"
-  },
-  {
-    policeForce: "Cambridgeshire",
-    RtAApplications: 4.8,
-    RtApercentage: "32%",
-    RtKapplications: 3.9,
-    RtKpercentage: "76%"
-  },
-  {
-    policeForce: "South Yorkshire",
-    RtAApplications: 4.6,
-    RtApercentage: "41%",
-    RtKapplications: 2,
-    RtKpercentage: "18%"
-  },
-  {
-    policeForce: "Gwent",
-    RtAApplications: 3.9,
-    RtApercentage: "22%",
-    RtKapplications: 5.5,
-    RtKpercentage: "44%"
-  },
-  {
-    policeForce: "Bedfordshire",
-    RtAApplications: 3.9,
-    RtApercentage: "8%",
-    RtKapplications: 1.8,
-    RtKpercentage: "8%"
-  },
-  {
-    policeForce: "Hertfordshire",
-    RtAApplications: 3.8,
-    RtApercentage: "24%",
-    RtKapplications: 7.8,
-    RtKpercentage: "26%"
-  },
-  {
-    policeForce: "Merseyside",
-    RtAApplications: 3.6,
-    RtApercentage: "47%",
-    RtKapplications: 24,
-    RtKpercentage: "35%"
-  },
-  {
-    policeForce: "West Yorkshire",
-    RtAApplications: 3.3,
-    RtApercentage: "25%",
-    RtKapplications: 3.9,
-    RtKpercentage: "76%"
-  },
-  {
-    policeForce: "Metropolitan Police",
-    RtAApplications: 1.6,
-    RtApercentage: "24%",
-    RtKapplications: 3.5,
-    RtKpercentage: "28%"
-  },
-  {
-    policeForce: "West Midlands",
-    RtAApplications: 1.6,
-    RtApercentage: "-",
-    RtKapplications: 3.5,
-    RtKpercentage: "-"
-  }
-];
+    // write the table rows, from the data loaded in the init()
+    function chart(tabledata) {
 
-    // column definitions
-    var columns = [
-        { head: 'Police force', cl: 'title', html: d3.f('policeForce') },
-        { head: 'Right to ask applications - per 100,000', cl: 'center', html: d3.f('RtAApplications') },
-        { head: 'Right to ask disclosure (%)', cl: 'center', html: d3.f('RtApercentage') },
-        { head: 'Right to know applications - 100,000', cl: 'center', html: d3.f('RtKapplications') },
-        { head: 'Right to know disclosure (%)', cl: 'center', html: d3.f('RtKpercentage') }
-    ];
+      // column definitions
+      var columns = [
+          { head: 'Police force', cl: 'title', html: d3.f('columnOne') },
+          { head: 'Right to ask applications - per 100,000', cl: 'center', html: d3.f('columnTwo') },
+          { head: 'Right to ask disclosure (%)', cl: 'center', html: d3.f('columnThree') },
+          { head: 'Right to know applications - 100,000', cl: 'center', html: d3.f('columnFour') },
+          { head: 'Right to know disclosure (%)', cl: 'center', html: d3.f('columnFive') }
+      ];
 
-    // create table
-    var table = d3.select('body')
-            .append('table');
+      // create table
+      var table = d3.select('body')
+              .append('table');
 
-    // create table header
-    table.append('thead').append('tr')
-        .selectAll('th')
-        .data(columns).enter()
-        .append('th')
-        .attr('class', d3.f('cl'))
-        .text(d3.f('head'));
+      // create table header
+      table.append('thead').append('tr')
+          .selectAll('th')
+          .data(columns).enter()
+          .append('th')
+          .attr('class', d3.f('cl'))
+          .text(d3.f('head'));
 
-    // create table body
-    table.append('tbody')
-            .appendMany(movies, 'tr')
-        .appendMany(td_data, 'td')
-        .html(d3.f('html'))
-        .attr('class', d3.f('cl'));
+      // create table body
+      table.append('tbody')
+              .appendMany('tr', tabledata)
+          .appendMany('td', td_data)
+          .html(d3.f('html'))
+          .attr('class', d3.f('cl'));
 
-    function td_data(row, i) {
-        return columns.map(function(c) {
-            // compute cell values for this specific row
-            var cell = {};
-            d3.keys(c).forEach(function(k) {
-                cell[k] = typeof c[k] == 'function' ? c[k](row,i) : c[k];
+      function td_data(row, i) {
+          return columns.map(function(c) {
+              // compute cell values for this specific row
+              var cell = {};
+              d3.keys(c).forEach(function(k) {
+                  cell[k] = typeof c[k] == 'function' ? c[k](row,i) : c[k];
+              });
+              return cell;
             });
-            return cell;
-          });
-    }
+      }
+
+    };
 
     function length() {
       var fmt = d3.format('02d');
       return function(l) { return Math.floor(l / 60) + ':' + fmt(l % 60) + ''; };
     }
+
+    // load data from csv
+    function init() {
+      queue()
+        .defer(d3.csv, "data.csv")
+        .await(function(error, tabledata){
+    
+          chart(tabledata)
+    
+        });
+    };
+
+    init();
 
     </script>
 </body>
