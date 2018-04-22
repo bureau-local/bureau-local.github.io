@@ -14,9 +14,6 @@ body {
   font-size: 1.15em;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
-  /* there was a weird overflow */
-  /* i found a solution here */
-  /* https://css-tricks.com/findingfixing-unintended-body-overflow/ */
   overflow-x: hidden;
 }
 
@@ -62,9 +59,7 @@ body {
   color: #ffffff;
   text-transform: uppercase;
 }
-/*.project .title{
-  background-color: #607D8B;
-}*/
+
 .text .title{
   background-color: #706f6f;
 }
@@ -96,8 +91,30 @@ a:visited {
   color: #090446;
 }
 
-/*.desc img{
-  width: 50%;
-  margin: 0 10px 10px 0;
-  float: left;
-}*/
+/* MOBILE */
+@media screen and (max-width: 400px) {
+  #vis-title-number  {
+    padding: 5px 5px 5px 25px;
+    font-size: 75px;
+  }
+  #vis-title {
+    padding: 5px 5px 5px 5px;
+    font-size: 25px;
+  }
+  .title {
+    padding: 8px;
+  }
+  .intro {
+    padding: 5px 5px 5px 5px;
+  }
+  .desc{
+    padding: 5px 5px 10px 5px;
+  }
+  .credit{
+    padding: 0px 5px 5px 5px;
+    font-size: 9px;
+  }
+  .credit > p {
+    margin: 2px;
+  }
+}
