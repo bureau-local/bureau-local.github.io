@@ -92,7 +92,7 @@ a:visited {
 }
 
 /* MOBILE */
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 450px) {
   #vis-title-number  {
     padding: 5px 5px 5px 25px;
     font-size: 75px;
