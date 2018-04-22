@@ -1,0 +1,103 @@
+.grid {
+  display: grid;
+  grid-gap: 50px;
+  grid-template-columns: repeat(auto-fill, minmax(250px,1fr));
+  grid-auto-rows: 20px;
+}
+
+/* Non-grid specific CSS */
+body {
+  margin: 10px;
+  color: #000000;
+  background-color: #000000;
+  font-family:  Futura, 'Open Sans Condensed', sans-serif;
+  font-size: 1.15em;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  /* there was a weird overflow */
+  /* i found a solution here */
+  /* https://css-tricks.com/findingfixing-unintended-body-overflow/ */
+  overflow-x: hidden;
+}
+
+/* TEXT */
+.headings {
+  "display": table;
+}
+
+#vis-title-number {
+  padding: 10px 10px 10px 50px;
+  font-size: 150px;
+  font-weight: normal;
+  color: #ef3340;
+  display: table-cell;
+}
+
+#vis-title {
+  padding: 10px 10px 10px 10px;
+  font-size: 50px;
+  line-height: 1.4em;
+  font-weight: normal;
+  color: #706f6f;
+  display: table-cell; 
+  vertical-align: middle; 
+  text-align: center;
+}
+
+.item {
+  margin: 10px;
+  width: 300px;
+}
+.content {
+  background-color: #ffffff;
+}
+.photothumb{
+  width: 100%;
+}
+.title {
+  padding: 15px;
+}
+.title h3{
+  font-size: 1.2em;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+/*.project .title{
+  background-color: #607D8B;
+}*/
+.text .title{
+  background-color: #706f6f;
+}
+.photo .title{
+  background-color: #ef3340;
+}
+.intro {
+  padding: 10px 10px 10px 10px;
+}
+.desc{
+  padding: 10px 10px 20px 10px;
+}
+.credit{
+  padding: 0px 10px 10px 10px;
+  font-size: 11px;
+}
+.credit > p {
+  margin: 5px;
+}
+
+a {
+  color: #090446;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+a:visited {
+  color: #090446;
+}
+
+/*.desc img{
+  width: 50%;
+  margin: 0 10px 10px 0;
+  float: left;
+}*/
