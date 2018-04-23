@@ -71,7 +71,7 @@ function chart(data, total) {
       .html(function(d) {return "As originally reported by <a target='_blank' href=" + d.original_reporting_link +">" + d.original_reporting_by + "</a>."})
   
   credits.filter(function(d) {return d.img_credit != ""}).append("p")
-      .text(function(d) {return "Photo via " + d.img_credit + "."})
+      .text(function(d) {return "Photo via " + d.img_credit + "."});
 
   // lets just give it a pause of a 10th of a second
   // before resising items as imgs load
