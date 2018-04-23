@@ -73,9 +73,9 @@ function chart(data, total) {
   credits.filter(function(d) {return d.img_credit != ""}).append("p")
       .text(function(d) {return "Photo via " + d.img_credit + "."});
 
-  // lets just give it a pause of a 10th of a second
+  // lets just give it a pause of half a second
   // before resising items as imgs load
-  (async () => { await wait(100); resizeAllGridItems() })()
+  (async () => { await wait(500); resizeAllGridItems() })()
 
 } // end of chart function
 
