@@ -75,7 +75,7 @@ function chart(data, total) {
 
   // lets just give it a pause of half a second
   // before resising items as imgs load
-  (async () => { await wait(500); resizeAllGridItems() })()
+  (async () => { await wait(500); resizeAllGridItems() })();
 
 } // end of chart function
 
