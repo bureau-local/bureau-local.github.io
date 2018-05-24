@@ -64,11 +64,11 @@ function chart(data, total) {
    		.text(function(d) {return d.blurb;});
 
   // add credits
-  credits = blocs.filter(function(d) {return d.original_reporting_by != "" || d.img_credit != ""}).append("div")
+  credits = blocs.filter(function(d) {return d.reporting_by != "" || d.img_credit != ""}).append("div")
     .attr("class", "credit");
   
-  credits.filter(function(d) {return d.original_reporting_by != ""}).append("p")
-      .html(function(d) {return "As originally reported by <a target='_blank' href=" + d.original_reporting_link +">" + d.original_reporting_by + "</a>."})
+  credits.filter(function(d) {return d.reporting_by != ""}).append("p")
+      .html(function(d) {return "As reported by <a target='_blank' href=" + d.reporting_link +">" + d.reporting_by + "</a>."})
   
   credits.filter(function(d) {return d.img_credit != ""}).append("p")
       .text(function(d) {return "Photo via " + d.img_credit + "."});
@@ -135,10 +135,6 @@ function writeAge(d) {
   } else {
     return ""
   }
-}
-
-function writeCredit(d) {
-  return "This death was originally reported by " + d + "."
 }
 
 // load data from csv
