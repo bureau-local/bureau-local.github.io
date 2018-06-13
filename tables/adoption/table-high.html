@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Adoption table</title>
+    <meta charset="utf-8">
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="https://d3js.org/queue.v1.min.js"></script>
+    <script src="d3-jetpack.js"></script>
+    <script src="post-frame-height.js"></script>
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+    <h1>Where the adoption rates are highest...</h1>
+    <h2>(as % of under five year old population)</h2>
+    <script>
+    /*
+     * Original code presented in this post by Gregor Aisch (tw: @driven_by_data / gh: gka):
+     * https://www.vis4.net/blog/posts/making-html-tables-in-d3-doesnt-need-to-be-a-pain/
+     *
+     * in case you're wondering about d3.f or appendMany(), please check out d3-jetpack
+     * https://github.com/gka/d3-jetpack
+     */
+
+    // write the table rows, from the data loaded in the init()
+    function chart(tabledata) {
+
+      // column definitions
+      var columns = [
+          { head: 'Local Authority', cl: 'title', html: d3.f('columnOne') },
+          { head: 'Region', cl: 'left', html: d3.f('columnTwo') },
+          { head: 'Adoption and placement orders (%)', cl: 'center', html: d3.f('columnThree') }
+      ];
+
+      // create table
+      var table = d3.select('body')
+              .append('table');
+
+      // create table header
+      table.append('thead').append('tr')
+          .selectAll('th')
+          .data(columns).enter()
+          .append('th')
+          .attr('class', d3.f('cl'))
+          .text(d3.f('head'));
+
+      // create table body
+      table.append('tbody')
+              .appendMany('tr', tabledata)
+          .appendMany('td', td_data)
+          .html(d3.f('html'))
+          .attr('class', d3.f('cl'));
+
+      function td_data(row, i) {
+          return columns.map(function(c) {
+              // compute cell values for this specific row
+              var cell = {};
+              d3.keys(c).forEach(function(k) {
+                  cell[k] = typeof c[k] == 'function' ? c[k](row,i) : c[k];
+              });
+              return cell;
+            });
+      }
+
+    };
+
+    // load data from csv
+    function init() {
+      queue()
+        .defer(d3.csv, "data-high.csv")
+        .await(function(error, tabledata){
+    
+          chart(tabledata)
+    
+        });
+    };
+
+    init();
+
+    </script>
+</body>
+</html>

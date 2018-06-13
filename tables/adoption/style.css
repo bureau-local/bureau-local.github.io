@@ -1,0 +1,51 @@
+/* GENERAL */
+body {
+	font-family: 'Helvetica Neue', Helvetica;
+	font-weight: 300;
+	padding: 5px 20px 5px 20px;
+}
+
+h1, h2 {
+	text-align: center;
+	width: 98%;
+	font-weight: normal;
+}
+
+h1 {
+	font-size: 125%;
+}
+
+h2 {
+	font-size:75%;
+}
+
+th, td {
+	padding: 0 1em 0.25em 0;
+}
+
+th {
+	text-align: left;
+	font-weight: normal;
+	padding-bottom: 0.5em;
+}
+
+th.center, td.center {
+	text-align: center;
+}
+
+th.num, td.num {
+	text-align: right;
+}
+
+/* MOBILE */
+@media screen and (max-width: 500px) {
+	body {
+		font-size: small;
+	}
+}
+
+@media screen and (max-width: 400px) {
+	body {
+		font-size: x-small;
+	}
+}
