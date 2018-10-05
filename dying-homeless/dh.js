@@ -67,8 +67,14 @@ function chart(data, total) {
   credits = blocs.filter(function(d) {return d.reporting_by != "" || d.img_credit != ""}).append("div")
     .attr("class", "credit");
   
-  credits.filter(function(d) {return d.reporting_by != ""}).append("p")
-      .html(function(d) {return "As reported by <a target='_blank' href=" + d.reporting_link +">" + d.reporting_by + "</a>."})
+  credits.each(function(d) {
+    var toAppend = d3.select(this);
+    if (d.reporting_by != "" && d.reporting_link != "") {
+      toAppend.append("p").html(function(d) {return "As reported by <a target='_blank' href=" + d.reporting_link +">" + d.reporting_by + "</a>."})
+    } else if (d.reporting_by != "") {
+      toAppend.append("p").html(function(d) {return "As reported by " + d.reporting_by + "."})
+    }
+  });
   
   credits.filter(function(d) {return d.img_credit != ""}).append("p")
       .text(function(d) {return "Photo via " + d.img_credit + "."});
