@@ -4,10 +4,13 @@
 
 // a wait var to be used to pause script
 // while imgs load beore resizing items
-var wait = ms => new Promise((r, j)=>setTimeout(r, ms))
+var wait = ms => new Promise((r, j) => setTimeout(r, ms))
 
-// write the grid blocs, from the data loaded in the init()
+// write the grids blocs, from the data loaded in the init()
 function chart(data, total) {
+
+  main = data.filter(d => d.type != "text3")
+  thedetail = data.filter(d => d.type == "text3")
 
   var w=window,
   d=document,
@@ -16,40 +19,68 @@ function chart(data, total) {
   x=w.innerWidth||e.clientWidth||g.clientWidth,
   y=w.innerHeight||e.clientHeight||g.clientHeight;
 
-  // create ticker
-  var titles = d3.select("body")
+  // create main ticker
+  var mainTitles = d3.select("body")
     .append("g")
       .attr("class", "headings");
 
-  titles.append("text")
+  mainTitles.append("text")
       .attr("id", "vis-title-number")
       .text(total);
 
-  titles.append("text")
+  mainTitles.append("text")
         .attr("id", "vis-title")
         .text("people have died homeless since we began counting in October 2017. Here are their stories...");
+  
+  buildGrid(main)
 
- 	// create grid
+  // ---------- GRID 2 ----------
+
+  // create ticker
+  var niheTitles = d3.select("body")
+    .append("g")
+      .attr("class", "headings");
+
+  niheTitles.append("text")
+      .attr("id", "nihe-title-number")
+      .text("148");
+
+  niheTitles.append("text")
+        .attr("id", "vis-title")
+        .text("of our total were officially recognised as homeless and died while waiting to be housed by the Northern Irish Housing Executive.");
+
+  buildGrid(thedetail)
+
+  // everything should be on the page so let's resize all items
+  resizeAllGridItems()
+
+} // end of chart function
+
+// write individual grid with corresponding blocs
+function buildGrid(data) {
+  
+  // create grid
   var grid = d3.select("body")
-  	.append("div")
+    .append("div")
       .attr("class", "grid");
 
   // create blocs
   blocs = grid.appendMany("div", data)
-  	.attr("class", function(d) {return "item " + d.type})
-  	.append("div")
-  		.attr("class", "content");
+    .attr("class", function(d) {return "item " + d.type})
+    .append("div")
+      .attr("class", "content");
 
   // add title
   blocs.append("div")
-  	.attr("class", "title")
-  	.append("h3")
-  		.text(function(d) {return d.Name});
+    .attr("class", "title")
+    .append("h3")
+      .text(function(d) {return d.Name});
 
   // add img if type photo
   blocs.filter(function(d) {return d.type == "photo"}).append("img")
-  	.attr("class", "photothumb")
-  	.attr("src", function(d) {return d.img_file});
+    .attr("class", "photothumb")
+    .attr("onload", "resizeAllGridItems()")
+    .attr("src", function(d) {return d.img_file});
 
   // add intro
   blocs.append("div")
@@ -60,45 +91,41 @@ function chart(data, total) {
   // add text
   blocs.filter(function(d) {return d.blurb != ""}).append("div")
     .attr("class", "desc")
-   	.append("text")
-   		.text(function(d) {return d.blurb;});
+    .append("text")
+      .text(function(d) {return d.blurb;});
 
   // add credits
   credits = blocs.filter(function(d) {return d.reporting_by != "" || d.img_credit != ""}).append("div")
     .attr("class", "credit");
-  
+
   credits.each(function(d) {
     var toAppend = d3.select(this);
     if (d.reporting_by != "" && d.reporting_link != "") {
       toAppend.append("p").html(function(d) {return "As reported by <a target='_blank' href=" + d.reporting_link +">" + d.reporting_by + "</a>."})
     } else if (d.reporting_by != "") {
-      toAppend.append("p").html(function(d) {return "As reported by " + d.reporting_by + "."})
+      toAppend.append("p").html(function(d) {return "Sourced from " + d.reporting_by + "."})
     }
   });
-  
+
   credits.filter(function(d) {return d.img_credit != ""}).append("p")
       .text(function(d) {return "Photo via " + d.img_credit + "."});
 
-  // lets just give it a pause of half a second
-  // before resising items as imgs load
-  (async () => { await wait(500); resizeAllGridItems() })();
-
-} // end of chart function
-
+} // end of buildGrid function
 
 function resizeGridItem(item){
-   grid = document.getElementsByClassName("grid")[0];
-   rowHeight = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-auto-rows'));
-   rowGap = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-row-gap'));
-   rowSpan = Math.ceil((item.querySelector('.content').getBoundingClientRect().height+rowGap)/(rowHeight+rowGap));
-   item.style.gridRowEnd = "span "+rowSpan;
+  console.log(item)
+  grid = document.getElementsByClassName("grid")[0];
+  rowHeight = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-auto-rows'));
+  rowGap = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-row-gap'));
+  rowSpan = Math.ceil((item.querySelector('.content').getBoundingClientRect().height+rowGap)/(rowHeight+rowGap));
+  item.style.gridRowEnd = "span "+rowSpan;
 }
 
 function resizeAllGridItems(){
-   allItems = document.getElementsByClassName("item");
-   for(x=0;x<allItems.length;x++){
-      resizeGridItem(allItems[x]);
-   }
+  allItems = document.getElementsByClassName("item");
+  for(x=0;x<allItems.length;x++){
+     resizeGridItem(allItems[x]);
+  }
 }
 
 // window.onload = resizeAllGridItems();
@@ -117,7 +144,11 @@ function resizeInstance(instance){
 
 // write intro 
 function writeIntro(d) {
-  return "Died in " + d.Location + ", " + writeDate(d) + writeAge(d.Age) + "."
+  if (d.dod_year != "") {
+    return "Died in " + d.Location + ", " + writeDate(d) + writeAge(d.Age) + "."
+  } else {
+    return "Died in " + d.Location + writeAge(d.Age) + "."
+  }
 }
 
 // use the index from this array to translate
@@ -128,9 +159,15 @@ months = ["January", "February", "March", "April", "May", "June", "July", "Augus
 
 function writeDate(d) {
   if (d.dod_day != "") {
-    return "on " + months[Number(d.dod_month) - 1] + " " + d.dod_day + ", " + d.dod_year
-  } else {
+    if (d.type == "text3") {
+      return "sometime before " + months[Number(d.dod_month) - 1] + " " + d.dod_day + ", " + d.dod_year
+    } else {
+      return "on " + months[Number(d.dod_month) - 1] + " " + d.dod_day + ", " + d.dod_year
+    }
+  } else if (d.dod_month != "") {
     return "in " + months[Number(d.dod_month) - 1] + ", " + d.dod_year
+  } else {
+    return "in " + d.dod_year
   }
 }
 

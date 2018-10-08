@@ -22,7 +22,13 @@ body {
   color: #ef3340;
   display: table-cell;
 }
-
+#nihe-title-number {
+  padding: 10px 10px 10px 50px;
+  font-size: 150px;
+  font-weight: normal;
+  color: #417b5a;
+  display: table-cell;
+}
 #vis-title {
   padding: 10px 10px 10px 10px;
   font-size: 50px;
@@ -57,8 +63,14 @@ body {
   color: #ffffff;
   text-transform: uppercase;
 }
-.text .title{
-  background-color: #706f6f;
+.text1 .title{
+  background-color: #090446;
+}
+.text2 .title{
+  background-color: #1f2041;
+}
+.text3 .title{
+  background-color: #417b5a;
 }
 .photo .title{
   background-color: #ef3340;
@@ -73,9 +85,7 @@ body {
   padding: 0px 10px 10px 10px;
   font-size: 11px;
 }
-.credit > p {
-  margin: 5px;
-}
+
 
 /* LINKS */
 a {
