@@ -113,7 +113,6 @@ function buildGrid(data) {
 } // end of buildGrid function
 
 function resizeGridItem(item){
-  console.log(item)
   grid = document.getElementsByClassName("grid")[0];
   rowHeight = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-auto-rows'));
   rowGap = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-row-gap'));
