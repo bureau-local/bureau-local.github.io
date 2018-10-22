@@ -184,16 +184,8 @@ function init() {
 	queue()
 		.defer(d3.csv, "data.csv")
 		.await(function(error, data){
-      // the while loop removes entries not meant
-      // for card display from the data array
+      // the total is used for the titles
       total = data.length
-      i = data.length - 1;
-      while (i >= 0) {
-        if (data[i].type == "") {
-          data.splice(i, 1);
-        }
-        i -= 1;
-      }
 			chart(data, total)
 		});
 	};
