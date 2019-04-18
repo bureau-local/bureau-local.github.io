@@ -2,15 +2,14 @@
 // https://medium.com/@andybarefoot/a-masonry-style-layout-using-css-grid-8c663d355ebb
 // and https://github.com/gka/d3-jetpack
 
-// a wait var to be used to pause script
-// while imgs load beore resizing items
-var wait = ms => new Promise((r, j) => setTimeout(r, ms))
-
 // write the grids blocs, from the data loaded in the init()
 function chart(data, total) {
 
   main = data.filter(d => d.type != "text3")
+  mainSplit = chunkify(main, 8, "balanced")
+
   thedetail = data.filter(d => d.type == "text3")
+  thedetailSplit = chunkify(thedetail, 4, "balanced")
 
   var w=window,
   d=document,
@@ -31,8 +30,8 @@ function chart(data, total) {
   mainTitles.append("text")
         .attr("id", "vis-title")
         .text("people have died homeless since we began counting in October 2017. Here are their stories...");
-  
-  buildGrid(main)
+
+  mainSplit.forEach(buildGrid)
 
   // ---------- GRID 2 ----------
 
@@ -49,16 +48,15 @@ function chart(data, total) {
         .attr("id", "vis-title")
         .text("of our total were officially recognised as homeless and died while waiting to be housed by the Northern Irish Housing Executive.");
 
-  buildGrid(thedetail)
+  thedetailSplit.forEach(buildGrid)
 
-  // everything should be on the page so let's resize all items
   resizeAllGridItems()
 
 } // end of chart function
 
 // write individual grid with corresponding blocs
 function buildGrid(data) {
-  
+
   // create grid
   var grid = d3.select("body")
     .append("div")
@@ -79,7 +77,7 @@ function buildGrid(data) {
   // add img if type photo
   blocs.filter(function(d) {return d.type == "photo"}).append("img")
     .attr("class", "photothumb")
-    .attr("onload", "resizeAllGridItems()")
+    // .attr("onload", "resizeGridItem()")
     .attr("src", function(d) {return d.img_file});
 
   // add intro
@@ -112,36 +110,7 @@ function buildGrid(data) {
 
 } // end of buildGrid function
 
-function resizeGridItem(item){
-  grid = document.getElementsByClassName("grid")[0];
-  rowHeight = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-auto-rows'));
-  rowGap = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-row-gap'));
-  rowSpan = Math.ceil((item.querySelector('.content').getBoundingClientRect().height+rowGap)/(rowHeight+rowGap));
-  item.style.gridRowEnd = "span "+rowSpan;
-}
-
-function resizeAllGridItems(){
-  allItems = document.getElementsByClassName("item");
-  for(x=0;x<allItems.length;x++){
-     resizeGridItem(allItems[x]);
-  }
-}
-
-// window.onload = resizeAllGridItems();
-
-window.addEventListener("resize", resizeAllGridItems);
-
-allItems = document.getElementsByClassName("item");
-for(x=0;x<allItems.length;x++){
-   imagesLoaded(allItems[x], resizeInstance);
-}
-
-function resizeInstance(instance){
-   item = instance.elements[0];
-   resizeGridItem(item);
-}
-
-// write intro 
+// write intro
 function writeIntro(d) {
   if (d.dod_year != "") {
     return "Died in " + d.Location + ", " + writeDate(d) + writeAge(d.Age) + "."
