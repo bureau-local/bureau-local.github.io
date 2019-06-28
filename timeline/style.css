@@ -3,6 +3,8 @@
 body {
   font-size: 18px;
   font-family: "Futura",sans-serif;
+  max-width: 400px;
+  max-height: 400px;
 }
 
 .vis-title {
@@ -22,7 +24,7 @@ body {
  top: 7%;
  margin-left:10%;
  line-height: 1.4em;
- max-width: 33%
+ max-width: 33%;
 }
 
 .container {
