@@ -1,0 +1,10 @@
+html, body {
+  	height: 100%;
+}
+
+
+.line {
+  fill: none;
+  stroke: #EF3340;
+  stroke-width: 2px;
+}
