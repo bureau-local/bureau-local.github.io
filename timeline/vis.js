@@ -1,4 +1,21 @@
 // simple line graph made using https://bl.ocks.org/d3noob/402dd382a51a4f6eea487f9a35566de0
+// vanilla JS window width and height
+  var w=window,
+  d=document,
+  e=d.documentElement,
+  g=d.getElementsByTagName('body')[0],
+  x=w.innerWidth||e.clientWidth||g.clientWidth,
+  y=w.innerHeight||e.clientHeight||g.clientHeight;
+
+  // parameters
+  var margin = {
+      top: 100,
+      right: 100,
+      bottom: 100,
+      left: 100
+    },
+    width = x - margin.left - margin.right,
+    height = 1000 - margin.bottom - margin.top;
 
 // parse the date / time
 var parseTime = d3.timeParse("%Y");
@@ -12,24 +29,6 @@ var area = d3.area()
     .y0(height)
     .y1(function(d) { return _y(d.revenue); });
 
-// vanilla JS window width and height
-var w=window,
-  d=document,
-  e=d.documentElement,
-  g=d.getElementsByTagName('body')[0],
-  x=w.innerWidth||e.clientWidth||g.clientWidth,
-  y=w.innerHeight||e.clientHeight||g.clientHeight;
-
-  // parameters
-  var margin = {
-      top: 26,
-      right: 40,
-      bottom: 8,
-      left: 2
-    },
-    width = x - margin.left - margin.right,
-    height = 800 - margin.bottom - margin.top;
-
 // define the line
 var valueline = d3.line()
     .x(function(d) { return _x(d.date); })
@@ -38,7 +37,7 @@ var valueline = d3.line()
 // append the svg object to the body of the page
 // appends a 'group' element to 'svg'
 // moves the 'group' element to the top left margin
-d3.select(".container").append("svg")
+var svg = d3.select(".container").append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
   .append("g")
