@@ -1,0 +1,162 @@
+/* GENERAL */
+ body{
+    background-color: white;
+    font-family: 'Futura', sans-serif;
+    font-size: 20px;
+ }
+
+
+:root {
+  --accent-color: #EF3340;
+}
+
+ svg {
+    background-color: white;
+    font-family: 'Futura', sans-serif;
+    font-size: 19px;
+ }
+
+ .vis-title {
+   margin-top: 5em;
+   font-size: 28px;
+   line-height: 50px;
+   font-family: futura;
+   color: #333333;
+   text-align: center;
+ }
+
+ .vis-text {
+  position: absolute;
+  font-size: 19px;
+  line-height: 30px;
+  font-family: futura;
+  color: #333333;
+  top: 7%;
+  left:111px;
+  line-height: 1.4em;
+  max-width: 33%
+}
+
+ path.line {
+    fill: none;
+    stroke: #706F6F;
+    stroke-width: 0.5px;
+    opacity: 0.2;
+  }
+
+  .area {
+  fill: #706F6F;
+  opacity: 0.2;
+}
+
+.annotation path {
+  stroke: var(--accent-color);
+  fill: none;
+}
+
+.annotation path.connector-arrow,
+.title text, .annotation text,
+.annotation.callout.circle .annotation-subject path{
+  fill: var(--accent-color);
+}
+.annotation-note-bg {
+  fill: rgba(255, 255, 255, 0);
+}
+
+.annotation-note-title {
+  font-weight: bold;
+}
+
+.annotation.xythreshold {
+  cursor: move;
+}
+
+.hidden {
+  display: none;
+}
+
+text.hover {
+  font-size: .7em;
+}
+
+text.title {
+  font-size: 2.1em;
+}
+.caveat {
+  position: absolute;
+  font-size: 10px;
+  left: 111px;
+}
+#tbij-logo {
+position: absolute;
+width: 10%;
+height: 10%;
+bottom: 60px;
+right: 870px;
+opacity: 0.1;
+}
+
+
+
+/* VARIOUS SCREEN SIZES BELOW*/
+
+
+/* SMALL SCREEN */
+@media screen and (max-width: 700px) {
+  .vis-title  {
+    left: 8px;
+    right: 8px;
+    font-size: 22px;
+  }
+  .vis-text {
+    left: 8px;
+    font-size: 14px;
+    max-width: 35%;
+  }
+
+  .caveat {
+   left: 8px;
+   font-size: 9px;
+   bottom: 8px;
+ }
+ #tbij-logo {
+  bottom: 14px;
+}
+}
+/* LARGE MOBILE */
+@media screen and (max-width: 550px) {
+  .vis-title  {
+    left: 5px;
+    right: 5px;
+    font-size: 18px;
+  }
+  .vis-text {
+    left: 5px;
+    font-size: 12px;
+    max-width: 40%;
+  }
+
+  .caveat {
+     left: 5px;
+     font-size: 8px;
+     bottom: 5px;
+   }
+   /* SMALL SCREEN */
+   @media screen and (max-width: 400px) {
+  .vis-title  {
+    left: 2px;
+    right: 2px;
+    font-size: 16px;
+  }
+  .vis-text {
+    left: 2px;
+    font-size: 10px;
+    max-width: 48%;
+  }
+  .caveat {
+  left: 2px;
+  }
+  #tbij-logo {
+  bottom: 14px;
+}
+}
