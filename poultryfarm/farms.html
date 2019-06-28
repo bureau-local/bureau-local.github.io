@@ -420,7 +420,7 @@
     }; // end of draw()
 
     function init() {
-      d3.queue()
+      queue()
         .defer(d3.json, "NImap.json")
         .defer(d3.csv, "data.csv")
         .await(function(error, NImap, farmsdata){
