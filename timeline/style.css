@@ -28,9 +28,8 @@ body {
 }
 
 .container {
-  padding-bottom: 100%;
-  position: relative;
-  background-size: contain;
+  padding-bottom: 10%;
+  position: absolute;
   /*use line below to see container size*/
   border: 1px solid grey;
 }
