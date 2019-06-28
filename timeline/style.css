@@ -8,3 +8,12 @@ html, body {
   stroke: #EF3340;
   stroke-width: 2px;
 }
+
+.container {
+  padding-bottom: 100%;
+  position: relative;
+  background: url(chart.svg);
+  background-size: contain;
+  /*use line below to see container size*/
+  /*border: 1px solid grey;*/
+}
