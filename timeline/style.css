@@ -7,6 +7,11 @@ body {
   max-height: 750px;
 }
 
+svg {
+  position: absolute;
+  z-index: -1;
+}
+
 .container {
   padding-bottom: 10%;
   padding-right: 10%
@@ -14,6 +19,7 @@ body {
   /*use line below to see container size*/
   /* border: 1px solid grey; */
 }
+
 
 
 .line {
@@ -122,3 +128,4 @@ body {
     bottom: 14px;
   }
   }
+
