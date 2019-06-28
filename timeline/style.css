@@ -28,9 +28,9 @@ body {
 }
 
 .container {
-  padding-bottom: 5%;
-  padding-right: 5%;
+  padding-bottom: 100%;
   position: relative;
+  background-size: contain;
   /*use line below to see container size*/
   border: 1px solid grey;
 }
