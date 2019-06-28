@@ -80,16 +80,6 @@ d3.csv("data.csv", function(error, data) {
       .style("font-size", "30px")
       .text("JBS revenue, US$bn");
 
-// Add the title
-  svg.append("text")
-      .attr("class", "vis-title")
-      .attr("x", (width / 1.2))
-      .attr("y", 0 - (margin.top / 1.9))
-      .attr("text-anchor", "right")
-      .style("font-size", "32px")
-      .text("From strength to strength")
-      .call(wrap, width/1.05);
-
 
 
 //Add annotations
