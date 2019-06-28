@@ -1,29 +1,24 @@
-/* GENERAL */
- body{
-    background-color: white;
-    font-family: 'Futura', sans-serif;
-    font-size: 20px;
-    max-width: 800px;
- }
 
 :root {
   --accent-color: #EF3340;
 }
 
+ svg {
+    background-color: white;
+    font-family: 'Futura', sans-serif;
+    font-size: 19px;
+ }
+
  .vis-title {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  right: 10px;
-  font-size: 26px;
-  line-height: 1.4em;
-  font-weight: normal;
-  color: #333333;
-  text-align: center;
+   margin-top: 5em;
+   font-size: 28px;
+   line-height: 50px;
+   font-family: futura;
+   color: #333333;
+   text-align: center;
  }
 
  .vis-text {
-  position: absolute;
   font-size: 19px;
   line-height: 30px;
   font-family: futura;
@@ -78,82 +73,4 @@ text.hover {
 
 text.title {
   font-size: 2.1em;
-}
-.caveat {
-  position: absolute;
-  font-size: 10px;
-  left: 111px;
-}
-#tbij-logo {
-position: absolute;
-width: 10%;
-height: 10%;
-bottom: 60px;
-right: 870px;
-opacity: 0.1;
-}
-
-
-
-/* VARIOUS SCREEN SIZES BELOW*/
-
-
-/* SMALL SCREEN */
-@media screen and (max-width: 700px) {
-  .vis-title  {
-    left: 8px;
-    right: 8px;
-    font-size: 22px;
-  }
-  .vis-text {
-    left: 8px;
-    font-size: 14px;
-    max-width: 35%;
-  }
-
-  .caveat {
-   left: 8px;
-   font-size: 9px;
-   bottom: 8px;
- }
- #tbij-logo {
-  bottom: 14px;
-}
-}
-/* LARGE MOBILE */
-@media screen and (max-width: 550px) {
-  .vis-title  {
-    left: 5px;
-    right: 5px;
-    font-size: 18px;
-  }
-  .vis-text {
-    left: 5px;
-    font-size: 12px;
-    max-width: 40%;
-  }
-
-  .caveat {
-     left: 5px;
-     font-size: 8px;
-     bottom: 5px;
-   }
-   /* SMALL SCREEN */
-   @media screen and (max-width: 400px) {
-  .vis-title  {
-    left: 2px;
-    right: 2px;
-    font-size: 16px;
-  }
-  .vis-text {
-    left: 2px;
-    font-size: 10px;
-    max-width: 48%;
-  }
-  .caveat {
-  left: 2px;
-  }
-  #tbij-logo {
-  bottom: 14px;
-}
 }
