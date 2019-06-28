@@ -3,32 +3,6 @@
   --accent-color: #EF3340;
 }
 
- svg {
-    background-color: white;
-    font-family: 'Futura', sans-serif;
-    font-size: 19px;
- }
-
- .vis-title {
-   margin-top: 5em;
-   font-size: 28px;
-   line-height: 50px;
-   font-family: futura;
-   color: #333333;
-   text-align: center;
- }
-
- .vis-text {
-  font-size: 19px;
-  line-height: 30px;
-  font-family: futura;
-  color: #333333;
-  top: 7%;
-  left:111px;
-  line-height: 1.4em;
-  max-width: 33%
-}
-
  path.line {
     fill: none;
     stroke: #706F6F;
