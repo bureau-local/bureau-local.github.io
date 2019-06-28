@@ -3,7 +3,18 @@
 body {
   font-size: 18px;
   font-family: "Futura",sans-serif;
+  max-width: 800px;
 }
+
+.container {
+  padding-bottom: 100%;
+  position: relative;
+  background: url(no-refuge.svg);
+  background-size: contain;
+  /*use line below to see container size*/
+  /*border: 1px solid grey;*/
+}
+
 
 .vis-title {
   margin-top: 5em;
@@ -23,13 +34,6 @@ body {
  margin-left:10%;
  line-height: 1.4em;
  max-width: 33%;
-}
-
-.container {
-  padding-bottom: 10%;
-  position: absolute;
-  /*use line below to see container size*/
-  border: 1px solid grey;
 }
 
 .line {
