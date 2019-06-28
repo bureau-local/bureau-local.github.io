@@ -184,7 +184,7 @@ svg.append("g").attr("class", "caveat").attr("transform", "translate(" + [0, hei
         .attr("width", logoSize)
         .attr("height", logoSize)
         .attr("opacity", 0.9)
-        .attr("xlink:href", "tbij.png");
+        .attr("xlink:href", "../tbij.png");
 
   // wrap text function - I learned this nifty trick from the FT
          function wrap(text, width) {
