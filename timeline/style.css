@@ -8,26 +8,46 @@ body {
 }
 
 svg {
-  position: absolute;
-  z-index: -1;
+   background-color: white;
+   font-family: 'Futura', sans-serif;
+   font-size: 19px;
+}
+
+.vis-title {
+  margin-top: 5em;
+  margin-left: 10%;
+  font-size: 28px;
+  line-height: 50px;
+  font-family: futura;
+  color: #333333;
+}
+
+.vis-text {
+ font-size: 19px;
+ line-height: 30px;
+ font-family: futura;
+ color: #333333;
+ top: 7%;
+ margin-left:10%;
+ line-height: 1.4em;
+ max-width: 33%
 }
 
 .container {
-  padding-bottom: 10%;
-  padding-right: 10%
+  height: 260%;
+  width: 180%;
+  padding-bottom: 5%;
+  padding-right: 5%;
   position: relative;
   /*use line below to see container size*/
-  /* border: 1px solid grey; */
+  border: 1px solid grey;
 }
-
-
 
 .line {
   fill: none;
   stroke: #EF3340;
   stroke-width: 2px;
 }
-
 
 .label {
   position: absolute;
@@ -36,24 +56,25 @@ svg {
   }
 
   #first-label {
-    left: 25%;
-    bottom: 51%;
+    left: 41%;
+    bottom: 38%;
   }
 
   #second-label {
-    left: 44%;
-    top: 18%;
+    left: 77%;
+    top: 32%;
   }
 
   #third-label {
-    left: 49%;
-    top: 9%;
+    left: 85%;
+    top: 23%;
   }
 
   .caveat {
     position: absolute;
     font-size: 10px;
-    left: 111px;
+    margin-left: 10%;
+    margin-bottom: 10%
   }
   #tbij-logo {
   position: absolute;
@@ -128,4 +149,3 @@ svg {
     bottom: 14px;
   }
   }
-
