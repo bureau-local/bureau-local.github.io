@@ -4,6 +4,7 @@ body {
   font-size: 18px;
   font-family: "Futura",sans-serif;
   max-width: 800px;
+  max-height: 750px;
 }
 
 .vis-title {
