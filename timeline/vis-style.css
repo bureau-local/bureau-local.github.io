@@ -1,3 +1,7 @@
+svg {
+  position: absolute;
+  z-index: -1;
+}
 
 :root {
   --accent-color: #EF3340;
