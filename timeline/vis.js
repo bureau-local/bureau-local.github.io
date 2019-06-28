@@ -1,7 +1,19 @@
 // simple line graph made using https://bl.ocks.org/d3noob/402dd382a51a4f6eea487f9a35566de0
 
+// parse the date / time
+var parseTime = d3.timeParse("%Y");
+
+// set the ranges
+var _x = d3.scaleTime().range([0, width]);
+var _y = d3.scaleLinear().range([height, 0]);
+
+var area = d3.area()
+    .x(function(d) { return _x(d.date); })
+    .y0(height)
+    .y1(function(d) { return _y(d.revenue); });
+
 // vanilla JS window width and height
-  var w=window,
+var w=window,
   d=document,
   e=d.documentElement,
   g=d.getElementsByTagName('body')[0],
@@ -17,18 +29,6 @@
     },
     width = x - margin.left - margin.right,
     height = 800 - margin.bottom - margin.top;
-
-// parse the date / time
-var parseTime = d3.timeParse("%Y");
-
-// set the ranges
-var _x = d3.scaleTime().range([0, width]);
-var _y = d3.scaleLinear().range([height, 0]);
-
-var area = d3.area()
-    .x(function(d) { return _x(d.date); })
-    .y0(height)
-    .y1(function(d) { return _y(d.revenue); });
 
 // define the line
 var valueline = d3.line()
@@ -94,15 +94,6 @@ d3.csv("data.csv", function(error, data) {
       .style("font-size", "30px")
       .text("JBS revenue, US$bn");
 
-// Add the title
-  svg.append("text")
-      .attr("class", "vis-title")
-      .attr("x", (width / 1.2))
-      .attr("y", 0 - (margin.top / 1.9))
-      .attr("text-anchor", "right")
-      .style("font-size", "32px")
-      .text("From strength to strength")
-      .call(wrap, width/1.05);
 
 
 
@@ -198,32 +189,4 @@ svg.append("g").attr("class", "caveat").attr("transform", "translate(" + [0, hei
         .attr("width", logoSize)
         .attr("height", logoSize)
         .attr("opacity", 0.9)
-        .attr("xlink:href", "tbij.png");
-
-  // wrap text function - I learned this nifty trick from the FT
-         function wrap(text, width) {
-           text.each(function() {
-             var text = d3.select(this),
-                 words = text.text().split(/\s+/).reverse(),
-                 word,
-                 line = [],
-                 lineNumber = 0,
-                 lineHeight = 1.3, // ems
-                 y = text.attr("y"),
-                 dy = parseFloat(text.attr("dy"));
-                 if(!dy){dy = 0}else{dy = dy};
-                 var tspan = text.text(null).append("tspan").attr("x", 0).attr("y", y).attr("dy", dy + "em");
-             while (word = words.pop()) {
-               line.push(word);
-               tspan.text(line.join(" "));
-               if (tspan.node().getComputedTextLength() > width) {
-                 line.pop();
-                 tspan.text(line.join(" "));
-                 line = [word];
-                 // console.log(line);
-                 tspan = text.append("tspan").attr("x", 0).attr("y", y).attr("dy", lineHeight + dy + "em").text(word);
-               }
-             }
-           });
-         }
-
+        .attr("xlink:href", "../tbij.png");
