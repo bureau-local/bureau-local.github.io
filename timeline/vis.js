@@ -1,8 +1,22 @@
 // simple line graph made using https://bl.ocks.org/d3noob/402dd382a51a4f6eea487f9a35566de0
 
-var margin = {top: 120, right: 50, bottom: 30, left: 105},
-    width = 960 - margin.left - margin.right,
-    height = 700 - margin.top - margin.bottom;
+// vanilla JS window width and height
+  var w=window,
+  d=document,
+  e=d.documentElement,
+  g=d.getElementsByTagName('body')[0],
+  x=w.innerWidth||e.clientWidth||g.clientWidth,
+  y=w.innerHeight||e.clientHeight||g.clientHeight;
+
+  // parameters
+  var margin = {
+      top: 26,
+      right: 40,
+      bottom: 8,
+      left: 2
+    },
+    width = x - margin.left - margin.right,
+    height = 800 - margin.bottom - margin.top;
 
 // parse the date / time
 var parseTime = d3.timeParse("%Y");
@@ -24,7 +38,7 @@ var valueline = d3.line()
 // append the svg object to the body of the page
 // appends a 'group' element to 'svg'
 // moves the 'group' element to the top left margin
-var svg = d3.select("#chart").append("svg")
+d3.select(".container").append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
   .append("g")
@@ -79,6 +93,16 @@ d3.csv("data.csv", function(error, data) {
       .style("text-anchor", "middle")
       .style("font-size", "30px")
       .text("JBS revenue, US$bn");
+
+// Add the title
+  svg.append("text")
+      .attr("class", "vis-title")
+      .attr("x", (width / 1.2))
+      .attr("y", 0 - (margin.top / 1.9))
+      .attr("text-anchor", "right")
+      .style("font-size", "32px")
+      .text("From strength to strength")
+      .call(wrap, width/1.05);
 
 
 
@@ -174,7 +198,7 @@ svg.append("g").attr("class", "caveat").attr("transform", "translate(" + [0, hei
         .attr("width", logoSize)
         .attr("height", logoSize)
         .attr("opacity", 0.9)
-        .attr("xlink:href", "../tbij.png");
+        .attr("xlink:href", "tbij.png");
 
   // wrap text function - I learned this nifty trick from the FT
          function wrap(text, width) {
@@ -202,3 +226,4 @@ svg.append("g").attr("class", "caveat").attr("transform", "translate(" + [0, hei
              }
            });
          }
+
