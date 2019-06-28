@@ -1,5 +1,18 @@
-html, body {
-  	height: 100%;
+/* GENERAL */
+
+body {
+  font-size: 18px;
+  font-family: "Futura",sans-serif;
+  max-width: 950px;
+  max-height: 750px;
+}
+
+.container {
+  padding-bottom: 10%;
+  padding-right: 10%
+  position: relative;
+  /*use line below to see container size*/
+  /* border: 1px solid grey; */
 }
 
 
