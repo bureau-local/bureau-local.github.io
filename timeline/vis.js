@@ -15,7 +15,7 @@
       left: 100
     },
     width = x - margin.left - margin.right,
-    height = 1000 - margin.bottom - margin.top;
+    height = 700 - margin.bottom - margin.top;
 
 // parse the date / time
 var parseTime = d3.timeParse("%Y");
