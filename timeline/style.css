@@ -98,7 +98,9 @@ body {
    }
 
   #tbij-logo {
-    bottom: 10px;
+  bottom: 1px;
+  width: 6%;
+  height: 6%;
   }
 }
 
@@ -133,7 +135,9 @@ body {
    }
     
   #tbij-logo {
-    bottom: 5px;
+  bottom: 1px;
+  width: 6%;
+  height: 6%;
   }
 }
 
@@ -166,6 +170,8 @@ body {
    }
 
   #tbij-logo {
-    bottom: 5px;
+  bottom: 1px;
+  width: 5%;
+  height: 5%;
   }
 }
