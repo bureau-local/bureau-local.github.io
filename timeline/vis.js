@@ -14,7 +14,7 @@
       bottom: 100,
       left: 100
     },
-    width = 600 - margin.left - margin.right,
+    width = x - margin.left - margin.right,
     height = 645 - margin.bottom - margin.top;
 
 
