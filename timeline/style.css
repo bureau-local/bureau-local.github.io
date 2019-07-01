@@ -1,145 +1,141 @@
 /* GENERAL */
-
 body {
   font-size: 16px;
   font-family: "Futura",sans-serif;
-  max-width: 600px;
+  max-width: 800px;
 }
 
 .container {
   padding-bottom: 100%;
-    position: relative;
-    /* background: url(vis.svg); */
-    /* background-size: contain; */
-    /*use line below to see container size*/
-    /*border: 1px solid grey; */
+  position: relative;
+  background: url(timeline.svg);
+  background-size: contain;
+  /*use line below to see container size*/
+  /* border: 1px solid grey; */
 }
 
-
 .vis-title {
-  margin-top: 1em;
-  margin-left: 11%;
+  position: absolute;
+  top: 10px;
+  left: 10px;
   font-size: 28px;
-  line-height: 35px;
-  font-family: futura;
+  line-height: 1.4em;
   color: #333333;
 }
 
 .vis-text {
- font-size: 19px;
- line-height: 10px;
- font-family: futura;
- color: #333333;
- top: 7%;
- margin-left: 11%;
- line-height: 1.4em;
- max-width: 50%;
-}
-
-.line {
-  fill: none;
-  stroke: #EF3340;
-  stroke-width: 2px;
+  position: absolute;
+  font-size: 19px;
+  color: #333333;
+  top: 7%;
+  left: 10px;
+  line-height: 1.4em;
+  max-width: 85%;
 }
 
 .label {
   position: absolute;
   font-size: 22px;
   color: #EF3340;
+}
+
+#first-label {
+  left: 36%;
+  top: 52%;
+}
+
+#second-label {
+  left: 77%;
+  top: 19%;
+}
+
+#third-label {
+  left: 83%;
+  top: 8%;
+}
+
+.caveat {
+  position: absolute;
+  font-size: 10px;
+  left: 10px;
+  bottom: 5px;
+}
+
+#tbij-logo {
+  position: absolute;
+  width: 8%;
+  height: 8%;
+  bottom: 10px;
+  right: 10px;
+  opacity: 0.9;
+}
+
+/* VARIOUS SCREEN SIZES BELOW*/
+
+/* SMALL SCREEN */
+@media screen and (max-width: 700px) {
+  .vis-title  {
+    left: 8px;
+    right: 8px;
+    font-size: 22px;
   }
 
-  #first-label {
-    left: 34%;
-    bottom: 38%;
-  }
-
-  #second-label {
-    left: 78%;
-    top: 24%;
-  }
-
-  #third-label {
-    left: 85%;
-    top: 13%;
+  .vis-text {
+    left: 8px;
+    font-size: 14px;
+    max-width: 90%;
   }
 
   .caveat {
-    position: absolute;
-    font-size: 10px;
-    margin-left: 13%;
+    left: 8px;
+    font-size: 9px;
+    bottom: 8px;
+   }
+
+  #tbij-logo {
+    bottom: 14px;
+  }
+}
+
+/* LARGE MOBILE */
+@media screen and (max-width: 550px) {
+  .vis-title  {
+    left: 5px;
+    right: 5px;
+    font-size: 18px;
+  }
+
+  .vis-text {
+    left: 5px;
+    font-size: 12px;
+    max-width: 90%;
+  }
+
+  .caveat {
+    left: 5px;
+    font-size: 8px;
     bottom: 5px;
   }
 
-  #tbij-logo {
-  position: absolute;
-  width: 10%;
-  height: 10%;
-  bottom: 60px;
-  right: 870px;
-  opacity: 0.1;
-  }
-
-
-
-  /* VARIOUS SCREEN SIZES BELOW*/
-
-
-  /* SMALL SCREEN */
-  @media screen and (max-width: 600px) {
-    .vis-title  {
-      left: 8px;
-      right: 8px;
-      font-size: 22px;
-    }
-    .vis-text {
-      left: 8px;
-      font-size: 14px;
-      max-width: 35%;
-    }
-
-    .caveat {
-     left: 8px;
-     font-size: 9px;
-     bottom: 8px;
-   }
-   #tbij-logo {
-    bottom: 14px;
-  }
-  }
-  /* LARGE MOBILE */
-  @media screen and (max-width: 550px) {
-    .vis-title  {
-      left: 5px;
-      right: 5px;
-      font-size: 18px;
-    }
-    .vis-text {
-      left: 5px;
-      font-size: 12px;
-      max-width: 40%;
-    }
-
-    .caveat {
-       left: 5px;
-       font-size: 8px;
-       bottom: 5px;
-     }
-     /* SMALL SCREEN */
-     @media screen and (max-width: 400px) {
-    .vis-title  {
-      left: 2px;
-      right: 2px;
-      font-size: 16px;
-    }
-    .vis-text {
-      left: 2px;
-      font-size: 10px;
-      max-width: 48%;
-    }
-    .caveat {
+/* SMALL SCREEN */
+@media screen and (max-width: 400px) {
+  .vis-title  {
     left: 2px;
-    }
-    #tbij-logo {
+    right: 2px;
+    font-size: 16px;
+  }
+
+  .vis-text {
+    left: 2px;
+    font-size: 10px;
+    max-width: 90%;
+  }
+
+  .caveat {
+    left: 2px;
+  }
+
+  #tbij-logo {
     bottom: 14px;
   }
-  }
+}
