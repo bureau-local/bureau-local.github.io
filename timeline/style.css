@@ -85,6 +85,10 @@ body {
     font-size: 12px;
     max-width: 90%;
   }
+   
+  .long-text {
+  display: none;
+  }
 
   .caveat {
     left: 8px;
@@ -115,6 +119,10 @@ body {
     font-size: 12px;
     max-width: 90%;
   }
+  
+  .long-text {
+  display: none;
+  }
 
   .caveat {
     left: 5px;
@@ -140,6 +148,10 @@ body {
     left: 2px;
     font-size: 10px;
     max-width: 90%;
+  }
+  
+  .long-text {
+  display: none;
   }
 
   .caveat {
