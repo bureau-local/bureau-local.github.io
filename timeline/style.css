@@ -91,6 +91,7 @@ body {
     font-size: 9px;
     bottom: 8px;
    }
+  
   .label {
     position: absolute;
     font-size: 18px;
@@ -114,12 +115,8 @@ body {
 
   .vis-text {
     left: 5px;
-    font-size: 12px;
+    font-size: 8px;
     max-width: 90%;
-  }
-  
-  .long-text {
-  display: none;
   }
 
   .caveat {
@@ -150,13 +147,9 @@ body {
   }
 
   .vis-text {
-    left: 2px;
-    font-size: 10px;
+    left: 5px;
+    font-size: 8px;
     max-width: 90%;
-  }
-  
-  .long-text {
-  display: none;
   }
 
   .caveat {
