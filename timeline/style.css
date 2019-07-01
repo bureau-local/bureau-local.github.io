@@ -9,8 +9,8 @@ body {
 .container {
   padding-bottom: 100%;
     position: relative;
-    background: url(vis.svg);
-    background-size: contain;
+    /* background: url(vis.svg); */
+    /* background-size: contain; */
     /*use line below to see container size*/
     /*border: 1px solid grey;*/
 }
@@ -50,17 +50,17 @@ body {
 
   #first-label {
     left: 42%;
-    bottom: 41%;
+    bottom: 42%;
   }
 
   #second-label {
     left: 80%;
-    top: 25%;
+    top: 22%;
   }
 
   #third-label {
     left: 87%;
-    top: 15%;
+    top: 12%;
   }
 
   .caveat {
