@@ -190,4 +190,4 @@ if (_x <= 400) {
          .attr("width", logoSize)
          .attr("height", logoSize)
          .attr("opacity", 0.9)
-         .attr("xlink:href", "tbij.png");
+         .attr("xlink:href", "../tbij.png");
