@@ -1,33 +1,24 @@
 // simple line graph made using https://bl.ocks.org/d3noob/402dd382a51a4f6eea487f9a35566de0
-// vanilla JS window width and height
-  var w=window,
-  d=document,
-  e=d.documentElement,
-  g=d.getElementsByTagName('body')[0],
-  x=w.innerWidth||e.clientWidth||g.clientWidth,
-  y=w.innerHeight||e.clientHeight||g.clientHeight;
-
-  // parameters
-  var margin = {
-      top: 20,
-      right: 40,
-      bottom: 100,
-      left: 100
-    },
-    width = x - margin.left - margin.right,
-    height = 645 - margin.bottom - margin.top;
-
+// parameters
+var margin = {
+    top: 120,
+    right: 30,
+    bottom: 100,
+    left: 80
+},
+width = 800,
+height = 800;
 
 // parse the date / time
 var parseTime = d3.timeParse("%Y");
 
 // set the ranges
-var _x = d3.scaleTime().range([0, width]);
-var _y = d3.scaleLinear().range([height, 0]);
+var _x = d3.scaleTime().range([margin.left, width-margin.right]);
+var _y = d3.scaleLinear().range([height-margin.bottom, margin.top]);
 
 var area = d3.area()
     .x(function(d) { return _x(d.date); })
-    .y0(height)
+    .y0(height-margin.bottom)
     .y1(function(d) { return _y(d.revenue); });
 
 // define the line
@@ -36,14 +27,11 @@ var valueline = d3.line()
     .y(function(d) { return _y(d.revenue); });
 
 // append the svg object to the body of the page
-// appends a 'group' element to 'svg'
-// moves the 'group' element to the top left margin
 var svg = d3.select(".container").append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
-  .append("g")
-    .attr("transform",
-          "translate(" + margin.left + "," + margin.top + ")");
+    .attr("position", "absolute")
+    .attr("width", width)
+    .attr("height", height)
+    .append("g");
 
 
 // Get the data
@@ -74,28 +62,27 @@ d3.csv("data.csv", function(error, data) {
 
   // Add the X Axis
   svg.append("g")
-      .attr("transform", "translate(0," + height + ")")
+      .attr("transform", "translate(0," + (height-margin.bottom) + ")")
       .style("font", "14px futura")
-      .call(d3.axisBottom(_x));
+      .call(d3.axisBottom(_x).ticks(5));
 
 
   // Add the Y Axis
   svg.append("g")
+      .attr("transform", "translate(" + margin.left + ",0)")
       .style("font", "16px futura")
-      .call(d3.axisLeft(_y));
+      .call(d3.axisLeft(_y).ticks(5));
 
 
   svg.append("text")
       .attr("transform", "rotate(-90)")
-      .attr("y", 1 - margin.left)
-      .attr("x",0 - (height / 2))
+      .attr("y", 1)
+      .attr("x", -(height / 2))
       .attr("dy", "1.5em")
       .style("text-anchor", "middle")
-      .style("font-size", "30px")
+      .style("font-size", "19px")
+      .style("font-family", "Futura")
       .text("JBS revenue, US$bn");
-
-
-
 
 //Add annotations
   var labels = [{
@@ -164,30 +151,10 @@ var timeFormat = d3.timeFormat("%Y");
     }
   });
 
-
-  svg.append("g").attr("class", "annotation-test").call(makeAnnotations);
+  svg.append("g").attr("class", "annotation-test").style("font-family", "Futura").call(makeAnnotations);
 
   svg.select("g.x-axis").call(d3.axisBottom(_x));
 
-  svg.select("path.line")
-  .attr("d", valueline);
-});
+  svg.select("path.line").attr("d", valueline);
 
-if (_x <= 400) {
-  caveatprojection = 18
-} else {
-  caveatprojection = 10
-}
-
-// ---------- CAVEAT + LOGO -----------
-
-     var logo = svg.append("g").attr("class", "logo-image");
-     var logoSize = width/8
-     logo.append("svg:image")
-         .attr("class", "logo")
-         .attr("x",width-logoSize)
-         .attr("y", height-logoSize)
-         .attr("width", logoSize)
-         .attr("height", logoSize)
-         .attr("opacity", 0.9)
-         .attr("xlink:href", "../tbij.png");
+}); // closes d3.csv
