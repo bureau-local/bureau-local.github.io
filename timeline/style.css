@@ -3,7 +3,7 @@
 body {
   font-size: 16px;
   font-family: "Futura",sans-serif;
-  max-width: 700px;
+  max-width: 600px;
 }
 
 .container {
@@ -12,7 +12,7 @@ body {
     /* background: url(vis.svg); */
     /* background-size: contain; */
     /*use line below to see container size*/
-    /*border: 1px solid grey;*/
+    border: 1px solid grey;
 }
 
 
@@ -49,25 +49,25 @@ body {
   }
 
   #first-label {
-    left: 42%;
-    bottom: 42%;
+    left: 34%;
+    bottom: 36%;
   }
 
   #second-label {
-    left: 80%;
-    top: 22%;
+    left: 78%;
+    top: 27%;
   }
 
   #third-label {
-    left: 87%;
-    top: 12%;
+    left: 85%;
+    top: 17%;
   }
 
   .caveat {
     position: absolute;
     font-size: 10px;
     margin-left: 13%;
-    bottom: 40px;
+    bottom: 5px;
   }
 
   #tbij-logo {
