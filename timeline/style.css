@@ -35,7 +35,7 @@ body {
 
 .label {
   position: absolute;
-  font-size: 22px;
+  font-size: 24px;
   color: #EF3340;
 }
 
@@ -65,7 +65,7 @@ body {
   position: absolute;
   width: 8%;
   height: 8%;
-  bottom: 10px;
+  bottom: 1px;
   right: 10px;
   opacity: 0.9;
 }
@@ -90,6 +90,11 @@ body {
     left: 8px;
     font-size: 9px;
     bottom: 8px;
+   }
+  .label {
+    position: absolute;
+    font-size: 18px;
+    color: #EF3340;
    }
 
   #tbij-logo {
@@ -117,6 +122,12 @@ body {
     bottom: 5px;
   }
 
+  .label {
+    position: absolute;
+    font-size: 14px;
+    color: #EF3340;
+   }
+
 /* SMALL SCREEN */
 @media screen and (max-width: 400px) {
   .vis-title  {
@@ -134,6 +145,12 @@ body {
   .caveat {
     left: 2px;
   }
+
+  .label {
+    position: absolute;
+    font-size: 12px;
+    color: #EF3340;
+   }
 
   #tbij-logo {
     bottom: 14px;
