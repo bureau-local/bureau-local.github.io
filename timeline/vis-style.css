@@ -1,22 +1,30 @@
 svg {
   position: absolute;
   z-index: -1;
+  height: 800px;
+  font-family: "Futura",sans-serif;
 }
 
 :root {
   --accent-color: #EF3340;
 }
 
- path.line {
-    fill: none;
-    stroke: #706F6F;
-    stroke-width: 0.5px;
-    opacity: 0.2;
-  }
+.line {
+  fill: none;
+  stroke: #EF3340;
+  stroke-width: 2px;
+}
 
-  .area {
-  fill: #706F6F;
+path.line {
+  fill: none;
+  stroke: #706F6F;
+  stroke-width: 0.5px;
   opacity: 0.2;
+}
+
+.area {
+  fill: #706F6F;
+  opacity: 0.1;
 }
 
 .annotation path {
@@ -31,24 +39,9 @@ svg {
 }
 .annotation-note-bg {
   fill: rgba(255, 255, 255, 0);
+  bgpadding-right: 3px;
 }
 
 .annotation-note-title {
   font-weight: bold;
-}
-
-.annotation.xythreshold {
-  cursor: move;
-}
-
-.hidden {
-  display: none;
-}
-
-text.hover {
-  font-size: .7em;
-}
-
-text.title {
-  font-size: 2.1em;
 }
