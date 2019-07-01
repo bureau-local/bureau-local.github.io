@@ -14,8 +14,8 @@
       bottom: 100,
       left: 100
     },
-    width = 700 - margin.left - margin.right,
-    height = 700 - margin.bottom - margin.top;
+    width = 600 - margin.left - margin.right,
+    height = 645 - margin.bottom - margin.top;
 
 
 // parse the date / time
@@ -105,7 +105,7 @@ d3.csv("data.csv", function(error, data) {
       label: "Tesco cancels beef contracts after Greenpeace links JBS to deforestation in the Amazon"
     },
     data: { date: "2012", close: 19.7 },
-    dy: 55,
+    dy: 45,
     dx: 0
   }, {
     note: {
@@ -142,14 +142,14 @@ d3.csv("data.csv", function(error, data) {
     },
     data: { date: "2018", close: 49.7 },
     dy: 0,
-    dx: -400
+    dx: -300
   }].map(function (l) {
     return l;
   });
 
 var timeFormat = d3.timeFormat("%Y");
 
-  window.makeAnnotations = d3.annotation().annotations(labels).type(d3.annotationCalloutCircle).textWrap(250).notePadding(20).accessors({ x: function x(d) {
+  window.makeAnnotations = d3.annotation().annotations(labels).type(d3.annotationCalloutCircle).textWrap(200).notePadding(20).accessors({ x: function x(d) {
       return _x(parseTime(d.date));
     },
     y: function y(d) {
@@ -163,6 +163,7 @@ var timeFormat = d3.timeFormat("%Y");
       return _y.invert(d.y);
     }
   });
+
 
   svg.append("g").attr("class", "annotation-test").call(makeAnnotations);
 
@@ -178,15 +179,15 @@ if (_x <= 400) {
   caveatprojection = 10
 }
 
-svg.append("g").attr("class", "caveat").attr("transform", "translate(" + [0, height-caveatprojection] + ")").append("text").text("").call(wrap, width/1.2)
-    var logo = svg.append("g").attr("class", "logo-image");
-    var logoSize = width/11
+// ---------- CAVEAT + LOGO -----------
 
-    logo.append("svg:image")
-        .attr("class", "logo")
-        .attr("x",width-logoSize)
-        .attr("y", height-logoSize)
-        .attr("width", logoSize)
-        .attr("height", logoSize)
-        .attr("opacity", 0.9)
-        .attr("xlink:href", "../tbij.png");
+     var logo = svg.append("g").attr("class", "logo-image");
+     var logoSize = width/8
+     logo.append("svg:image")
+         .attr("class", "logo")
+         .attr("x",width-logoSize)
+         .attr("y", height-logoSize)
+         .attr("width", logoSize)
+         .attr("height", logoSize)
+         .attr("opacity", 0.9)
+         .attr("xlink:href", "tbij.png");
