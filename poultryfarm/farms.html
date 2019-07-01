@@ -46,10 +46,10 @@
       height = 800 - margin.bottom - margin.top;
 
     var smallScreenProjection = d3.geo.albers()
-        .center([-20, 52.6])
-        .rotate([-400, 20])
-        .parallels([15, 62])
-        .scale(26000)
+        .center([0.5, 53.6])
+        .rotate([7.4, 0])
+        .parallels([15, 60])
+        .scale(19000)
         .translate([width / 2, height / 2]);
 
     var projection = d3.geo.albers()
