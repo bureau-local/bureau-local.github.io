@@ -19,7 +19,7 @@ body {
   top: 10px;
   left: 10px;
   font-size: 28px;
-  line-height: 1.4em;
+  line-height: 2.4em;
   color: #333333;
 }
 
@@ -29,7 +29,7 @@ body {
   color: #333333;
   top: 7%;
   left: 10px;
-  line-height: 1.4em;
+  line-height: 2.4em;
   max-width: 85%;
 }
 
@@ -82,7 +82,7 @@ body {
 
   .vis-text {
     left: 8px;
-    font-size: 14px;
+    font-size: 12px;
     max-width: 90%;
   }
 
@@ -153,6 +153,6 @@ body {
    }
 
   #tbij-logo {
-    bottom: 8px;
+    bottom: 14px;
   }
 }
