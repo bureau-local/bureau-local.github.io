@@ -1,39 +1,38 @@
 /* GENERAL */
 
 body {
-  font-size: 18px;
+  font-size: 16px;
   font-family: "Futura",sans-serif;
-  max-width: 800px;
+  max-height: 800px;
+  max-width: 700px;
 }
 
 .container {
   padding-bottom: 100%;
   position: relative;
-  background: url(no-refuge.svg);
-  background-size: contain;
   /*use line below to see container size*/
-  /*border: 1px solid grey;*/
+  border: 1px solid grey;
 }
 
 
 .vis-title {
-  margin-top: 5em;
-  margin-left: 10%;
+  margin-top: 1em;
+  margin-left: 11%;
   font-size: 28px;
-  line-height: 50px;
+  line-height: 35px;
   font-family: futura;
   color: #333333;
 }
 
 .vis-text {
  font-size: 19px;
- line-height: 30px;
+ line-height: 10px;
  font-family: futura;
  color: #333333;
  top: 7%;
- margin-left:10%;
+ margin-left: 11%;
  line-height: 1.4em;
- max-width: 33%;
+ max-width: 50%;
 }
 
 .line {
@@ -49,25 +48,25 @@ body {
   }
 
   #first-label {
-    left: 41%;
-    bottom: 38%;
+    left: 42%;
+    bottom: 41%;
   }
 
   #second-label {
-    left: 77%;
-    top: 32%;
+    left: 80%;
+    top: 25%;
   }
 
   #third-label {
-    left: 85%;
-    top: 23%;
+    left: 87%;
+    top: 15%;
   }
 
   .caveat {
     position: absolute;
     font-size: 10px;
-    margin-left: 10%;
-    margin-bottom: 10%
+    margin-left: 13%;
+    bottom: 40px;
   }
 
   #tbij-logo {
@@ -85,7 +84,7 @@ body {
 
 
   /* SMALL SCREEN */
-  @media screen and (max-width: 700px) {
+  @media screen and (max-width: 600px) {
     .vis-title  {
       left: 8px;
       right: 8px;
