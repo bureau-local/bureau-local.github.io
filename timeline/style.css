@@ -16,10 +16,10 @@ body {
 
 .vis-title {
   position: absolute;
-  top: 10px;
+  top: 2px;
   left: 10px;
   font-size: 28px;
-  line-height: 2.4em;
+  line-height: 1.4em;
   color: #333333;
 }
 
@@ -27,9 +27,9 @@ body {
   position: absolute;
   font-size: 19px;
   color: #333333;
-  top: 7%;
+  top: 6%;
   left: 10px;
-  line-height: 2.4em;
+  line-height: 1.4em;
   max-width: 85%;
 }
 
@@ -85,10 +85,6 @@ body {
     font-size: 12px;
     max-width: 90%;
   }
-   
-  .long-text {
-  display: none;
-  }
 
   .caveat {
     left: 8px;
@@ -135,6 +131,11 @@ body {
     font-size: 14px;
     color: #EF3340;
    }
+    
+  #tbij-logo {
+    bottom: 5px;
+  }
+}
 
 /* SMALL SCREEN */
 @media screen and (max-width: 400px) {
@@ -165,6 +166,6 @@ body {
    }
 
   #tbij-logo {
-    bottom: 8px;
+    bottom: 5px;
   }
 }
