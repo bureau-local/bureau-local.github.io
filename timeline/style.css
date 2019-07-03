@@ -130,6 +130,10 @@ body {
     font-size: 14px;
     color: #EF3340;
    }
+  
+  .long-text {
+    display: none;
+  }
     
   #tbij-logo {
   bottom: 1px;
@@ -161,6 +165,10 @@ body {
     font-size: 12px;
     color: #EF3340;
    }
+  
+  .long-text {
+    display: none;
+  }
 
   #tbij-logo {
   bottom: 1px;
