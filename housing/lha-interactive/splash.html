@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="favicon.ico">
+    <meta name="author" content="Charles Boutaud">
+    <title>#LockedOut</title>
+    <script src="brma.geojson"></script>
+    <script src="../../turf.min.js" charset="utf-8"></script>
+    <script src="../../post-frame-height.js"></script>
+    <link href="splash.css" rel="stylesheet">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-149258666-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-149258666-1');
+    </script>
+  </head>
+
+  <body>
+
+    <div class='splash__logo'>
+      <a href='https://www.thebureauinvestigates.com' target='_blank' rel='noopener noreferrer' title='The Bureau of Investigative Journalism'>
+        <img src='icons/tbij.svg' alt='The Bureau of Investigative Journalism.' />
+      </a>
+    </div>
+
+    <div class='splash__copy'>
+
+      <div class='splash__intro'>
+        <h1>Could you afford to rent on benefits?</h1>
+      </div>
+
+      <div class='splash__search'>
+        <form id="form" class='search'>
+          <p>Check your postcode:</p>
+          <input id='search' type='text' autoComplete='off' placeholder='Postcode'/>
+          <span id="error" aria-live="polite"></span>
+        </form>
+      </div>
+
+    </div>
+  </body>
+
+  <script src="splash.js"></script>
+
+</html>

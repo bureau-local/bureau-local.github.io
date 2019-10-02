@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="favicon.ico">
+    <meta name="author" content="Charles Boutaud">
+    <title>#LockedOut - Dashboard</title>
+    <script src="PLACEHOLDER-brma-data.json"></script>
+    <script src="../../post-frame-height.js"></script>
+    <link href="dashboard.css" rel="stylesheet">
+    <!--font awesome-->
+    <link href="all.min.css" rel="stylesheet">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-149258666-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-149258666-1');
+    </script>
+  </head>
+
+  <body>
+    <div class="dashboard__copy">
+
+      <h1 class="vis-title">On a single day in <span id="brma-name" style="font-size: 2rem; color:#ff5a5d;"></span>, the Bureau found...</h1>
+
+      <div class="dashboard__main">
+        <i id="building-icon" class="fas fa-building"></i>
+        <p class="vis-text"><span id="affordable-listings" style="font-size: 2rem; font-weight: bold; color:#ff5a5d;"></span><span id="total-listings" style="font-size: 2rem; font-weight: bold;"></span> two beds homes were affordable to rent on the current housing benefit.<span id="second-sentence"></span></p>
+      </div>
+
+      <div class="dashboard__caveat">
+        <p>
+          <a href='/..' rel='noopener noreferrer'>Search Again</a>.<br />
+          <a href='https://www.tbij.com' target='_blank' rel='noopener noreferrer'>Read stories from the #lockout series</a>.<br />
+        </p>
+      </div>
+
+    </div>
+
+    <div class='dashboard__logo'>
+      <a href='https://www.thebureauinvestigates.com' target='_blank' rel='noopener noreferrer' title='The Bureau of Investigative Journalism'>
+        <img src='icons/tbij-logo.png' alt='The Bureau of Investigative Journalism.' />
+      </a>
+    </div>
+
+  </body>
+
+  <script src="dashboard.js"></script>
+
+</html>

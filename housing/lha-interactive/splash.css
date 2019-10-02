@@ -1,0 +1,111 @@
+body {
+  background-color: #1d1d1b;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow-y: auto;
+  margin: 0;
+  padding: 1rem;
+  position: relative;
+}
+
+.splash__copy {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin: auto;
+  max-width: 750px;
+}
+
+.splash__copy p,a {
+  color: white;
+  font-family: PT Mono, monospace;
+  line-height: 2rem;
+  margin-top: 0;
+}
+
+.splash__intro {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.splash__intro h1 {
+    color: #ff5a5d;
+    font-size: 3rem;
+    font-family: BebasNeue, sans-serif;
+    font-weight: bold;
+    letter-spacing: 0.2rem;
+    line-height: 4rem;
+    margin: 0 0 0.5rem 0;
+    text-transform: uppercase;
+}
+
+.splash__search {
+  padding-bottom: 1.25rem;
+}
+
+.splash__logo {
+  width: 80px;
+}
+
+.search {
+  position: relative;
+}
+
+.search label, span {
+  color: white;
+  font-family: PT Mono, monospace;
+  text-transform: uppercase;
+}
+
+.search label {
+  display: block;
+  font-size: 1rem;
+  margin-bottom: 0.25rem
+}
+
+.search input {
+  background: #666666 url("icons/search.svg") no-repeat center right;
+  background-size: 40px 20px;
+  border: none;
+  box-sizing: border-box;
+  color: white;
+  font-family: Roboto, sans-serif;
+  letter-spacing: 1px;
+  padding: 0.5rem;
+  width: 100%;
+}
+
+.search input::placeholder {
+  color: white;
+  font-size: 1.2em;
+  font-style: italic;
+}
+
+#error {
+  left: 0;
+  position: absolute;
+  margin-top: 0.25rem;
+  top: 100%;
+  z-index: 2;
+}
+
+@media(min-width: 500px) {
+  .splash__copy {
+    justify-content: center;
+    /* the logo's height + 1rem */
+    padding-top: calc(90px + 1rem);
+  }
+  .splash__intro h1 {
+    font-size: 5rem;
+    line-height: 6rem;
+  }
+  .splash__logo {
+    width: 180px;
+    left: 1rem;
+    position: absolute;
+    top: 1rem;
+  }
+}
