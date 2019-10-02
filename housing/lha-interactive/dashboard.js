@@ -24,7 +24,7 @@ document.getElementById("affordable-listings").innerHTML = affordableListings
 var totalListings = brmaData["total-listings"]
 document.getElementById("total-listings").innerHTML = " / " + totalListings
 
-// add css rule to slide the gradient from 100 to 1 style sheet
+// add css rule to slide the gradient from 100 to limit style sheet
 var cssSheetName = "dashboard.css"
 var selector = "link[href$='" + cssSheetName + "']"
 var stylesheet = document.querySelector(selector).sheet
@@ -60,12 +60,13 @@ if (percent < 0.3) {
 }
 
 // analytics
-var searchAgainButton = document.getElementById("search-again")
-searchAgainButton.addEventListener("submit", sendSearchAgainEvent)
 const sendSearchAgainEvent = (label) => {
   window.gtag('event', 'on-click', {
     event_category: 'engagement',
     event_label: "search-again"
   })
 }
+
+const searchAgainButton = document.getElementById("search-again")
+searchAgainButton.addEventListener("submit", sendSearchAgainEvent)
 
