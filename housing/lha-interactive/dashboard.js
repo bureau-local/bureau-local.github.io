@@ -55,7 +55,7 @@ if (percent < 0.3) {
   sentence = start + monthlyTopUp + end
   document.getElementById("second-sentence").innerHTML = sentence
 } else {
-  sentence = " Unlike most areas, you would be able to afford to rent the cheapest 30% of homes with the current benefit allowance in your area."
+  sentence = " Unlike most areas, you would be able to afford to rent any of the cheapest 30% of homes with the current benefit allowance in your area."
   document.getElementById("second-sentence").innerHTML = sentence
 }
 
