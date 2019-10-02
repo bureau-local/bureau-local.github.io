@@ -22,8 +22,8 @@ async function onSubmit(event) {
   }
 
   try {
-    sendSearchEvent('postcode-search', search.toUpperCase())
     search = await lookup(search)
+    sendSearchEvent(search)
     navigate(search)
   } catch (e) {
     error.innerHTML = "We couldn\'t find this postcode"
@@ -80,11 +80,7 @@ const isPostcode = (value) => {
 }
 
 // analytics
-const sendSearchEvent = (type, label) => {
-  window.gtag('event', type, {
-    event_category: 'engagement',
-    event_label: label
-  })
+const sendSearchEvent = (label) => {
   window.gtag('event', 'search', {
     event_category: 'engagement',
     event_label: label
