@@ -67,7 +67,7 @@ body {
 }
 
 .search input {
-  background: #666666 url("icons/search.svg") no-repeat center right;
+  background: #666666 url("../icons/search.svg") no-repeat center right;
   background-size: 40px 20px;
   border: none;
   box-sizing: border-box;
