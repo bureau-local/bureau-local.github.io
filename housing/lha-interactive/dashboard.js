@@ -38,7 +38,7 @@ for (let i = 0; i <= limit; i ++) {
   if (i == limit) {
     colorUpTo = (percent * 100)
   }
-  gradient = "linear-gradient(to top, #e66 " + colorUpTo + "%, #444 0)"
+  gradient = "linear-gradient(to top, #ef3340 " + colorUpTo + "%, #444 0)"
   frame = i + "% {background-image: " + gradient + "}"
   frames += frame
 }
@@ -50,7 +50,7 @@ stylesheet.insertRule("@keyframes dropSlide {" + frames + "}")
 // change the second sentence of the vis text
 var monthlyTopUp = "£" + brmaData["monthly-top-up"]
 if (percent < 0.3) {
-  start  = " The average benefit allowance in your area would need to increase by <span style='font-size: 2rem; font-weight: bold; color:#ff5a5d;'>"
+  start  = " The average benefit allowance in your area would need to increase by <span style='font-size: 2rem; font-weight: bold; color:#ef3340;'>"
   end = "</span> a month for someone to afford the cheapest 30% of homes."
   sentence = start + monthlyTopUp + end
   document.getElementById("second-sentence").innerHTML = sentence

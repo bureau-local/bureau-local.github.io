@@ -32,13 +32,13 @@ body {
 }
 
 .splash__intro h1 {
-    color: #ff5a5d;
+    color: #ef3340;
     font-size: 3rem;
     font-family: BebasNeue, sans-serif;
     font-weight: bold;
-    letter-spacing: 0.2rem;
+    letter-spacing: 0.1rem;
     line-height: 4rem;
-    margin: 0 0 0.5rem 0;
+    margin: 0 0 1rem 0;
     text-transform: uppercase;
 }
 
@@ -95,12 +95,12 @@ body {
 @media(min-width: 500px) {
   .splash__copy {
     justify-content: center;
-    /* the logo's height + 1rem */
-    padding-top: calc(90px + 1rem);
+    /* the logo's height + 2rem */
+    padding-top: calc(90px + 2rem);
   }
   .splash__intro h1 {
-    font-size: 5rem;
-    line-height: 6rem;
+    font-size: 4rem;
+    line-height: 5rem;
   }
   .splash__logo {
     width: 180px;
