@@ -81,8 +81,8 @@ const isPostcode = (value) => {
 
 // analytics
 const sendSearchEvent = (label) => {
-  window.gtag('event', 'search', {
-    event_category: 'engagement',
+  window.gtag("event", "search", {
+    event_category: "engagement",
     event_label: label
   })
 }

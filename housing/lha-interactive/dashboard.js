@@ -61,12 +61,12 @@ if (percent < 0.3) {
 
 // analytics
 const sendSearchAgainEvent = (label) => {
-  window.gtag('event', 'on-click', {
-    event_category: 'engagement',
+  window.gtag("event", "on-click", {
+    event_category: "behaviour",
     event_label: "search-again"
   })
 }
 
 const searchAgainButton = document.getElementById("search-again")
-searchAgainButton.addEventListener("submit", sendSearchAgainEvent)
+searchAgainButton.addEventListener("click", sendSearchAgainEvent)
 
