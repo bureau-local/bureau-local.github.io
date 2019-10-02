@@ -58,3 +58,14 @@ if (percent < 0.3) {
   sentence = " Unlike most areas, you would be able to afford to rent the cheapest 30% of homes with the current benefit allowance in your area."
   document.getElementById("second-sentence").innerHTML = sentence
 }
+
+// analytics
+var searchAgainButton = document.getElementById("search-again")
+searchAgainButton.addEventListener("submit", sendSearchAgainEvent)
+const sendSearchAgainEvent = (label) => {
+  window.gtag('event', 'on-click', {
+    event_category: 'engagement',
+    event_label: "search-again"
+  })
+}
+
