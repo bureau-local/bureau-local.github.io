@@ -24,17 +24,27 @@
   <body>
     <div class="dashboard__copy">
 
-      <h1 class="vis-title">On a single day in <span id="brma-name" style="font-size: 2rem; color:#ef3340;"></span>, the Bureau found...</h1>
+      <h1 class="page-toggle vis-title">On a single day in <span id="brma-name" class="emphasise"></span>, the Bureau found...</h1>
+      <h1 class="page-toggle vis-title" style="display: none"><span class="emphasise">Probably not...</span></h1>
 
       <div class="dashboard__main">
         <i id="building-icon" class="fas fa-building"></i>
-        <p class="vis-text"><span id="affordable-listings" style="font-size: 2rem; font-weight: bold; color:#ef3340;"></span><span id="total-listings" style="font-size: 2rem; font-weight: bold;"></span> two-bed homes were affordable to rent on the current housing benefit.<span id="second-sentence"></span></p>
+        
+        <div class="page-toggle">
+          <p class="vis-text"><span id="affordable-listings" class="emphasise"></span><span id="total-listings" style="font-size: 2rem; font-weight: bold;"></span> two-bed homes were affordable to rent on the current housing benefit.<span id="second-sentence"></span></p>
+          <a class="vis-text page-link" href="#" onclick="togglePage()" style="text-decoration-color:#ef3340; vertical-align: top;">Even then, would a landlord rent to you?</a><a class="vis-text" href="#" onclick="togglePage()" style="text-decoration:none; vertical-align: top;"> <span class="emphasise">&gt;</span></a>
+        </div>
+        <div class="page-toggle" style="display:none">
+          <p class="vis-text"><span class="emphasise">Half</span> of all landlords we contacted across Britain said they <span class="emphasise">would not rent</span> to anyone on housing benefits. Most of the rest imposed impossible conditions such as paying six months' rent in advance or providing a guarantor.</p>
+          <a class="vis-text" href="#" onclick="togglePage()" style="text-decoration:none; vertical-align: top;"><span class="emphasise">&lt;</span> </a><a class="vis-text page-link" href="#" onclick="togglePage()" style="text-decoration-color:#ef3340; vertical-align: top;">Back to results for <span id="brma-link"></span></a>
+          </span>
+        </div>
       </div>
 
       <div class="dashboard__caveat">
         <p>
-          <a id="search-again" href='splash.html' rel='noopener noreferrer'>Search Again</a>.<br />
-          <a href='https://www.tbij.com' target='_blank' rel='noopener noreferrer'>Read stories from the #LockedOut series</a>.<br />
+          <a id="search-again" href='splash.html' rel='noopener noreferrer'>Search Again</a><br />
+          <a href='https://www.tbij.com' target='_blank' rel='noopener noreferrer'>Read stories from the #LockedOut series</a><br />
         </p>
       </div>
 

@@ -60,9 +60,19 @@ body {
   flex: 2;
 }
 
-.dashboard__caveat p,a {
-  font-size: 0.8rem;
+.emphasise {
+  font-size: 2rem;
+  font-weight: bold;
+  color:#ef3340;
+}
+
+.dashboard__caveat p, a {
   line-height: 1rem;
+  font-size: 0.8rem;
+}
+
+.page-link {
+ font-size: 1rem; 
 }
 
 /* LOGO */

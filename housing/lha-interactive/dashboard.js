@@ -59,6 +59,21 @@ if (percent < 0.3) {
   document.getElementById("second-sentence").innerHTML = sentence
 }
 
+function togglePage(){
+
+  var toggle = document.getElementsByClassName("page-toggle");
+
+  for(let i = 0; i < toggle.length; i++){
+    if (toggle[i].style.display === "none") {
+      toggle[i].style.display = "block";
+    } else {
+      toggle[i].style.display = "none";
+    }  
+  }
+  //Manually add the brma to the link back, because we can't do it while it's hidden
+  document.getElementById("brma-link").innerHTML = brma
+}
+
 // analytics
 const sendSearchAgain = (label) => {
   window.gtag("event", "on-click", {
