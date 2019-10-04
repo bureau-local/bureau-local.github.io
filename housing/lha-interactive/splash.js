@@ -13,7 +13,7 @@ function navigate (brma) {
 async function onSubmit(event) {
   event.preventDefault()
   search = document.getElementById("search").value
-  error = document.getElementById("error")
+  error = document.getElementById("postcode-error")
 
   // show error for invalid postcodes
   if (!isPostcode(search)) {
@@ -89,3 +89,6 @@ const sendSearchEvent = (label) => {
 
 const searchForm = document.getElementById("form")
 searchForm.addEventListener("submit", onSubmit)
+
+const searchIcon = document.getElementById("search-button")
+searchIcon.addEventListener("click", onSubmit)

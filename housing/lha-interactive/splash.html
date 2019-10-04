@@ -38,7 +38,10 @@
         <form id="form" class='search'>
           <p>Check your postcode:</p>
           <input id='search' type='text' autoComplete='off' placeholder='Postcode'/>
-          <span id="error" aria-live="polite"></span>
+          <button id="search-button" type="button" name="button">
+            <i class="fas fa-search"></i>
+          </button>
+          <span id="postcode-error" class="error" aria-live="polite"></span>
         </form>
       </div>
 
