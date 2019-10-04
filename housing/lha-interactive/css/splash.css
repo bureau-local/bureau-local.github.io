@@ -16,6 +16,7 @@ body {
   flex-direction: column;
   margin: auto;
   max-width: 750px;
+  padding-bottom: 1.25rem;
 }
 
 .splash__copy p,a {
@@ -78,10 +79,10 @@ body {
 }
 
 .error {
-  left: 0;
   position: absolute;
+  left: 1rem;
+  bottom: 1rem;
   margin-top: 0.25rem;
-  top: 100%;
 }
 
 @media(min-width: 500px) {
