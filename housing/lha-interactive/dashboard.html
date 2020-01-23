@@ -24,19 +24,28 @@
   <body>
     <div class="dashboard__copy">
 
-      <h1 class="page-toggle vis-title">On a single day in <span id="brma-name" class="emphasise"></span>, the Bureau found...</h1>
-      <h1 class="page-toggle vis-title" style="display: none"><span class="emphasise">Probably not...</span></h1>
+      <!-- <h1 class="page-toggle vis-title page-1">On a single day in <span id="brma-name" class="emphasise"></span>, the Bureau found...</h1> -->
+      <h1 class="page-toggle vis-title page-1">On September 15 2019 in <span id="brma-name" class="emphasise"></span>, the Bureau found...</h1>
+      <h1 class="page-toggle vis-title page-2" style="display: none">Let's do the sums:</h1>
+      <h1 class="page-toggle vis-title page-3" style="display: none"><span class="emphasise">Probably not...</span></h1>
 
       <div class="dashboard__main">
         <i id="building-icon" class="fas fa-building"></i>
-        
-        <div class="page-toggle">
-          <p class="vis-text"><span id="affordable-listings" class="emphasise"></span><span id="total-listings" style="font-size: 2rem; font-weight: bold;"></span> two-bed homes were affordable to rent on the current housing benefit.<span id="second-sentence"></span></p>
-          <a class="vis-text page-link" href="#" onclick="togglePage()" style="text-decoration-color:#ef3340; vertical-align: top;">Even then, would a landlord rent to you?</a><a class="vis-text" href="#" onclick="togglePage()" style="text-decoration:none; vertical-align: top;"> <span class="emphasise">&gt;</span></a>
+
+        <!-- page one -->
+        <div class="page-toggle page-1">
+          <p class="vis-text"><span id="affordable-listings" class="emphasise"></span><span id="total-listings" style="font-size: 2rem; font-weight: bold;"></span> two-bed homes were affordable to rent on housing benefit. The government has since announced that housing allowance will rise by inflation in April 2020. <span id="new-affordable-homes"></span> affordable.</p>
+          <a class="vis-text page-link" href="#page-2" onclick="togglePage()" style="text-decoration-color:#ef3340; vertical-align: top;">Does that meet the government’s target?</a><a class="vis-text" href="#page-2" onclick="togglePage()" style="text-decoration:none; vertical-align: top;"> <span class="emphasise">&gt;</span></a>
         </div>
-        <div class="page-toggle" style="display:none">
-          <p class="vis-text"><span class="emphasise">Half</span> of all landlords we contacted across Britain said they <span class="emphasise">would not rent</span> to anyone on housing benefits. Most of the rest imposed impossible conditions such as paying six months' rent in advance or providing a guarantor.</p>
-          <a class="vis-text" href="#" onclick="togglePage()" style="text-decoration:none; vertical-align: top;"><span class="emphasise">&lt;</span> </a><a class="vis-text page-link" href="#" onclick="togglePage()" style="text-decoration-color:#ef3340; vertical-align: top;">Back to results for <span id="brma-link"></span></a>
+        <!-- page two -->
+        <div class="page-toggle page-2" style="display:none">
+          <p class="vis-text"><span id="second-slide"></span></p>
+          <a class="vis-text page-link" href="#page-3" onclick="togglePage()" style="text-decoration-color:#ef3340; vertical-align: top;">Even then, would a landlord rent to you?</a><a class="vis-text" href="#page-3" onclick="togglePage()" style="text-decoration:none; vertical-align: top;"> <span class="emphasise">&gt;</span></a>
+        </div>
+        <!-- page three -->
+        <div class="page-toggle page-3" style="display:none">
+          <p class="vis-text">In September, <span class="emphasise">half</span> of all landlords we contacted across Britain said they <span class="emphasise">would not rent</span> to anyone on housing benefits. Most of the rest imposed impossible conditions such as paying six months' rent in advance or providing a guarantor.</p>
+          <a class="vis-text" href="#page-1" onclick="togglePage()" style="text-decoration:none; vertical-align: top;"><span class="emphasise">&lt;</span> </a><a class="vis-text page-link" href="#page-1" onclick="togglePage()" style="text-decoration-color:#ef3340; vertical-align: top;">Back to results for <span id="brma-link"></span></a>
           </span>
         </div>
       </div>
