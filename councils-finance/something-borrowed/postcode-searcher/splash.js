@@ -27,7 +27,7 @@ async function onSubmit(event) {
     navigate(search)
   } catch (e) {
     if (e.message === "noMatch") {
-      error.innerHTML = "No local authority in your area lent Thurrock money according to the council's payment to suppliers data. <a href='https://docs.google.com/document/d/1KEg2c9A3z-kThUFHD2hyOEfVqZxHGwjMdH5FvXfqZ5c' target='_blank' style='text-decoration: none;'><span class='error emphasise'>&#9998;</span></a> <a class='error' href='https://docs.google.com/document/d/1KEg2c9A3z-kThUFHD2hyOEfVqZxHGwjMdH5FvXfqZ5c' target='_blank' style='text-decoration-color: #ef3340;'>Help us investigate</a>."
+      error.innerHTML = "No local authority in your area lent Thurrock money according to the council's payment to suppliers data. <a href='https://docs.google.com/document/d/1vbtpFLNk2lFQh5jPl9Ko_w8l-IloZ-WzHabPrFpFcjk' target='_blank' style='text-decoration: none;'><span class='error emphasise'>&#9998;</span></a> <a class='error' href='https://docs.google.com/document/d/1vbtpFLNk2lFQh5jPl9Ko_w8l-IloZ-WzHabPrFpFcjk' target='_blank' style='text-decoration-color: #ef3340;'>Help us investigate</a>."
     } else {
       error.innerHTML = "We couldn\'t find this postcode"
     }
