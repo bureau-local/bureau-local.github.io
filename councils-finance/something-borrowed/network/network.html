@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="author" content="Charles Boutaud">
+    <title>Something borrowed - Network</title>
+    <script src="../../../post-frame-height.js"></script>  
+    <link href="style.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <div class="container">
+      <h1 class="vis-title">From Land's End to John o' Groats</h1>
+
+      <div class="vis-text">
+        <p id="intro-text"><span style="color: #ef3340">Thurrock</span> refused to provide details of its borrowing, so we sifted through more than 125,000 payments made by the council and found more than <span style="color: #706f6f">150 local authorities</span> have lent Thurrock money since April 2016</p>
+       
+        <p hidden id="tooltip"><span id="tooltipIntro">Hover or tap a <span style="color: #706f6f">dot</span> to learn more...</span><br><span id="tooltipData"></span></p>
+        <button id="toggle">See the councils</button>
+      </div>
+
+      <p class="caveat">Source: Thurrock council <span class="longtext">payments-to-suppliers data</span></p>
+      <img id="tbij-logo" src="tbij.png" alt="tbij-logo">
+    </div>
+  </body>
+
+  <link href="vis-style.css" rel="stylesheet">
+  <script src="https://d3js.org/d3.v4.min.js" charset="utf-8"></script>
+  <script src="https://d3js.org/topojson.v1.min.js"></script>
+  <script src="https://d3js.org/queue.v1.min.js"></script>
+  <script src="vis.js"></script>
+
+</html>

@@ -1,0 +1,152 @@
+loanID,source,target,amount
+l0001,Thurrock,Greater London Authority,188063761.4
+l0002,Thurrock,Brent,94311766.71
+l0003,Thurrock,Swansea,91581179.23
+l0004,Thurrock,Derbyshire,91563656.48
+l0005,Thurrock,Manchester,66306206.17
+l0006,Thurrock,Leicester,56198703.56
+l0007,Thurrock,Gwent Police,43148712.6
+l0008,Thurrock,Middlesbrough,38218250.67
+l0009,Thurrock,Camden,36730359.05
+l0010,Thurrock,Windsor & Maidenhead,35140580.82
+l0011,Thurrock,Staffordshire,34095253.43
+l0012,Thurrock,Ealing,30170531.51
+l0013,Thurrock,Greater Manchester Combined Authority,29053181.09
+l0014,Thurrock,Lancashire,27022749.05
+l0015,Thurrock,Worcestershire,27020718.58
+l0016,Thurrock,Tameside,25064813.7
+l0017,Thurrock,Coventry,25025921.91
+l0018,Thurrock,Hounslow,24006819.35
+l0019,Thurrock,Norwich,23280242.61
+l0020,Thurrock,Derbyshire Police,23117537.46
+l0021,Thurrock,Newham,22055227.4
+l0022,Thurrock,Ceredigion,21534278.77
+l0023,Thurrock,Hackney,20068442.46
+l0024,Thurrock,Edinburgh,20056531.51
+l0025,Thurrock,Gloucester,19445019.29
+l0026,Thurrock,Newport,19121434.77
+l0027,Thurrock,Islington,18256804.62
+l0028,Thurrock,Blackburn with Darwen,17038856.73
+l0029,Thurrock,Kingston upon Hull,16527815.62
+l0030,Thurrock,Wandsworth,16083821.36
+l0031,Thurrock,Oxfordshire,15080375.35
+l0032,Thurrock,Bristol,15052713.71
+l0033,Thurrock,Liverpool,15042378.09
+l0034,Thurrock,Gwynedd,14572989.71
+l0035,Thurrock,Tendring,13810925.89
+l0036,Thurrock,Birmingham,13602965.75
+l0037,Thurrock,Lewes,13320043.9
+l0038,Thurrock,Halton,13166658.89
+l0039,Thurrock,Crawley,12142441.91
+l0040,Thurrock,South Tyneside,11526108.77
+l0041,Thurrock,North West Leicestershire,11047858.35
+l0042,Thurrock,West Yorkshire Police,11040516.43
+l0043,Thurrock,Derbyshire Fire Authority,10509262.24
+l0044,Thurrock,Barnsley,10110072.6
+l0045,Thurrock,Durham,10094739.73
+l0046,Thurrock,Leicestershire,10074794.52
+l0047,Thurrock,West Yorkshire Fire Authority,10049863.01
+l0048,Thurrock,Basingstoke & Deane,10045400
+l0049,Thurrock,Eastleigh,10035986.3
+l0050,Thurrock,Northumberland,10011589.04
+l0051,Thurrock,Falkirk,10010004.11
+l0052,Thurrock,Stockport,10009660.27
+l0053,Thurrock,West Midlands Combined Authority,10009171.23
+l0054,Thurrock,Peterborough,10005520.55
+l0055,Thurrock,West Sussex,10003945.21
+l0056,Thurrock,Oadby & Wigston,9768133.28
+l0057,Thurrock,Ashfield,9540969.87
+l0058,Thurrock,Calderdale,9117523
+l0059,Thurrock,Maidstone,9042119.72
+l0060,Thurrock,Bridgend,8517691.78
+l0061,Thurrock,Hampshire,8187092.6
+l0062,Thurrock,Solihull,8088623.57
+l0063,Thurrock,North Yorkshire,8078185.21
+l0064,Thurrock,Slough,8059049.31
+l0065,Thurrock,Humberside Fire Authority,8015864.93
+l0066,Thurrock,Erewash,8010702.49
+l0067,Thurrock,Dumfries & Galloway,8001212.33
+l0068,Thurrock,Hillingdon,7769534.53
+l0069,Thurrock,North Somerset,7049511.23
+l0070,Thurrock,Cheltenham,7003864.38
+l0071,Thurrock,Ribble Valley,7003246.44
+l0072,Thurrock,Hartlepool,6046066.93
+l0073,Thurrock,Exeter,6005350.68
+l0074,Thurrock,Guildford,5065273.97
+l0075,Thurrock,Sevenoaks,5057130.14
+l0076,Thurrock,"Bournemouth, Christchurch & Poole",5054273.97
+l0077,Thurrock,Essex,5044449.45
+l0078,Thurrock,East Lindsey,5037397.26
+l0079,Thurrock,Orkney Islands,5028444.38
+l0080,Thurrock,Highland,5025506.85
+l0081,Thurrock,Cumbria,5020164.38
+l0082,Thurrock,Stafford,5012602.74
+l0083,Thurrock,Neath & Port Talbot,5011616.44
+l0084,Thurrock,Wirral,5010390.41
+l0085,Thurrock,Merseyside Police,5007152.47
+l0086,Thurrock,Richmond upon Thames,5006465.75
+l0087,Thurrock,Flintshire,5005815.89
+l0088,Thurrock,Kirklees,5003991.78
+l0089,Thurrock,Cheshire East,5003452.05
+l0090,Thurrock,Carmarthenshire,5002568.49
+l0091,Thurrock,East Northamptonshire,4524551.91
+l0092,Thurrock,Huntingdonshire,4501590.14
+l0093,Thurrock,Renfrewshire,4066669.86
+l0095,Thurrock,Aylesbury Vale,4018975.89
+l0096,Thurrock,South Ribble,4013680
+l0097,Thurrock,Fylde,4010306.85
+l0098,Thurrock,Sussex Police,4008872.33
+l0099,Thurrock,Vale of Glamorgan,4006198.08
+l0100,Thurrock,West Berkshire,4003276.71
+l0101,Thurrock,Devon & Somerset Fire Authority,3533856.99
+l0102,Thurrock,Chichester,3516508.5
+l0103,Thurrock,Conwy,3510900.14
+l0104,Thurrock,Uttlesford,3510177.81
+l0105,Thurrock,Kent Police,3164249.14
+l0106,Thurrock,Basildon,3095454.52
+l0107,Thurrock,Chelmsford,3047993.14
+l0108,Thurrock,Epping Forest,3044071.23
+l0109,Thurrock,Cambridge,3035976.17
+l0110,Thurrock,Brentwood,3010299.47
+l0111,Thurrock,Stoke-on-Trent,3003328.77
+l0112,Thurrock,Pembrokeshire,3001549.59
+l0113,Thurrock,West Yorkshire Combined Authority,3001315.07
+l0114,Thurrock,West Mercia Police,3000894.79
+l0115,Thurrock,South Yorkshire Police,2100535.07
+l0116,Thurrock,Lichfield,2012484.93
+l0117,Thurrock,South Derbyshire,2010509.59
+l0118,Thurrock,Staffordshire Fire Authority,2008573.15
+l0119,Thurrock,Harlow,2007209.86
+l0120,Thurrock,South Lakeland,2005262.47
+l0121,Thurrock,Sedgemoor,2002005.48
+l0122,Thurrock,West Lindsey,2001969.86
+l0123,Thurrock,Warwickshire,1018709.32
+l0124,Thurrock,Hyndburn,1014989.31
+l0125,Thurrock,Pendle,1002727.4
+l0126,Thurrock,Rutland,1002523.84
+l0127,Thurrock,Newcastle upon Tyne,1001745.21
+l0128,Thurrock,Wellingborough,1001212.33
+l0129,Thurrock,Cumbria Police,1000000
+l0130,Thurrock,Cornwall,210000
+l0131,Thurrock,Tower Hamlets,210000
+l0132,Thurrock,Kent,176095.88
+l0133,Thurrock,Brighton & Hove,59835.62
+l0134,Thurrock,West of England Combined Authority,58638.9
+l0135,Thurrock,Somerset,55284.93
+l0136,Thurrock,Redbridge,34031.51
+l0137,Thurrock,Shropshire,32525.7
+l0138,Thurrock,Isle of Wight,28100.27
+l0139,Thurrock,Castle Point,22673.08
+l0140,Thurrock,Derby,18705.48
+l0141,Thurrock,Bedford,16592.05
+l0142,Thurrock,Hampshire Police,16109.59
+l0143,Thurrock,Hampshire Fire Authority,13463.01
+l0144,Thurrock,Tamworth,13463.01
+l0145,Thurrock,Eden,13263.56
+l0146,Thurrock,Wiltshire,11842.47
+l0147,Thurrock,Lancaster,11342.37
+l0148,Thurrock,New Forest,9723.29
+l0149,Thurrock,Swindon,9700
+l0150,Thurrock,Powys,5657.53
+l0151,Thurrock,South Gloucestershire,4736.99
+l0152,Thurrock,Torfaen,3846.58

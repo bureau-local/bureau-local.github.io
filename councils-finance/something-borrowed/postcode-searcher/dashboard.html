@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="favicon.ico">
+    <meta name="author" content="Charles Boutaud">
+    <title>Something borrowed - Dashboard</title>
+    <script src="lenders-data.json"></script>
+    <link href="css/dashboard.css" rel="stylesheet">
+    <!--font awesome-->
+    <link href="css/all.min.css" rel="stylesheet">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-149258666-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-149258666-1');
+    </script> -->
+  </head>
+
+  <body>
+    <div class="dashboard__copy">
+
+      <h1 id="vis-title"></h1>
+
+      <div class="dashboard__main">
+        <div>
+          <p>According to the council's payments to suppliers data...</p>
+          <ul id="vis-list"></ul>l
+          <p>As Thurrock refused our FOI request, we don't know the details of the loans. <a class="vis-text" href="https://docs.google.com/document/d/1KEg2c9A3z-kThUFHD2hyOEfVqZxHGwjMdH5FvXfqZ5c" target='_blank' style="text-decoration:none;"> <span class="emphasise">&#9998;</span></a> <a class="vis-text page-link" href="https://docs.google.com/document/d/1KEg2c9A3z-kThUFHD2hyOEfVqZxHGwjMdH5FvXfqZ5c" target='_blank' style="text-decoration-color:#ef3340;">Help us investigate</a>.</p>
+        </div>
+      </div>
+
+      <div class="dashboard__caveat">
+        <p>
+          <a id="search-again" href='splash.html' rel='noopener noreferrer'>Search again</a><br />
+          <a href='https://www.thebureauinvestigates.com/projects/local-power' target='_blank' rel='noopener noreferrer'>Read stories from the local power series</a><br />
+      </div>
+
+    </div>
+
+    <div class='dashboard__logo'>
+      <a href='https://www.thebureauinvestigates.com' target='_blank' rel='noopener noreferrer' title='The Bureau of Investigative Journalism'>
+        <img src='icons/tbij-logo.png' alt='The Bureau of Investigative Journalism.' />
+      </a>
+    </div>
+
+  </body>
+
+  <script src="dashboard.js"></script>
+
+</html>

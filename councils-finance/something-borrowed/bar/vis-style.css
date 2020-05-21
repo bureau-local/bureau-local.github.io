@@ -1,0 +1,6 @@
+svg {
+  position: absolute;
+  z-index: -1;
+  height: 800px;
+  font-family: "Futura",sans-serif;
+}

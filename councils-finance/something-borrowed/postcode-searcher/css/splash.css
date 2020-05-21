@@ -1,0 +1,118 @@
+body {
+  background-color: #1d1d1b;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  height: 600px;
+  overflow-y: auto;
+  margin: 0;
+  padding: 1rem;
+  position: relative;
+}
+
+.splash__copy {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  max-width: 750px;
+  padding-bottom: 1.25rem;
+}
+
+.splash__copy p,a {
+  color: white;
+  font-family: PT Mono, monospace;
+  line-height: 2rem;
+  margin-top: 0;
+}
+
+.splash__intro {
+  margin-bottom: 1rem;
+}
+
+.splash__intro h1 {
+    color: #ef3340;
+    font-size: 3rem;
+    font-family: BebasNeue, sans-serif;
+    letter-spacing: 0.1rem;
+    line-height: 4rem;
+    margin: 0 0 1rem 0;
+    text-transform: uppercase;
+}
+
+.splash__logo {
+  width: 80px;
+}
+
+/*.search span {
+  color: white;
+  font-family: PT Mono, monospace;
+  text-transform: uppercase;
+}
+*/
+.search input {
+  font-size: 16px;
+  background: #666666;
+  border: 1px solid #666666;
+  box-sizing: border-box;
+  color: white;
+  font-family: Roboto, sans-serif;
+  letter-spacing: 1px;
+  padding: 0.5rem;
+  width: calc(100% - 2rem);
+  border-radius: 0;
+}
+
+.search input::placeholder {
+  color: white;
+  font-size: 1.2em;
+  font-style: italic;
+}
+
+.search button {
+  font-size: 16px;
+  color: white;
+  background: #777777;
+  border: 1px solid #777777;
+  padding: 0.5rem;
+  position: absolute;
+  cursor: pointer;
+}
+
+.error {
+  color: white;
+  font-family: PT Mono, monospace;
+  text-transform: uppercase;
+  display: block;
+  left: 1rem;
+  bottom: 1rem;
+  margin-top: 0.2rem;
+  line-height: 2rem;
+}
+
+a.error {
+  display: inline;
+  margin-top: 0;
+}
+
+span.error.emphasise {
+  display: inline;
+  font-size: 2rem;
+  vertical-align: middle;
+  line-height: 1rem;
+  color:#ef3340;
+}
+
+@media(min-width: 500px) {
+  .splash__copy {
+    padding-top: calc(90px + 2rem); /* the logo's height + 2rem */
+  }
+  .splash__intro h1 {
+    font-size: 4rem;
+    line-height: 5rem;
+  }
+  .splash__logo {
+    width: 180px;
+    position: absolute;
+  }
+}
