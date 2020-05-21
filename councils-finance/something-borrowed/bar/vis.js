@@ -59,17 +59,10 @@ d3.csv("data.csv")
 			  	.attr("y", (d, i) => y(i) + y.bandwidth() / 2)
 			  	.attr("dy", "0.35em")
 			  	.attr("text-anchor", "middle")
-			  	.text(function(d, i) { return d.amount > 1000000000 ? "£" + Math.round(d.amount/1000000000) + "bn" : "£" + (Math.round(d.amount/1000000/5)*5) + "m" });
+			  	.text(function(d, i) { return d.amount > 1000000000 ? "£" + (d.amount/1000000000).toFixed(2) + "bn" : "£" + (Math.round(d.amount/1000000/5)*5) + "m" });
 
 		  
 		svg.append("g")
 			.call(yAxis);
-
-		path.enter().append("path")
-		        .attr("fill", (d, i) => pie_colours(i))
-		        .attr("d", arc)
-		        .attr("transform", `translate(${x(700000000)},${y(17)})`)
-		        .attr("stroke", "white")
-		        .attr("stroke-width", "2px");
 
 	})
