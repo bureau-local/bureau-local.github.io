@@ -15,7 +15,7 @@
     var postMessageHeight = function() {
         parent.postMessage({
             name: name,
-            documentHeight: document.body.scrollHeight
+            documentHeight: document.body.scrollHeight + 20
         }, "*");
     }
 
