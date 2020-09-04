@@ -1,0 +1,172 @@
+/* GENERAL */
+body {
+  font-size: 14px;
+  font-family: "Futura",sans-serif;
+  max-width: 800px;
+}
+
+.container {
+  padding-bottom: 100%;
+  position: relative;
+  background: url(sh.svg);
+  background-size: contain;
+  /*use line below to see container size*/
+  /*border: 1px solid grey;*/
+}
+
+/* TEXT */
+.vis-title {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  right: 8px;
+  margin: 0px;
+  font-size: 24px;
+  line-height: 1.4em;
+  font-weight: normal;
+  color: #000000;
+}
+
+.vis-text {
+  position: absolute;
+  font-size: 18px;
+  color: #000000;
+  top: 10%;
+  left:8px;
+  line-height: 1.4em;
+  max-width: 35%
+}
+
+.label {
+  position: absolute;
+  font-size: 14px;
+  color: #000000;
+  max-width: 30%
+}
+
+#north-east-label {
+  left: 70%;
+  top: 12%;
+}
+
+#wigan-label {
+  left: 25%;
+  top: 48%;
+}
+
+#west-midlands-label {
+  left: 10%;
+  top: 65%;
+}
+
+#enfield-label {
+  left: 72%;
+  top: 88%;
+}
+
+.caveat {
+  position: absolute;
+  font-size: 13px;
+  bottom: 8px;
+  left: 8px;
+  margin: 0;
+}
+
+
+/* LOGO */
+#tbij-logo {
+  position: absolute;
+  width: 8%;
+  height: 8%;
+  bottom: 8px;
+  right: 8px;
+}
+
+
+/* VARIOUS SCREEN SIZES BELOW*/
+
+/* SMALL SCREEN */
+@media screen and (max-width: 700px) {
+  .vis-title  {
+    left: 8px;
+    right: 8px;
+    margin: 0px;
+    font-size: 22px;
+  }
+  .vis-text {
+    left: 8px;
+    font-size: 14px;
+    max-width: 35%;
+  }
+  .label {
+    font-size: 12px;
+  }
+  .caveat {
+    left: 8px;
+    bottom: 8px;
+    font-size: 9px;
+  }
+  #tbij-logo {
+    bottom: 8px;
+  }
+}
+
+
+/* LARGE MOBILE */
+@media screen and (max-width: 550px) {
+  .vis-title  {
+    left: 5px;
+    right: 5px;
+    margin: 0px;
+    font-size: 18px;
+  }
+  .vis-text {
+    left: 5px;
+    font-size: 12px;
+    max-width: 40%;
+  }
+  .label {
+    font-size: 11px;
+  }
+  .caveat {
+    left: 5px;
+    bottom: 5px;
+  }
+  #tbij-logo {
+    bottom: 5px;
+  }
+}
+
+/* SMALL MOBILE */
+@media screen and (max-width: 400px) {
+  body {
+    margin: 2px;
+  }
+  .vis-title  {
+    top: 2px;
+    left: 2px;
+    right: 2px;
+    font-size: 18px;
+    margin: 0px;
+  }
+  .vis-text {
+    left: 2px;
+    font-size: 11px;
+    max-width: 42%;
+  }
+  .long-title {
+    display: none;
+  }
+  .label {
+    font-size: 10px;
+  }
+  .caveat {
+    left: 2px;
+    bottom: 2px;
+    margin: 0;
+  }
+  #tbij-logo {
+    bottom: 2px;
+    right: 2px;
+  }
+}
