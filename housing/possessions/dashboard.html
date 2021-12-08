@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="favicon.ico">
+    <meta name="author" content="Charles Boutaud">
+    <title>Closed Doors - Dashboard</title>
+    <script src="interactive-data.json"></script>
+    <script src="../../post-frame-height.js"></script>
+    <link href="css/dashboard.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <div class="dashboard__copy">
+      <h1 class="page-toggle vis-title page-1">The Bureau's reporters attended <span id="case-count" class="emphasise"></span> possession hearings in <span id="area-name" class="emphasise"></span></h1>
+
+      <div class="dashboard__main">
+
+        <!-- page one -->
+        <div class="page-toggle page-1">
+          <!-- time -->
+          <p class="vis-text">Life-changing decisions that often leave people homeless are made in an average of <span id="avg-hearing-duration" class="emphasise"></span> minutes. <span id="five-minutes-text"></span> where a possession order was granted took five minutes or less.</p>
+          <!-- Grounds -->
+          <p class="vis-text"><span id="grounds-text"></span> on legal grounds that meant a possession order was mandatory, affording the judge no discretion to factor in a person’s situation.</p>
+          <!-- Covid -->
+          <p class="vis-text">The impact of Covid-19 was mentioned explicitly in <span id="covid-text"></span> where a possession order was granted.</p>
+          <!-- Heard in court -->
+          <fieldset>
+            <legend>Story from the court</legend>
+            <p class="fieldset-text"><span id="line-from-court"></span></p>
+          </fieldset>
+          <!-- Section 21 -->
+          <p class="vis-text"><span id="section-21-text"></span> involved Section 21 “no fault” orders. The Conservative party promised in 2019 to scrap Section 21 and the government told the Bureau it would set out proposals to repeal the legislation “in due course”.</p>
+          <!-- No defence -->
+          <p class="vis-text">In <span id="no-representation" class="emphasise"></span> hearings neither the occupier nor their lawyer was in attendance – so no one was there to argue against the eviction.</p>
+          <!-- Children -->
+          <p class="vis-text">In <span id="children-text"></span> where the occupier was represented in court, they mentioned having children.</p>
+          <!-- If region court breakdown -->
+          <div id="regional-breakdown" style="visibility: hidden; height: 0px;">
+            <p id="table-caption" class="vis-text">We attended hearings in the following courts within the region:</p>
+          </div>
+          <!-- Link to data explainer -->
+          <div id="data-explainer-link">
+            <a class="data-text" href="tbij.com" style="text-decoration-color:#E9623D;vertical-align: top;">Read the explainer and <span style="color: #E9623D; font-weight: bold;">explore our dataset</span></a>
+            <a class="data-text" href="tbij.com" style="text-decoration:none; vertical-align: top;"> <span style="color: #E9623D; font-weight: bold;">&gt;</span></a>
+          </div>
+          <!-- Search again with toolbar -->
+          <p class="search-caption">Or select another region or court...</p>
+          <div class='splash__search'>
+            <select id='select-menu' class='search' name='text'>
+              <option value="">Select a region or court</option>
+              <option value="">---------- Regions ----------</option>
+              <option value="East Midlands">East Midlands</option>
+              <option value="East of England">East of England</option>
+              <option value="London">London</option>
+              <option value="North East">North East</option>
+              <option value="North West">North West</option>
+              <option value="South East">South East</option>
+              <option value="South West">South West</option>
+              <option value="Wales">Wales</option>
+              <option value="West Midlands">West Midlands</option>
+              <option value="Yorkshire and the Humber">Yorkshire and the Humber</option>
+              <option value="">---------- Courts ----------</option>
+              <option value="Birmingham">Birmingham</option>
+              <option value="Bristol">Bristol</option>
+              <option value="Chelmsford">Chelmsford</option>
+              <option value="Clerkenwell">Clerkenwell</option>
+              <option value="Croydon">Croydon</option>
+              <option value="Edmonton">Edmonton</option>
+              <option value="Manchester">Manchester</option>
+              <option value="Newcastle">Newcastle</option>
+              <option value="Nottingham">Nottingham</option>
+              <option value="Portsmouth">Portsmouth</option>
+              <option value="Leicester">Leicester</option>
+              <option value="Liverpool">Liverpool</option>
+              <option value="Romford">Romford</option>
+              <option value="Sheffield">Sheffield</option>
+              <option value="Southampton">Southampton</option>
+              <option value="St Helens">St Helens</option>
+              <option value="Teesside">Teesside</option>
+              <option value="Wandsworth">Wandsworth</option>
+              <option value="Watford">Watford</option>
+              <option value="Willesden">Willesden</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="dashboard__caveat">
+        <p>
+          <a href='https://www.thebureauinvestigates.com/projects/the-housing-crisis' target='_blank' rel='noopener noreferrer'>Read our stories from the Closed Door series</a><br />
+          <a href='splash.html' target='_blank' rel='noopener noreferrer'>Go back to the homepage</a><br />
+      </div>
+
+    </div>
+
+    <div class='dashboard__logo'>
+      <a href='https://www.thebureauinvestigates.com' target='_blank' rel='noopener noreferrer' title='The Bureau of Investigative Journalism'>
+        <img src='icons/tbij-logo.png' alt='The Bureau of Investigative Journalism.' />
+      </a>
+    </div>
+
+  </body>
+
+  <script src="dashboard.js"></script>
+
+</html>

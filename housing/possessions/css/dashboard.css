@@ -1,0 +1,178 @@
+/* GENERAL */
+body {
+  background-color: #097277;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  height: 500px;
+  overflow-y: auto;
+  padding: 1rem;
+  margin: 0;
+}
+
+.dashboard__copy {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  max-width: 750px;
+  margin: auto;
+}
+
+.dashboard__copy p,a {
+  color: white;
+  font-family: PT Mono, monospace;
+  font-size: 1rem;
+  line-height: 2rem;
+  margin-top: 0;
+}
+
+/* TITLE */
+.vis-title {
+  color: white;
+  position: fixed;
+  top: 0px;
+  margin-top: 0px;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  max-width: 750px;
+  display: block;
+  background: #097277;
+  font-size: 1rem;
+  font-family: BebasNeue, sans-serif;
+  line-height: 2rem;
+}
+
+.dashboard__main {
+  align-items: center;
+  margin-top: 3.2rem;
+  margin-bottom: 1.5rem;
+}
+
+/* TEXTBOX HIGHLIGHT */
+fieldset {
+    margin-bottom: 1em;
+    border: 2px solid;
+    color: #E9623D;
+    font-family: PT Mono, monospace; 
+}
+
+legend {
+  padding: 0 1em;
+  font-weight: bold;
+}
+
+.fieldset-text {
+  margin-bottom: 0;
+}
+
+.vis-text {
+  flex: 2;
+}
+
+.emphasise {
+  font-size: 2rem;
+  font-weight: bold;
+  color:#E9623D;
+}
+
+/* TABLE */
+/* style mostly taken from... */
+/* https://dev.to/dcodeyt/creating-beautiful-html-tables-with-css-428l */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  color: white;
+  font-family: PT Mono, monospace;
+  line-height: 2rem;
+}
+
+thead tr {
+  background-color: #E9623D;
+  color: white;
+  text-align: left;
+}
+
+tbody tr {
+  border-bottom: 1px solid #154A4A;
+}
+
+tbody tr:last-of-type {
+  border-bottom: 2px solid #E9623D;
+}
+
+tbody tr:hover {
+  font-weight: bold;
+  color: #E9623D;
+}
+
+/* DATA EXPLAINER LINK*/
+#data-explainer-link {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+#data-explainer-link a {
+  font-size: 1.5rem;
+}
+
+/* SEARCH */
+.search-caption {
+  margin-block-end: 0.5em;
+}
+
+select {
+  font-size: 16px;
+  background: #154A4A;
+  border: 1px solid #154A4A;
+  box-sizing: border-box;
+  color: white;
+  font-family: Roboto, sans-serif;
+  letter-spacing: 1px;
+  padding: 0.5rem;
+  width: 100%;
+  border-radius: 0;
+  cursor: pointer;
+}
+
+/* CAVEAT */
+.dashboard__caveat p,
+.dashboard__caveat a {
+  line-height: 1rem;
+  font-size: 0.8rem;
+  margin-bottom: 2rem;
+}
+
+.page-link {
+ font-size: 1rem; 
+}
+
+/* LOGO */
+.dashboard__logo {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+}
+
+.dashboard__logo img {
+  width: 2rem;
+}
+
+@media(min-width: 500px) {
+  .dashboard__main {
+    display: flex;
+  }
+  .dashboard__copy {
+    align-self: center;
+    padding-top: 2%;
+  }
+  .vis-title {
+    font-size: 1.5rem;
+  }
+  .fa-building {
+    font-size: 200px;
+  }
+  .dashboard__logo img {
+    width: 5rem;
+  }
+}

@@ -1,0 +1,84 @@
+body {
+  background-color: #097277;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow-y: auto;
+  margin: 0;
+  padding: 1rem;
+  position: relative;
+}
+
+.splash__copy {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  max-width: 750px;
+  padding-bottom: 1.25rem;
+}
+
+.splash__copy p,a {
+  color: white;
+  font-family: PT Mono, monospace;
+  line-height: 2rem;
+  margin-top: 0;
+}
+
+.splash__intro {
+  margin-bottom: 1rem;
+}
+
+.splash__intro h1 {
+    color: #E9623D;
+    font-size: 3rem;
+    font-family: BebasNeue, sans-serif;
+    letter-spacing: 0.1rem;
+    line-height: 4rem;
+    margin: 0 0 1rem 0;
+    text-transform: uppercase;
+}
+
+.emphasise {
+  font-size: 2rem;
+  font-weight: bold;
+  color:#E9623D;
+}
+
+.splash__logo {
+  width: 80px;
+}
+
+.search span {
+  color: white;
+  font-family: PT Mono, monospace;
+  text-transform: uppercase;
+}
+
+.search input, select {
+  font-size: 16px;
+  background: #154A4A;
+  border: 1px solid #154A4A;
+  box-sizing: border-box;
+  color: white;
+  font-family: Roboto, sans-serif;
+  letter-spacing: 1px;
+  padding: 0.5rem;
+  width: 100%;
+  border-radius: 0;
+}
+
+@media(min-width: 500px) {
+  .splash__copy {
+    padding-top: calc(90px + 2rem); /* the logo's height + 2rem */
+  }
+  .splash__intro h1 {
+    font-size: 4rem;
+    line-height: 5rem;
+  }
+  .splash__logo {
+    width: 180px;
+    position: absolute;
+  }
+}
