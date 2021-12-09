@@ -5,7 +5,7 @@ const decodeArea = (area) => {
 
 function getText(number, singular, plural) {
   dataHTML = "<span class='emphasise'>" + number + "</span>"
-  if (number < 2) {
+  if (number == 1) {
     dataText = dataHTML += " " + singular
   } else {
     dataText = dataHTML += " " + plural
