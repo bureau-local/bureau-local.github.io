@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="favicon.ico">
+    <meta name="author" content="Charles Boutaud">
+    <title>#LockedOut - Dashboard</title>
+    <script src="brma-data.json"></script>
+    <script src="../../js/post-frame-height.js"></script>
+    <link href="css/dashboard.css" rel="stylesheet">
+    <!--font awesome-->
+    <link href="css/all.min.css" rel="stylesheet">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-149258666-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-149258666-1');
+    </script>
+  </head>
+
+  <body>
+    <div class="dashboard__copy">
+
+      <h1 class="page-toggle vis-title page-1">On July 2022 in <span id="brma-name" class="emphasise"></span>, the Bureau found...</h1>
+      <h1 class="page-toggle vis-title page-2" style="display: none">Probably not. Of the affordable properties we found in Britain...</h1>
+
+      <div class="dashboard__main">
+        <i id="building-icon" class="fas fa-building"></i>
+
+        <!-- page one -->
+        <div class="page-toggle page-1">
+          <p class="vis-text"><span id="affordable-listings" class="emphasise"></span><span id="total-listings" style="font-size: 2rem; font-weight: bold;"></span> two-bed homes were affordable to rent on the current housing benefit.<span id="second-sentence"></span></p>
+          <a class="vis-text page-link" href="#page-2" onclick="togglePage(this)" style="text-decoration-color:#ef3340; vertical-align: top;">Even then, would a landlord rent to you?</a><a class="vis-text" href="#page-2" onclick="togglePage(this)" style="text-decoration:none; vertical-align: top;"> <span class="emphasise">&gt;</span></a>
+        </div>
+        <!-- page two -->
+        <div class="page-toggle page-2" style="display:none">
+          <p class="vis-text">...we contacted the landlords or agents for 100 of them, asking if they would let to someone on benefits. We posed as a single mother, stating she could afford the rent. Most imposed conditions such as providing a guarantor, proof of income, or said outright they would not rent to anyone on benefits.</p>
+          <a class="vis-text" href="#page-1" onclick="togglePage(this)" style="text-decoration:none; vertical-align: top;"><span class="emphasise">&lt;</span> </a><a class="vis-text page-link" href="#page-1" onclick="togglePage(this)" style="text-decoration-color:#ef3340; vertical-align: top;">Back to results for <span id="brma-link"></span></a>
+          </span>
+        </div>
+      </div>
+
+      <div class="dashboard__caveat">
+        <p>
+          <a id="search-again" href='splash.html' rel='noopener noreferrer'>Search again</a><br />
+          <a href='https://www.thebureauinvestigates.com/projects/the-housing-crisis' target='_blank' rel='noopener noreferrer'>Read our reporting on housing</a><br />
+      </div>
+
+    </div>
+
+    <div class='dashboard__logo'>
+      <a href='https://www.thebureauinvestigates.com' target='_blank' rel='noopener noreferrer' title='The Bureau of Investigative Journalism'>
+        <img src='icons/tbij-logo.png' alt='The Bureau of Investigative Journalism.' />
+      </a>
+    </div>
+
+  </body>
+
+  <script src="dashboard.js"></script>
+
+</html>
