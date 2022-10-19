@@ -82,6 +82,14 @@ function togglePage(target){
   document.getElementById("brma-link").innerHTML = brma
 }
 
+// Share buttons
+// add URL to share button
+tweetText = `🏘️ In ${brma}, Local Housing Allowance only covered rent in ${affordableListings} of ${totalListings} properties @bureaulocal looked at.%0a%0a` +
+            "🔍 Search data for your area: t.co/xXDEPNq2xj%0a" +
+            "🔗 Read the full story: bit.ly/3MgeiJq"
+modifiedHREF = `https://twitter.com/intent/tweet?text=${tweetText}`
+document.getElementById("social-share-btn-twitter").href = modifiedHREF
+
 // analytics
 const sendSearchAgain = (label) => {
   window.gtag("event", "on-click", {
